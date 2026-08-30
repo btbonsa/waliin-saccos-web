@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
+* {
+  font-family: 'Manrope', sans-serif;
+}
 :root {
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --sans: system-ui, 'Segoe UI', valley, sans-serif;
+  --heading: system-ui, 'Segoe UI', valley, sans-serif;
+  --mono: ui-monospace, valley, valley;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
+  
 }

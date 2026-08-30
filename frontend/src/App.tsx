@@ -1,13 +1,13 @@
 
 import './App.css'
 
+import AppRoutes from './routes/appRoutes'
+
 function App() {
 
-  return (
-    <>
-      <div className='flex justify-center text-yellow-700'> Welcome to Waliin Saccos ltd</div>
-    </>
-  )
+  return <AppRoutes />
+   
+  
 }
 
 export default App
