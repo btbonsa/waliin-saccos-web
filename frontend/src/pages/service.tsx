@@ -38,13 +38,13 @@ const servces = [
     title: "Qusannoo Konkolaataa",
     description: "Miseensi qusennaa adda adda qusachuu dhan Liqii kan liqeefatan ni ta’a. Miseensoon WALIIN qusatanif waldichii qusanna fedhii fi dirqama waraa gaheessotaaf dhalaa 7% kan kafaluu yoo tahu ijooleedhaf moo 10.5% kafalaa.",
     link: "/services#liqi",
-    icons: <FaTruckFront className=" text-green-900 mb-4 bg-green-100 rounded-full p-2 text-green-900" size={46} />,
+    icons: <span className=" text-green-900 mb-4 bg-green-100 rounded-full p-2 text-green-900"><FaTruckFront size={46} /></span>,
   },
   {
     title: "Qusannoo Baajaajii",
     description: "Miseensi qusennaa adda adda qusachuu dhan Liqii kan liqeefatan ni ta’a. Miseensoon WALIIN qusatanif waldichii qusanna fedhii fi dirqama waraa gaheessotaaf dhalaa 7% kan kafaluu yoo tahu ijooleedhaf moo 10.5% kafalaa.",
     link: "/services#liqi",
-    icons: <FaCaravan className=" text-green-900 mb-4 bg-green-100 rounded-full p-2 text-green-900" size={46} />,
+    icons: <span className=" text-green-900 mb-4 bg-green-100 rounded-full p-2 text-green-900"><FaCaravan size={46} /></span>,
   },
   {
     title: "Qusannoo Liqii Mindaa",

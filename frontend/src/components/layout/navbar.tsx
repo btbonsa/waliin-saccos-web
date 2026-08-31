@@ -20,13 +20,20 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <img
+            <motion.img
               src={logo}
               alt="Waliin Saccos logo"
               className="h-11 w-11 rounded-full border border-amber-400/50 object-cover shadow-sm"
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 7,
+                repeat: Infinity,
+                ease: "linear",
+                repeatType: "loop"
+              }}
             />
             <div className="flex flex-col leading-tight">
-              <span className="text-base font-bold tracking-[0.12em] text-amber-400 uppercase">
+              <span className="text-base font-bold tracking-[0.12em] text-amber-400 uppercase font-Playwrite-Brasil-Guides">
                 Waliin
               </span>
               <span className="text-[10px] font-medium tracking-[0.22em] text-emerald-100/80 uppercase">
@@ -63,7 +70,7 @@ export default function Navbar() {
 
               {/* Desktop Dropdown Menu (Triggers on Hover) */}
               <div className="invisible absolute left-0 top-full w-58 mt-1 rounded-xl bg-white py-2 shadow-xl backdrop-blur-lg opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100"
-                >
+              >
                 {aboutSubLinks.map((subLink) => (
                   <Link
                     key={subLink.path}
@@ -113,7 +120,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <Link
               to="/login"
-              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-amber-400 to-yellow-300 px-5 py-2.5 text-sm font-bold text-emerald-950 shadow-lg shadow-amber-500/20 transition hover:brightness-105"
+              className="inline-flex items-center h-8 justify-center rounded-full bg-yellow-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-amber-500/20 transition hover:brightness-105"
             >
               Join Us
             </Link>
@@ -139,10 +146,9 @@ export default function Navbar() {
               to="/"
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
-                `block rounded-xl px-3 py-2 text-base font-medium ${
-                  isActive
-                    ? "bg-emerald-900 text-amber-400"
-                    : "text-emerald-50/80 hover:bg-emerald-900/70 hover:text-white"
+                `block rounded-xl px-3 py-2 text-base font-medium ${isActive
+                  ? "bg-emerald-900 text-amber-400"
+                  : "text-emerald-50/80 hover:bg-emerald-900/70 hover:text-white"
                 }`
               }
             >
@@ -158,9 +164,8 @@ export default function Navbar() {
                 <span>About</span>
                 <ChevronDown
                   size={18}
-                  className={`transition-transform duration-200 ${
-                    mobileAboutOpen ? "rotate-180 text-amber-400" : ""
-                  }`}
+                  className={`transition-transform duration-200 ${mobileAboutOpen ? "rotate-180 text-amber-400" : ""
+                    }`}
                 />
               </button>
 
@@ -187,10 +192,9 @@ export default function Navbar() {
               to="/services"
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
-                `block rounded-xl px-3 py-2 text-base font-medium ${
-                  isActive
-                    ? "bg-emerald-900 text-amber-400"
-                    : "text-emerald-50/80 hover:bg-emerald-900/70 hover:text-white"
+                `block rounded-xl px-3 py-2 text-base font-medium ${isActive
+                  ? "bg-emerald-900 text-amber-400"
+                  : "text-emerald-50/80 hover:bg-emerald-900/70 hover:text-white"
                 }`
               }
             >
@@ -201,10 +205,9 @@ export default function Navbar() {
               to="/news"
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
-                `block rounded-xl px-3 py-2 text-base font-medium ${
-                  isActive
-                    ? "bg-emerald-900 text-amber-400"
-                    : "text-emerald-50/80 hover:bg-emerald-900/70 hover:text-white"
+                `block rounded-xl px-3 py-2 text-base font-medium ${isActive
+                  ? "bg-emerald-900 text-amber-400"
+                  : "text-emerald-50/80 hover:bg-emerald-900/70 hover:text-white"
                 }`
               }
             >
@@ -215,10 +218,9 @@ export default function Navbar() {
               to="/contact"
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
-                `block rounded-xl px-3 py-2 text-base font-medium ${
-                  isActive
-                    ? "bg-emerald-900 text-amber-400"
-                    : "text-emerald-50/80 hover:bg-emerald-900/70 hover:text-white"
+                `block rounded-xl px-3 py-2 text-base font-medium ${isActive
+                  ? "bg-emerald-900 text-amber-400"
+                  : "text-emerald-50/80 hover:bg-emerald-900/70 hover:text-white"
                 }`
               }
             >

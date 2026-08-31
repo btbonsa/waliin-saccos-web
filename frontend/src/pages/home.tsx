@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Users, ShieldCheck, HeartHandshake } from 'lucide-react';
 import HeroSection from '../features/home/components/heroSection';
@@ -8,7 +7,7 @@ import { Button } from '../components/ui/button';
 function Home() {
   const whyChooseUs = [
     {
-      icon: <ShieldCheck className="h-8 w-8 text-amber-500" />,
+      icon: <ShieldCheck className="h-8 w-8 text-yellow-500" />,
       title: "Secure & Transparent",
       desc: "Guaranteed cooperative financial oversight with regular member-led audits and annual dividends.",
     },
@@ -127,7 +126,7 @@ function Home() {
                 transition={{ duration: 0.4, delay: index * 0.15 }}
                 className="bg-gray-50/70 p-6 sm:p-8 rounded-2xl border border-gray-200/80 hover:border-amber-400/50 hover:shadow-md transition duration-200 space-y-4"
               >
-                <div className="p-3 bg-amber-500/10 w-fit rounded-xl">
+                <div className="p-3 bg-yellow-500/10 w-fit rounded-xl">
                   {item.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">{item.title}</h3>
