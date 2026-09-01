@@ -1,7 +1,15 @@
 import { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
-import { Link } from "react-router-dom";
-import { Eye, EyeOff, Lock, User, Loader2 } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Eye, EyeOff, Lock, User, Loader2, ShieldCheck, Users, TrendingUp } from "lucide-react";
+import { motion } from "framer-motion";
+import API from "../api/axios";
+
+const perks = [
+  { icon: ShieldCheck, text: "Secure & transparent cooperative banking" },
+  { icon: Users, text: "Member-owned with equal voting rights" },
+  { icon: TrendingUp, text: "Competitive savings rates & flexible credit" },
+];
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -9,6 +17,7 @@ export default function LoginPage() {
   const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,91 +27,127 @@ export default function LoginPage() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formData.username || !formData.password) {
-      setErrorMessage("Please fill in both username/member ID and password.");
+      setErrorMessage("Please fill in both fields.");
       return;
     }
-
     setIsLoading(true);
-
-    // Simulate API authentication delay
-    setTimeout(() => {
+    try {
+      const { data } = await API.post("/auth/login", formData);
+      localStorage.setItem("saccos_token", data.token);
+      navigate("/");
+    } catch (err: unknown) {
+      const msg =
+        err && typeof err === "object" && "response" in err
+          ? (err as { response?: { data?: { message?: string } } }).response?.data?.message
+          : undefined;
+      setErrorMessage(msg ?? "Login failed. Please try again.");
+    } finally {
       setIsLoading(false);
-      // Example navigation on success: navigate("/dashboard");
-    }, 1200);
+    }
   };
 
+  const inputClass =
+    "w-full pl-10 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:border-amber-400/60 focus:ring-2 focus:ring-amber-400/20 transition-all duration-200";
+
   return (
-    <div className="min-h-screen w-full bg-white flex items-center justify-center p-4 sm:p-6 lg:p-8 relative overflow-hidden">
-      {/* Background Decorative Gradient Flares */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-emerald-800/30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+    <div className="min-h-screen w-full bg-emerald-950 flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Ambient glows */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-emerald-500/10 blur-3xl" />
+        <div className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-amber-500/8 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-emerald-400/5 blur-3xl" />
+      </div>
 
-      {/* Main Container */}
-      <div className="w-full max-w-4xl bg-emerald-900/40 border border-emerald-800/60 rounded-3xl shadow-2xl backdrop-blur-xl grid grid-cols-1 lg:grid-cols-12 overflow-hidden z-10">
-        
-        
+      <div className="relative w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 rounded-3xl overflow-hidden border border-white/8 shadow-2xl shadow-black/40">
+        {/* Left panel */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="hidden lg:flex flex-col justify-between bg-gradient-to-br from-emerald-900 to-emerald-950 p-12 border-r border-white/6"
+        >
+          <div>
+            <div className="flex items-center gap-3 mb-12">
+              <div className="h-10 w-10 rounded-full border border-amber-400/40 bg-emerald-800 flex items-center justify-center text-base font-extrabold text-amber-400">
+                W
+              </div>
+              <div className="leading-none">
+                <p className="text-sm font-extrabold tracking-[0.15em] text-amber-400 uppercase">Waliin</p>
+                <p className="text-[9px] font-semibold tracking-[0.3em] text-emerald-300/50 uppercase mt-0.5">Saccos</p>
+              </div>
+            </div>
 
-        <div className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-center bg-emerald-950/50">
-          <div className="mb-6">
-            <h3 className="text-xl sm:text-2xl font-bold text-white">
-              Welcome Back
-            </h3>
-            <p className="text-xs sm:text-sm text-emerald-200/70 mt-1">
-              Please enter your credentials to log in.
+            <h2 className="text-3xl font-extrabold text-white leading-tight mb-4">
+              Your Financial<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-300">
+                Future Starts Here
+              </span>
+            </h2>
+            <p className="text-sm text-emerald-200/60 leading-relaxed max-w-xs">
+              Join thousands of members building stronger financial habits through trusted cooperative banking.
             </p>
           </div>
 
+          <div className="space-y-4">
+            {perks.map(({ icon: Icon, text }, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-white/5 border border-white/8">
+                  <Icon className="h-4 w-4 text-amber-400" />
+                </div>
+                <span className="text-sm text-emerald-200/70">{text}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Right panel — form */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col justify-center bg-emerald-950/80 backdrop-blur-xl p-8 sm:p-12"
+        >
+          <div className="mb-8">
+            <h3 className="text-2xl font-extrabold text-white">Welcome Back</h3>
+            <p className="text-sm text-emerald-200/50 mt-1.5">Sign in to your Waliin account</p>
+          </div>
+
           {errorMessage && (
-            <div className="mb-5 p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300 text-xs sm:text-sm font-medium">
+            <div className="mb-6 p-3.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-300 text-sm font-medium">
               {errorMessage}
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Username or Member ID Field */}
             <div className="space-y-1.5">
-              <label
-                htmlFor="username"
-                className="block text-xs font-medium text-emerald-100/90 uppercase tracking-wider"
-              >
+              <label className="block text-xs font-bold text-emerald-200/60 uppercase tracking-wider">
                 Member ID or Phone
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-emerald-400">
-                  <User size={18} />
-                </div>
+                <User size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-emerald-400/60" />
                 <input
                   id="username"
                   name="username"
                   type="text"
                   value={formData.username}
                   onChange={handleChange}
-                  placeholder="Enter Member ID (e.g. WS-1024)"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl bg-emerald-900/30 border border-emerald-800 text-white placeholder-emerald-200/30 text-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition"
+                  placeholder="e.g. WS-1024"
+                  className={inputClass}
                 />
               </div>
             </div>
 
-            {/* Password Field */}
             <div className="space-y-1.5">
               <div className="flex items-center justify-between">
-                <label
-                  htmlFor="password"
-                  className="block text-xs font-medium text-emerald-100/90 uppercase tracking-wider"
-                >
+                <label className="block text-xs font-bold text-emerald-200/60 uppercase tracking-wider">
                   Password
                 </label>
-                <Link
-                  to="/forgot-password"
-                  className="text-xs font-semibold text-amber-400 hover:text-amber-300 transition"
-                >
+                <Link to="/forgot-password" className="text-xs font-semibold text-amber-400/80 hover:text-amber-400 transition-colors duration-200">
                   Forgot?
                 </Link>
               </div>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-emerald-400">
-                  <Lock size={18} />
-                </div>
+                <Lock size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-emerald-400/60" />
                 <input
                   id="password"
                   name="password"
@@ -110,63 +155,51 @@ export default function LoginPage() {
                   value={formData.password}
                   onChange={handleChange}
                   placeholder="••••••••"
-                  className="w-full pl-10 pr-10 py-3 rounded-xl bg-emerald-900/30 border border-emerald-800 text-white placeholder-emerald-200/30 text-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition"
+                  className={`${inputClass} pr-10`}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-emerald-400 hover:text-amber-400 transition"
-                  aria-label="Toggle password visibility"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-emerald-400/60 hover:text-amber-400 transition-colors duration-200"
+                  aria-label="Toggle password"
                 >
-                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
               </div>
             </div>
 
-            {/* Remember Me Checkbox */}
-            <div className="flex items-center justify-between text-xs sm:text-sm">
-              <label className="flex items-center gap-2 cursor-pointer text-emerald-100/80">
-                <input
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={(e) => setRememberMe(e.target.checked)}
-                  className="h-4 w-4 rounded border-emerald-800 bg-emerald-900/50 text-amber-400 focus:ring-amber-400 focus:ring-offset-emerald-950"
-                />
-                <span>Remember this device</span>
-              </label>
-            </div>
+            <label className="flex items-center gap-2.5 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+                className="h-4 w-4 rounded border-white/20 bg-white/5 text-amber-400 focus:ring-amber-400/30 focus:ring-offset-0"
+              />
+              <span className="text-sm text-emerald-200/60">Remember this device</span>
+            </label>
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full mt-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-300 text-emerald-950 font-bold text-sm shadow-lg shadow-amber-500/20 transition hover:brightness-105 active:scale-[0.99] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full mt-2 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-400 text-emerald-950 font-extrabold text-sm shadow-xl shadow-amber-500/20 hover:brightness-105 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-2"
             >
               {isLoading ? (
-                <>
-                  <Loader2 size={18} className="animate-spin" />
-                  <span>Authenticating...</span>
-                </>
+                <><Loader2 size={17} className="animate-spin" /><span>Signing in...</span></>
               ) : (
-                <span>Log In to Account</span>
+                "Sign In to Account"
               )}
             </button>
           </form>
 
-          {/* Registration Notice */}
-          <div className="mt-8 pt-6 border-t border-emerald-800/50 text-center">
-            <p className="text-xs text-emerald-200/70">
+          <div className="mt-8 pt-6 border-t border-white/6 text-center">
+            <p className="text-xs text-emerald-200/40">
               Not a member yet?{" "}
-              <Link
-                to="/register"
-                className="font-bold text-amber-400 hover:text-amber-300 transition underline underline-offset-4"
-              >
+              <Link to="/register" className="font-bold text-amber-400/80 hover:text-amber-400 transition-colors duration-200 underline underline-offset-4">
                 Apply for Membership
               </Link>
             </p>
           </div>
-        </div>
-
+        </motion.div>
       </div>
     </div>
   );

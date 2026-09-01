@@ -1,99 +1,96 @@
 import { motion } from "motion/react";
-import { ArrowRight } from "lucide-react";
-import { Button } from "../../../components/ui/button";
-import banner from "../../../assets//banner.png";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
+import banner from "../../../assets/banner.png";
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
-};
+export default function HeroSection() {
+  const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-const itemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 24,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut" as const,
-    },
-  },
-};
-
-function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#f3f3f1] text-white">
+    <section className="relative min-h-[88vh] flex items-center overflow-hidden bg-emerald-950">
+      {/* Background image */}
       <motion.div
         className="absolute inset-0"
-        animate={{
-          scale: [1.08, 1.12, 1.08],
-          x: [0, -30, 0, 30, 0],
-          y: [0, 12, 0, -12, 0],
-          opacity: [0.85, 1, 0.9],
-        }}
-        transition={{
-          duration: 18,
-          ease: "easeInOut",
-          repeat: Infinity,
-        }}
+        animate={{ scale: [1.04, 1.08, 1.04], x: [0, -18, 0, 18, 0], y: [0, 10, 0, -10, 0] }}
+        transition={{ duration: 22, ease: "easeInOut", repeat: Infinity }}
       >
         <img
-          className="absolute inset-0 h-full w-full object-cover opacity-70 grayscale-[0.5]"
-          style={{ filter: "grayscale(0.5) brightness(0.7) gradient(to bottom, rgba(0,0,0,0.42), rgba(0,0,0,0.15), rgba(0,0,0,0.08))" }}
           src={banner}
-          alt="Hands holding each other"
+          alt=""
+          className="h-full w-full object-cover"
+          style={{ filter: "brightness(0.35) saturate(0.8)" }}
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.42),rgba(0,0,0,0.15),rgba(0,0,0,0.08))]" />
       </motion.div>
 
-      <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-14 sm:px-6 lg:px-8 lg:pt-16">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="relative z-10"
-        >
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/90 via-emerald-950/60 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent" />
+      <div className="absolute top-1/3 left-1/4 h-96 w-96 rounded-full bg-amber-500/8 blur-3xl pointer-events-none" />
+
+      <div className="relative mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+        <div className="max-w-2xl space-y-8">
+          {/* Badge */}
           <motion.div
-            variants={itemVariants}
-            className="max-w-3xl pt-8 lg:pt-10"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.65, ease, delay: 0 }}
           >
-            <h1 className="text-2xl font-black leading-[0.9] tracking-[-0.06em] text-white sm:text-5xl pt-2 pl-8 lg:text-6xl lg:leading-[1.05]">
-              Grow Together Save
-              <span className="mt-2 block ">Better</span>
-            </h1>
-
-            <p className="mt-6 max-w-xl text-lg leading-8 text-white/80 pl-8">
-              Secure your future with trusted savings, insurance, and financial
-              growth from Waliin Saccos.
-            </p>
-
-            <div className="mt-8 pl-8 ">
-              <motion.div
-                whileHover={{ scale: 0.99 }}
-                whileTap={{ scale: 1.01 }}
-              >
-                <Button className="text-white font-bold shadow-lg shadow-white/20 hover:yellow-400 border border-green-950/20 rounded-2xl bg-yellow-400 ">
-                  Join us<ArrowRight size={12} className="ml-1" />
-
-                </Button>
-              </motion.div>
-            </div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-1.5 text-xs font-bold tracking-widest text-amber-400 uppercase backdrop-blur-sm">
+              <Sparkles size={12} />
+              Trusted Cooperative Since 2009
+            </span>
           </motion.div>
-        </motion.div>
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease, delay: 0.1 }}
+            className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white"
+          >
+            Grow Together,
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-300">
+              Save Better
+            </span>
+          </motion.h1>
+
+          {/* Subtext */}
+          <motion.p
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease, delay: 0.2 }}
+            className="text-lg sm:text-xl text-emerald-100/70 leading-relaxed max-w-lg"
+          >
+            Secure your future with trusted savings, flexible credit, and community-driven financial growth from Waliin Saccos.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease, delay: 0.3 }}
+            className="flex flex-wrap items-center gap-4"
+          >
+            <Link
+              to="/login"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 to-yellow-400 px-7 py-3.5 text-sm font-bold text-emerald-950 shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 hover:brightness-105 transition-all duration-200"
+            >
+              Join Us Today
+              <ArrowRight size={16} />
+            </Link>
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/8 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm hover:bg-white/15 hover:border-white/30 transition-all duration-200"
+            >
+              Explore Services
+            </Link>
+          </motion.div>
+        </div>
       </div>
-      
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-50/50 to-transparent" />
     </section>
   );
 }
-
-export default HeroSection;

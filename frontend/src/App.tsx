@@ -1,13 +1,10 @@
-
-import './App.css'
-
-import AppRoutes from './routes/appRoutes'
+import "./App.css";
+import AppRoutes from "./routes/appRoutes";
+import { useSmoothScroll } from "./hooks/useSmoothScroll";
 
 function App() {
-
-  return <AppRoutes />
-   
-  
+  useSmoothScroll();
+  return <AppRoutes />;
 }
 
-export default App
+export default App;

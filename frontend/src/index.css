@@ -1,14 +1,41 @@
 @import "tailwindcss";
 
-* {
-  font-family: 'Manrope', sans-serif;
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: 'Montserrat', system-ui, sans-serif !important;
 }
-:root {
-  --sans: system-ui, 'Segoe UI', valley, sans-serif;
-  --heading: system-ui, 'Segoe UI', valley, sans-serif;
-  --mono: ui-monospace, valley, valley;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: 'Montserrat', system-ui, sans-serif;
 }
+
+body {
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  background-color: #f8f9fa;
+  color: #111827;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+
+/* Selection */
+::selection { background: #d97706; color: #fff; }
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid #d97706;
+  outline-offset: 2px;
+}
+
+/* Smooth image rendering */
+img { display: block; max-width: 100%; }
