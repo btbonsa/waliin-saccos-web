@@ -15,15 +15,15 @@ export default function FeatureCard({
   return (
     <article
       className={cn(
-        "group h-full rounded-2xl border border-line bg-paper p-7 transition-shadow duration-300 hover:shadow-[0_12px_40px_rgba(18,36,30,0.06)]",
+        "group h-60 rounded-4xl shadow shadow-lg bg-white p-7 transition-shadow duration-600 transition-all hover:-translate-y-3",
         className,
       )}
     >
-      <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-cream text-forest">
-        <Icon className="h-5 w-5" strokeWidth={1.75} />
+      <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-green-200 text-green-900 font-bold hover:bg-green-300 transition-all duration-600 group-hover:bg-green-900 group-hover:text-white">
+        <Icon className="h-6 w-6" strokeWidth={1.75} />
       </div>
-      <h3 className="mb-2 text-lg font-bold text-ink">{title}</h3>
-      <p className="text-sm leading-relaxed text-muted">{description}</p>
+      <h3 className="mb-2 text-2xl font-bold text-ink">{title}</h3>
+      <p className="text-md leading-relaxed text-muted">{description}</p>
     </article>
   );
 }

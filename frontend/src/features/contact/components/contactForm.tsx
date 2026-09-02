@@ -36,16 +36,16 @@ export default function ContactForm() {
   };
 
   const inputClass =
-    "w-full rounded-xl border border-line bg-cream px-4 py-3 text-sm text-ink placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/15";
+    "w-full rounded-xl px-4 py-3 text-lg bg-white placeholder:text-muted/60 focus:ring-yellow-500/15 focus:shadow-xl";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div className="space-y-1.5">
-          <label className="block text-xs font-bold text-muted">
-            Full name <span className="text-red-500">*</span>
+      <div className="grid grid-cols-1 gap-4">
+        <div className="space-y-1.5 w-full  ">
+          <label className="text-md">
+            Full name
           </label>
-          <input name="full_name" value={form.full_name} onChange={handleChange} placeholder="Your full name" required className={inputClass} />
+          <input name="full_name" value={form.full_name} onChange={handleChange} placeholder="Your full name" required className={inputClass}  />
         </div>
         <div className="space-y-1.5">
           <label className="block text-xs font-bold text-muted">

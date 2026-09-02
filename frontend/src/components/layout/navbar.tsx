@@ -38,7 +38,7 @@ export default function Navbar() {
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     cn(
-      "rounded-lg px-3 py-2 text-sm font-bold transition-colors",
+      "rounded-lg px-3 py-2 text-lg transition-colors",
       isActive ? "text-forest" : "text-muted hover:text-ink",
     );
 
@@ -47,11 +47,11 @@ export default function Navbar() {
       className={cn(
         "sticky top-0 z-50 border-b transition-all duration-300",
         scrolled
-          ? "border-line bg-paper/95 shadow-sm backdrop-blur-xl"
-          : "border-transparent bg-paper/90 backdrop-blur-md",
+          ? "border-line bg-white shadow-sm backdrop-blur-xl"
+          : "border-transparent bg-white backdrop-blur-md",
       )}
     >
-      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-[80px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-3">
           <img
             src={logo}
@@ -59,12 +59,12 @@ export default function Navbar() {
             className="h-10 w-10 rounded-full border border-line object-cover"
           />
           <div className="leading-tight">
-            <p className="text-sm font-bold text-ink">Waliin</p>
+            <p className="text-md font-bold text-ink">Waliin</p>
             <p className="text-[11px] text-muted">SACCO Ltd</p>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 md:flex text-lg">
           <NavLink to="/" end className={linkClass}>
             Home
           </NavLink>
@@ -72,7 +72,7 @@ export default function Navbar() {
           <div className="group relative">
             <Link
               to="/about"
-              className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-bold text-muted hover:text-ink"
+              className="flex items-center gap-1 rounded-lg px-3 py-2 text-lg text-muted hover:text-ink"
             >
               About
               <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />

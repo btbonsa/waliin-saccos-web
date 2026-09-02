@@ -13,23 +13,22 @@ export default function PageHero({
   image?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-forest-deep py-20 sm:py-24">
+    <section className="relative overflow-hidden bg-forest-deep py-20 sm:py-24 h-150">
       {image && (
-        <img
+        <motion.img
           src={image}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover opacity-25"
+          className="absolute inset-0 h-full w-full object-cover opacity-80"
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-b from-forest-deep/70 via-forest-deep/80 to-forest-deep" />
-      <div className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+      <div className="absolute inset-0 bg-yellow-600 mix-blend-multiply brightness-105" />
 
-      <Container className="relative text-center">
+      <Container className="relative text-center flex flex-col items-center justify-center h-full">
         {eyebrow && (
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-3 text-sm font-bold text-gold-soft"
+            className="mb-3 text-md text-gray-100 tracking-widest uppercase"
           >
             {eyebrow}
           </motion.p>
@@ -38,7 +37,7 @@ export default function PageHero({
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.05 }}
-          className="text-4xl sm:text-5xl font-bold tracking-tight text-white"
+          className="text-5xl text-7xl font-bold tracking-tight text-white"
         >
           {title}
         </motion.h1>
@@ -47,7 +46,7 @@ export default function PageHero({
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mx-auto mt-4 max-w-xl text-base sm:text-lg text-white/70"
+            className="mx-auto mt-4 max-w-xl text-base text-xl text-white/70"
           >
             {description}
           </motion.p>

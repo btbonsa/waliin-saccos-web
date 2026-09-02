@@ -24,12 +24,11 @@ const items = [
 
 export default function FaqSection() {
   return (
-    <section className="bg-paper py-20 sm:py-24">
+    <section className="bg-white py-20 sm:py-24">
       <Container className="grid items-start gap-12 lg:grid-cols-2">
         <ScrollReveal direction="left">
           <SectionHeader
             align="left"
-            eyebrow="Questions"
             title="Clear answers before you join"
             description="A savings and credit cooperative is not a commercial bank. You are an owner, not just a customer."
           />

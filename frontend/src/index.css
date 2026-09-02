@@ -1,7 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "", system-ui, sans-serif;
+  --font-sans: "Merriweather Sans", system-ui, sans-serif;
+
+  --color-ink: #000;
+  --color-muted: #5d6f68;
+  --color-cream: #fff;
+  --color-paper: #fffcf8;
+  --color-line: #e6e0d6;
+  --color-forest: #16382e;
+  --color-forest-deep: #0e241d;
+  --color-gold: gray;
+  --color-gold-soft: #ead9a8;
+  --color-gold-bright: #d4af5a;
 }
 
 *,
@@ -18,9 +29,10 @@ html {
 }
 
 body {
-  font-family: "Comic Relief", system-ui, sans-serif;
+  font-family: "Cabin", system-ui, sans-serif;
   font-size: 16px;
-  line-height: 1.65;
+  
+  line-height: 1.95;
   background-color: #fff;
   color: var(--color-ink);
 }
@@ -28,13 +40,16 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--color-cream);
 }
+
 ::-webkit-scrollbar-thumb {
   background: #ffffff;
   border-radius: 99px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #ffffff;
 }

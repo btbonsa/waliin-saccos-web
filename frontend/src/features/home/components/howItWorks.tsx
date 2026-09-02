@@ -1,4 +1,4 @@
-import { UserPlus, PiggyBank, Landmark, BadgePercent } from "lucide-react";
+import { UserPlus, PiggyBank, Landmark } from "lucide-react";
 import Container from "../../../components/ui/container";
 import SectionHeader from "../../../components/ui/section-header";
 import ScrollReveal from "../../../components/ui/ScrollReveal";
@@ -19,33 +19,26 @@ const steps = [
     title: "Access fair credit",
     desc: "Qualify for personal, business, housing, and livelihood loans based on your savings.",
   },
-  {
-    icon: BadgePercent,
-    title: "Share the surplus",
-    desc: "As an owner, you vote equally and share in annual cooperative dividends.",
-  },
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="bg-cream py-20 sm:py-24">
+    <section className="bg-yellow-50 h-full py-20 sm:py-14 ">
       <Container>
         <ScrollReveal>
           <SectionHeader
-            eyebrow="Membership"
             title="How Waliin SACCO works"
             description="Simple cooperative banking: save, borrow when you need to, and grow together."
           />
         </ScrollReveal>
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, i) => (
-            <ScrollReveal key={step.title} delay={i * 0.08}>
-              <div className="h-full rounded-2xl border border-line bg-paper p-6">
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-cream text-forest">
-                  <step.icon className="h-5 w-5" />
+        <div className="mt-14 grid gap-9 sm:grid-cols-2 lg:grid-cols-3 h-full">
+          {steps.map((step,) => (
+            <ScrollReveal key={step.title}>
+              <div className="group h-full rounded-2xl shadow-lg bg-white p-7 transition-all duration-500 hover:-translate-y-3 ease-in-out h-60">
+                <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-yellow-100 text-yellow-500 font-bold group-hover:bg-yellow-500 transition-all duration-600 group-hover:text-white">
+                  <step.icon className="h-6 w-6" />
                 </div>
-                <p className="mb-1 text-xs font-bold text-gold">0{i + 1}</p>
-                <h3 className="mb-2 font-bold text-ink">{step.title}</h3>
+                <h3 className="mb-2 font-bold text-black text-2xl">{step.title}</h3>
                 <p className="text-sm leading-relaxed text-muted">{step.desc}</p>
               </div>
             </ScrollReveal>

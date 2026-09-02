@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, ArrowUp } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 import logo from "../../assets/logo.jpg";
 import Container from "../ui/container";
 
@@ -18,24 +18,25 @@ const resourceLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-forest-deep text-white">
+    <footer className="bg-black/95 text-white">
+      
       <Container>
         <div className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-5">
           <div className="space-y-5 lg:col-span-2">
             <Link to="/" className="flex w-fit items-center gap-3">
               <img src={logo} alt="" className="h-11 w-11 rounded-full object-cover" />
               <div>
-                <p className="font-bold">Waliin SACCO Ltd</p>
-                <p className="text-sm text-white/55">Holeta, Ethiopia</p>
+                <p className="font-bold text-white/50">Waliin SACCO Ltd</p>
+                <p className="text-lg text-white/50">Holeta, Ethiopia</p>
               </div>
             </Link>
-            <p className="max-w-sm text-sm leading-7 text-white/65">
+            <p className="max-w-sm text-md leading-7 text-white/50">
               A member-owned savings and credit cooperative providing trusted savings, fair credit, and shared dividends.
             </p>
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-bold text-gold-soft">Company</h3>
+            <h3 className="mb-6 text-md font-bold text-white uppercase">Explore</h3>
             <ul className="space-y-3">
               {companyLinks.map((l) => (
                 <li key={l.name}>
@@ -48,7 +49,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-bold text-gold-soft">Services</h3>
+            <h3 className="mb-6 text-md font-bold text-white uppercase">Services</h3>
             <ul className="space-y-3">
               {resourceLinks.map((l) => (
                 <li key={l.name}>
@@ -61,7 +62,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-bold text-gold-soft">Visit us</h3>
+            <h3 className="mb-6 text-md font-bold text-white uppercase">Visit us</h3>
             <ul className="space-y-4 text-sm text-white/65">
               <li className="flex gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-soft" />
@@ -88,10 +89,9 @@ export default function Footer() {
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-gold-soft hover:text-gold-bright"
+            className="inline-flex items-center gap-1.5 text-xs font-bold hover:text-yellow-500 transition-all"
           >
             Back to top
-            <ArrowUp className="h-3.5 w-3.5" />
           </button>
         </div>
       </Container>
