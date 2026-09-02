@@ -2,17 +2,6 @@
 
 @theme {
   --font-sans: "", system-ui, sans-serif;
-
-  --color-ink: #12241e;
-  --color-muted: #5d6f68;
-  --color-cream: #f6f3ee;
-  --color-paper: #fffcf8;
-  --color-line: #e6e0d6;
-  --color-forest: #16382e;
-  --color-forest-deep: #0e241d;
-  --color-gold: #b8954a;
-  --color-gold-soft: #ead9a8;
-  --color-gold-bright: #d4af5a;
 }
 
 *,
