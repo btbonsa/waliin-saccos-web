@@ -1,79 +1,59 @@
-import { motion } from "motion/react";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import ContactForm from "../features/contact/components/contactForm";
+import PageHero from "../components/ui/page-hero";
+import Container from "../components/ui/container";
 import ScrollReveal from "../components/ui/ScrollReveal";
 
 const contactInfo = [
   { icon: MapPin, label: "Address", value: "44, Holeta, Ethiopia" },
   { icon: Phone, label: "Phone", value: "0911 915 610" },
   { icon: Mail, label: "Email", value: "hailudelesa16@gmail.com" },
-  { icon: Clock, label: "Working Hours", value: "Mon – Fri, 8:00 AM – 5:00 PM" },
+  { icon: Clock, label: "Working hours", value: "Mon – Fri, 8:00 AM – 5:00 PM" },
 ];
 
 export default function Contact() {
   return (
-    <div className="w-full min-h-screen bg-gray-50/50">
-      {/* Hero */}
-      <section className="w-full bg-emerald-950 py-20 px-4 text-center relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-amber-500/8 blur-3xl" />
-          <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-emerald-500/8 blur-3xl" />
-        </div>
-        <div className="relative space-y-4">
-          <motion.span initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
-            className="inline-block text-xs font-bold tracking-[0.2em] text-amber-400/90 uppercase">
-            Reach Out
-          </motion.span>
-          <motion.h1 initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.05 }}
-            className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Get in Touch
-          </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-emerald-100/70 text-base sm:text-lg max-w-xl mx-auto">
-            Have a question or want to become a member? We'd love to hear from you.
-          </motion.p>
-        </div>
-      </section>
+    <div>
+      <PageHero
+        eyebrow="Reach out"
+        title="A cooperative that has your back"
+        description="Questions about membership, savings, or loans? Visit us in Holeta or send a message."
+      />
 
-      <section className="w-full py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14">
-          {/* Info */}
-          <div className="lg:col-span-2 space-y-4">
-            <ScrollReveal direction="left" className="mb-8">
-              <span className="text-xs font-bold tracking-[0.2em] text-amber-600 uppercase">Contact Info</span>
-              <h2 className="text-2xl font-extrabold text-gray-900 mt-2">We're Here to Help</h2>
-              <p className="text-sm text-gray-500 mt-2 leading-relaxed">
-                Reach out through any of the channels below and our team will get back to you promptly.
+      <section className="bg-cream py-20">
+        <Container className="grid gap-10 lg:grid-cols-5 lg:gap-14">
+          <div className="space-y-4 lg:col-span-2">
+            <ScrollReveal direction="left" className="mb-6">
+              <p className="text-sm font-bold text-gold">Contact</p>
+              <h2 className="mt-2 text-2xl font-bold text-ink">We are here to help</h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted">
+                Reach us through any of the channels below. Our team typically replies within one working day.
               </p>
             </ScrollReveal>
-
             {contactInfo.map((info, i) => (
-              <ScrollReveal key={i} delay={i * 0.08} direction="left">
-                <div className="flex items-start gap-4 bg-white rounded-2xl border border-gray-100 p-5 hover:shadow-md hover:border-gray-200 transition-all duration-200">
-                  <div className="p-2.5 bg-emerald-50 rounded-xl shrink-0">
-                    <info.icon className="h-5 w-5 text-emerald-800" />
+              <ScrollReveal key={info.label} delay={i * 0.06} direction="left">
+                <div className="flex items-start gap-4 rounded-2xl border border-line bg-paper p-5">
+                  <div className="rounded-xl bg-cream p-2.5">
+                    <info.icon className="h-5 w-5 text-forest" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">{info.label}</p>
-                    <p className="text-sm font-semibold text-gray-900 mt-1">{info.value}</p>
+                    <p className="text-xs font-bold text-muted">{info.label}</p>
+                    <p className="mt-1 text-sm font-bold text-ink">{info.value}</p>
                   </div>
                 </div>
               </ScrollReveal>
             ))}
           </div>
 
-          {/* Form */}
-          <ScrollReveal direction="right" delay={0.1} className="lg:col-span-3">
-            <div className="bg-white rounded-2xl border border-gray-100 p-8 sm:p-10 shadow-sm">
-              <div className="mb-8">
-                <span className="text-xs font-bold tracking-[0.2em] text-amber-600 uppercase">Message Us</span>
-                <h2 className="text-2xl font-extrabold text-gray-900 mt-2">Send Us a Message</h2>
-                <p className="text-sm text-gray-500 mt-2">Fill in the form and we'll respond within 24 hours.</p>
-              </div>
+          <ScrollReveal direction="right" className="lg:col-span-3">
+            <div className="rounded-2xl border border-line bg-paper p-8 sm:p-10">
+              <p className="text-sm font-bold text-gold">Message</p>
+              <h2 className="mt-2 text-2xl font-bold text-ink">Send us a note</h2>
+              <p className="mt-2 mb-8 text-sm text-muted">Tell us how we can help. We will respond within 24 hours.</p>
               <ContactForm />
             </div>
           </ScrollReveal>
-        </div>
+        </Container>
       </section>
     </div>
   );

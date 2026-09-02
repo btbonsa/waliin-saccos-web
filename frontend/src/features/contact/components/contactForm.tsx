@@ -36,33 +36,33 @@ export default function ContactForm() {
   };
 
   const inputClass =
-    "w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all duration-200";
+    "w-full rounded-xl border border-line bg-cream px-4 py-3 text-sm text-ink placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/15";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div className="space-y-1.5">
-          <label className="block text-xs font-bold text-gray-600 uppercase tracking-wider">
-            Full Name <span className="text-red-400">*</span>
+          <label className="block text-xs font-bold text-muted">
+            Full name <span className="text-red-500">*</span>
           </label>
           <input name="full_name" value={form.full_name} onChange={handleChange} placeholder="Your full name" required className={inputClass} />
         </div>
         <div className="space-y-1.5">
-          <label className="block text-xs font-bold text-gray-600 uppercase tracking-wider">
-            Email <span className="text-red-400">*</span>
+          <label className="block text-xs font-bold text-muted">
+            Email <span className="text-red-500">*</span>
           </label>
           <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="you@example.com" required className={inputClass} />
         </div>
       </div>
 
       <div className="space-y-1.5">
-        <label className="block text-xs font-bold text-gray-600 uppercase tracking-wider">Phone</label>
+        <label className="block text-xs font-bold text-muted">Phone</label>
         <input name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="+251 9XX XXX XXX" className={inputClass} />
       </div>
 
       <div className="space-y-1.5">
-        <label className="block text-xs font-bold text-gray-600 uppercase tracking-wider">
-          Message <span className="text-red-400">*</span>
+        <label className="block text-xs font-bold text-muted">
+          Message <span className="text-red-500">*</span>
         </label>
         <textarea
           name="message"
@@ -76,13 +76,13 @@ export default function ContactForm() {
       </div>
 
       {status === "success" && (
-        <div className="flex items-center gap-3 text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3">
+        <div className="flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
           <CheckCircle2 size={16} className="shrink-0" />
-          Message sent! We'll get back to you within 24 hours.
+          Message sent. We will get back to you within 24 hours.
         </div>
       )}
       {status === "error" && (
-        <div className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+        <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
           Something went wrong. Please try again.
         </div>
       )}
@@ -90,10 +90,10 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={loading}
-        className="w-full h-12 rounded-xl bg-emerald-950 text-white text-sm font-bold shadow-md hover:bg-emerald-800 disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-2"
+        className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-forest text-sm font-bold text-white hover:bg-forest-deep disabled:cursor-not-allowed disabled:opacity-60"
       >
         {loading ? <Loader2 size={17} className="animate-spin" /> : <Send size={17} />}
-        {loading ? "Sending..." : "Send Message"}
+        {loading ? "Sending..." : "Send message"}
       </button>
     </form>
   );
