@@ -114,7 +114,9 @@ export default function Home() {
 
       <FaqSection />
 
-      <section className="bg-yellow-500 py-20 brounded-4xl sm:py-24 brightness-85">
+      <section className="bg-yellow-500 py-20 brounded-4xl sm:py-24 brightness-85 ">
+              <div className="absolute inset-0 bg-yellow-600 mix-blend-multiply brightness-130" />
+
         <Container className="max-w-3xl text-center">
           <h2 className="text-3xl font-bold text-white sm:text-4xl brightness-105">Ready to start saving with Waliin?</h2>
           <p className="mt-4 text-white">

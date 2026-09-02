@@ -16,10 +16,10 @@ export default function ServiceDetailPage() {
 
   if (!service) {
     return (
-      <div className="flex min-h-[70vh] flex-col items-center justify-center gap-4 px-4 text-center">
+      <div className="flex min-h-[72vh] flex-col items-center justify-center gap-4 px-4 text-center">
         <AlertCircle className="h-12 w-12 text-line" />
         <h2 className="text-xl font-bold text-ink">Service not found</h2>
-        <Link to="/services" className="text-sm font-bold text-forest underline underline-offset-4">
+        <Link to="/services" className="text-lg font-bold text-forest underline underline-offset-4">
           Back to services
         </Link>
       </div>
@@ -38,7 +38,7 @@ export default function ServiceDetailPage() {
             content: (
               <div className="space-y-3">
                 {service.subTypes.map((sub) => (
-                  <div key={sub.name} className="rounded-xl border border-line bg-cream p-4">
+                  <div key={sub.name} className="rounded-xl border border-line bg-white p-4">
                     <p className="text-sm font-bold text-ink">{sub.name}</p>
                     <p className="mt-1 text-sm leading-relaxed text-muted">{sub.desc}</p>
                   </div>
@@ -54,7 +54,7 @@ export default function ServiceDetailPage() {
       content: (
         <div className="space-y-3">
           {service.tiers.map((tier) => (
-            <div key={tier.label} className="flex flex-col gap-3 rounded-xl border border-line bg-cream p-4 sm:flex-row sm:items-center">
+            <div key={tier.label} className="flex flex-col gap-3 rounded-4xl bg-white p-4 sm:flex-row sm:items-center">
               <span className="inline-flex h-7 shrink-0 items-center rounded-full bg-forest px-3 text-xs font-bold text-white">
                 {tier.label}
               </span>
@@ -80,7 +80,7 @@ export default function ServiceDetailPage() {
             { label: "Tenure", value: service.tenure },
             { label: "Required savings", value: `${service.savingsPercent} continuous` },
           ].map((item) => (
-            <div key={item.label} className="rounded-xl border border-line bg-cream p-4 text-center">
+            <div key={item.label} className="rounded-xl shadow bg-white p-4 text-center">
               <p className="mb-1 text-xs font-bold text-muted">{item.label}</p>
               <p className="font-bold text-ink">{item.value}</p>
             </div>
@@ -92,20 +92,21 @@ export default function ServiceDetailPage() {
 
   return (
     <div>
-      <section className="bg-forest-deep py-16">
+      <section className="bg-yellow-500 py-16">
         <Container>
           <button
             type="button"
             onClick={() => navigate("/services")}
-            className="mb-8 inline-flex items-center gap-2 text-sm font-bold text-white/70 hover:text-white"
+            className="mb-8 inline-flex items-center gap-2 text-lg font-bold text-white/80 hover:text-white"
           >
             <ArrowLeft size={16} />
             Back to services
           </button>
           <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-            <div className="rounded-2xl bg-white/10 p-4">
-              <Icon className="h-8 w-8 text-gold-soft" strokeWidth={1.75} />
+            <div className="rounded-3xl bg-green-900 p-3">
+              <Icon className="h-8 w-8 text-white" strokeWidth={1.75} />
             </div>
+            
             <div>
               <p className="text-sm font-bold text-gold-soft">{service.subtitle}</p>
               <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">{service.title}</h1>
@@ -114,31 +115,32 @@ export default function ServiceDetailPage() {
         </Container>
       </section>
 
-      <section className="bg-cream py-16">
+      <section className="bg-white py-16">
         <Container className="grid gap-10 lg:grid-cols-3">
           <div className="space-y-5">
             <ScrollReveal direction="left">
-              <div className="rounded-2xl border border-line bg-paper p-7">
+              <div className="rounded-2xl shadow bg-white p-7">
                 <h2 className="text-base font-bold text-ink">About this product</h2>
                 <p className="mt-3 text-sm leading-relaxed text-muted">{service.overview}</p>
               </div>
             </ScrollReveal>
             <ScrollReveal direction="left" delay={0.08}>
-              <div className="rounded-2xl bg-forest-deep p-7 text-white">
+              <div className="rounded-2xl bg-yellow-500 p-7 text-white">
+
                 <h3 className="font-bold">Ready to apply?</h3>
                 <p className="mt-2 text-sm leading-relaxed text-white/65">
                   Visit our office or contact us to start your application.
                 </p>
                 <Link
                   to="/contact"
-                  className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-gold text-sm font-bold text-forest-deep"
+                  className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-yellow-500 text-sm font-bold text-forest-deep"
                 >
                   <PhoneCall size={15} />
                   Contact us
                 </Link>
                 <Link
                   to="/login"
-                  className="mt-3 inline-flex h-11 w-full items-center justify-center rounded-full border border-white/15 text-sm font-bold text-white hover:bg-white/10"
+                  className="mt-3 inline-flex h-12 w-full items-center justify-center rounded-full border border-white/15 text-lg font-bold text-white hover:bg-white/10"
                 >
                   Become a member
                 </Link>

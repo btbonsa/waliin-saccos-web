@@ -105,7 +105,7 @@ export default function Navbar() {
           </Link>
           <Link
             to="/login"
-            className="inline-flex h-10 items-center rounded-full bg-forest px-5 text-sm font-bold text-white hover:bg-forest-deep"
+            className="inline-flex h-10 items-center rounded-full bg-yellow-500 px-5 text-lg text-white hover:bg-yellow-500 hover:text-white hover:brightness-105 transition-all"
           >
             Become a member
           </Link>
@@ -134,7 +134,7 @@ export default function Navbar() {
                 end
                 onClick={() => setIsOpen(false)}
                 className={({ isActive }) =>
-                  cn("block rounded-xl px-4 py-3 text-sm font-bold", isActive ? "bg-cream text-ink" : "text-muted")
+                  cn("block rounded-xl px-4 py-3 text-sm font-bold", isActive ? "bg-yellow-500 text-ink" : "text-muted")
                 }
               >
                 Home
@@ -171,7 +171,7 @@ export default function Navbar() {
                   to={link.path}
                   onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
-                    cn("block rounded-xl px-4 py-3 text-sm font-bold", isActive ? "bg-cream text-ink" : "text-muted")
+                    cn("block rounded-xl px-4 py-3 text-sm font-bold", isActive ? "bg-yellow-500 text-ink" : "text-muted")
                   }
                 >
                   {link.name}
@@ -181,7 +181,7 @@ export default function Navbar() {
               <Link
                 to="/login"
                 onClick={() => setIsOpen(false)}
-                className="mt-3 block rounded-full bg-forest px-4 py-3 text-center text-sm font-bold text-white"
+                className="mt-3 block rounded-full bg-yellow-500 px-4 py-3 text-center text-lg text-white"
               >
                 Become a member
               </Link>
