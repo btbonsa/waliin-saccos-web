@@ -90,7 +90,6 @@ export default function Home() {
 
           <ScrollReveal direction="right">
             <div className="rounded-4xl shadow shadow-lg bg-white p-8">
-              <p className="text-xl font-bold text-gray-500/70">Governance</p>
               <h3 className="mt-2 text-4xl  text-ink">Shareholders and institutions</h3>
               <p className="mt-3 text-xl leading-relaxed text-muted">
                 Our members form a network of cooperative owners and regional partners focused on sustainable wealth in Ethiopia.

@@ -65,15 +65,15 @@ export default function Footer() {
             <h3 className="mb-6 text-md font-bold text-white uppercase">Visit us</h3>
             <ul className="space-y-4 text-sm text-white/65">
               <li className="flex gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-soft" />
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white/50" />
                 44, Holeta, Ethiopia
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-4 w-4 shrink-0 text-gold-soft" />
+                <Phone className="h-4 w-4 shrink-0 text-white/50" />
                 <a href="tel:0911915610" className="hover:text-white">0911 915 610</a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="h-4 w-4 shrink-0 text-gold-soft" />
+                <Mail className="h-4 w-4 shrink-0 text-white/50" />
                 <a href="mailto:hailudelesa16@gmail.com" className="break-all hover:text-white">
                   hailudelesa16@gmail.com
                 </a>
