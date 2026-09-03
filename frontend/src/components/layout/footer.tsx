@@ -26,11 +26,11 @@ export default function Footer() {
             <Link to="/" className="flex w-fit items-center gap-3">
               <img src={logo} alt="" className="h-11 w-11 rounded-full object-cover" />
               <div>
-                <p className="font-bold text-white/50">Waliin SACCO Ltd</p>
-                <p className="text-lg text-white/50">Holeta, Ethiopia</p>
+                <p className="text-sm font-bold text-white/50">Waliin SACCO Ltd</p>
+                <p className="text-sm text-white/50">Holeta, Ethiopia</p>
               </div>
             </Link>
-            <p className="max-w-sm text-md leading-7 text-white/50">
+            <p className="max-w-sm text-sm leading-relaxed text-white/50">
               A member-owned savings and credit cooperative providing trusted savings, fair credit, and shared dividends.
             </p>
           </div>

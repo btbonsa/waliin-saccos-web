@@ -105,7 +105,7 @@ export default function Navbar() {
           </Link>
           <Link
             to="/login"
-            className="inline-flex h-10 items-center rounded-full bg-yellow-500 px-5 text-lg text-white hover:bg-yellow-500 hover:text-white hover:brightness-105 transition-all"
+            className="inline-flex h-10 items-center rounded-full bg-yellow-500 px-5 text-sm font-bold text-white hover:bg-yellow-500 hover:text-white hover:brightness-105 transition-all"
           >
             Become a member
           </Link>
@@ -181,7 +181,7 @@ export default function Navbar() {
               <Link
                 to="/login"
                 onClick={() => setIsOpen(false)}
-                className="mt-3 block rounded-full bg-yellow-500 px-4 py-3 text-center text-lg text-white"
+                className="mt-3 block rounded-full bg-yellow-500 px-4 py-3 text-center text-sm font-bold text-white"
               >
                 Become a member
               </Link>

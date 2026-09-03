@@ -27,19 +27,19 @@ export default function SectionHeader({
 
       <h1
         className={cn(
-          "text-6xl font-bold ",
+          "text-3xl sm:text-4xl lg:text-5xl font-bold ",
           light && "text-yellow-600",
         )}
       >
         {title}
       </h1>
       {description && (
-        <p className={cn("text-muted leading-relaxed text-xl", light && "text-white/70")}>
+        <p className={cn("text-muted leading-relaxed text-base sm:text-lg", light && "text-white/70")}>
           {description}
         </p>
       )}
       {moreDescription && (
-        <p className={cn(" text-muted leading-relaxed text-xl", light && "text-white/70")}>
+        <p className={cn("text-muted leading-relaxed text-base sm:text-lg", light && "text-white/70")}>
           {moreDescription}
         </p>
       )}

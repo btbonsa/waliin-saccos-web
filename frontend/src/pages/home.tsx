@@ -43,8 +43,7 @@ export default function Home() {
           <ScrollReveal>
             <SectionHeader
               title="Built around member success"
-              description="Cooperative finance with the discipline of a savings institution and the heart of a community. finance with the discipline of a savings institution and the heart of a community."
-              moreDescription = "finance with the discipline of a savings institution and the heart of a community. finance with the discipline of a savings institution and the heart of a community."
+              description="The members have started to borrow a Loan and engaged in in different business"
             />
           </ScrollReveal>
           <div className="mt-14 grid gap-6 grid-cols-1 md:grid-cols-3 lg:gap-8 bg-white p-4 sm:p-6 rounded-3xl">
@@ -74,7 +73,7 @@ export default function Home() {
             />
             <ul className="space-y-3">
               {partnerBenefits.map((b) => (
-                <li key={b} className="flex items-center gap-3 text-2xl">
+                <li key={b} className="flex items-center gap-3 text-base sm:text-lg">
                   <CheckCircle2 className="h-4 w-4 shrink-0 text-green-500" />
                   {b}
                 </li>
@@ -82,7 +81,7 @@ export default function Home() {
             </ul>
             <Link
               to="/contact"
-              className="inline-flex h-11 items-center gap-2 rounded-full bg-yellow-500 px-6 text-xl text-white hover:bg-yellow-500 hover:text-white hover:brightness-105 transition-all"
+              className="inline-flex h-11 items-center gap-2 rounded-full bg-yellow-500 px-6 text-sm sm:text-base font-bold text-white hover:bg-yellow-500 hover:text-white hover:brightness-105 transition-all"
             >
               Talk to us
               <ArrowRight size={16} />
@@ -91,8 +90,8 @@ export default function Home() {
 
           <ScrollReveal direction="right">
             <div className="rounded-4xl shadow shadow-lg bg-white p-8">
-              <h3 className="mt-2 text-4xl  text-ink">Shareholders and institutions</h3>
-              <p className="mt-3 text-xl leading-relaxed text-muted">
+              <h3 className="mt-2 text-xl sm:text-2xl text-ink">Shareholders and institutions</h3>
+              <p className="mt-3 text-sm sm:text-base leading-relaxed text-muted">
                 Our members form a network of cooperative owners and regional partners focused on sustainable wealth in Ethiopia.
               </p>
               <div className="mt-6 grid grid-cols-2 gap-4">
@@ -103,8 +102,8 @@ export default function Home() {
                   { label: "Audit cycle", value: "Yearly" },
                 ].map((item) => (
                   <div key={item.label} className="rounded-4xl bg-green-100/60 p-4">
-                    <p className="text-xl font-bold text-forest">{item.value}</p>
-                    <p className="mt-0.5 text-md text-muted">{item.label}</p>
+                    <p className="text-base sm:text-lg font-bold text-forest">{item.value}</p>
+                    <p className="mt-0.5 text-xs sm:text-sm text-muted">{item.label}</p>
                   </div>
                 ))}
               </div>
@@ -117,20 +116,20 @@ export default function Home() {
 
       <section className="bg-yellow-500 py-20 brounded-4xl sm:py-24 brightness-85 ">
         <Container className="max-w-3xl text-center">
-          <h2 className="text-3xl font-bold text-white sm:text-4xl brightness-105">Ready to start saving with Waliin?</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white sm:text-4xl brightness-105">Ready to start saving with Waliin?</h2>
           <p className="mt-4 text-white">
             Join members already building a more secure future through Waliin SACCO Ltd.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3">
             <Link
               to="/contact"
-              className="inline-flex h-12 items-center gap-2 rounded-full bg-white px-7 text-sm font-bold text-xl text-yellow-500 hover:bg-white/90 transition-all brightness-105"
+              className="inline-flex h-12 items-center gap-2 rounded-full bg-white px-6 sm:px-7 text-sm sm:text-base font-bold text-yellow-500 hover:bg-white/90 transition-all brightness-105"
             >
               Visit the office
             </Link>
             <Link
               to="/services"
-              className="inline-flex h-12 items-center rounded-full border border-white/20 px-7 text-xl font-bold text-white hover:bg-white/10"
+              className="inline-flex h-12 items-center rounded-full border border-white/20 px-6 sm:px-7 text-sm sm:text-base font-bold text-white hover:bg-white/10"
             >
               Browse products
             </Link>

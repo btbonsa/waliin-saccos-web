@@ -109,7 +109,7 @@ export default function ServiceDetailPage() {
             
             <div>
               <p className="text-sm font-bold text-gold-soft">{service.subtitle}</p>
-              <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">{service.title}</h1>
+              <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">{service.title}</h1>
             </div>
           </div>
         </Container>
@@ -133,14 +133,14 @@ export default function ServiceDetailPage() {
                 </p>
                 <Link
                   to="/contact"
-                  className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-yellow-500 text-sm font-bold text-forest-deep"
+                  className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-white text-sm font-bold text-forest-deep hover:bg-white/90"
                 >
                   <PhoneCall size={15} />
                   Contact us
                 </Link>
                 <Link
                   to="/login"
-                  className="mt-3 inline-flex h-12 w-full items-center justify-center rounded-full border border-white/15 text-lg font-bold text-white hover:bg-white/10"
+                  className="mt-3 inline-flex h-11 w-full items-center justify-center rounded-full border border-white/15 text-sm font-bold text-white hover:bg-white/10"
                 >
                   Become a member
                 </Link>

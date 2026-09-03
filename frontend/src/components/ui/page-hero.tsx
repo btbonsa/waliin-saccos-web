@@ -13,7 +13,7 @@ export default function PageHero({
   image?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-yellow-500 py-20 sm:py-24 h-150">
+    <section className="relative overflow-hidden bg-yellow-500 py-16 sm:py-20 min-h-[280px] sm:min-h-[340px]">
       {image && (
         <motion.img
           src={image}
@@ -37,7 +37,7 @@ export default function PageHero({
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.05 }}
-          className="text-5xl text-7xl font-bold tracking-tight text-white"
+          className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white"
         >
           {title}
         </motion.h1>
@@ -46,7 +46,7 @@ export default function PageHero({
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mx-auto mt-4 max-w-xl text-base text-xl text-white/70"
+            className="mx-auto mt-4 max-w-xl text-sm sm:text-base lg:text-xl text-white/70"
           >
             {description}
           </motion.p>

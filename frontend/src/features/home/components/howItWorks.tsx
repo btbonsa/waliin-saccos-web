@@ -35,11 +35,11 @@ export default function HowItWorks() {
         <div className="mt-14 grid gap-9 sm:grid-cols-2 lg:grid-cols-3 h-full">
           {steps.map((step,) => (
             <ScrollReveal key={step.title}>
-              <div className="group h-full rounded-2xl shadow-lg bg-white p-7 transition-all duration-500 hover:-translate-y-3 ease-in-out h-60">
+              <div className="group rounded-2xl shadow-lg bg-white p-5 sm:p-7 transition-all duration-500 hover:-translate-y-3 ease-in-out">
                 <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-yellow-100 text-yellow-500 font-bold group-hover:bg-yellow-500 transition-all duration-600 group-hover:text-white">
                   <step.icon className="h-6 w-6" />
                 </div>
-                <h3 className="mb-2 font-bold text-black text-2xl">{step.title}</h3>
+                <h3 className="mb-2 font-bold text-black text-lg sm:text-xl">{step.title}</h3>
                 <p className="text-sm leading-relaxed text-muted">{step.desc}</p>
               </div>
             </ScrollReveal>

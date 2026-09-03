@@ -85,12 +85,12 @@ export default function About() {
           <div className="flex justify-center items-center py-20">
             {leadership.map((person, i) => (
               <ScrollReveal key={person.name} delay={i * 0.08}>
-                <div className="rounded-2xl shadow bg-white p-8 text-center w-100 h-60">
+                <div className="rounded-2xl shadow bg-white p-6 sm:p-8 text-center w-full max-w-xs sm:max-w-sm">
                   <div className="mx-auto flex h-20 w-20 items-center justify-center border border-yellow-500 rounded-full bg-transparent text-lg font-bold text-red-700">
                     <img src={logo} className=" border border-4xl border-green-400 rounded rounded-full "/>
                   </div>
-                  <p className="mt-4 font-bold text-xl">{person.name}</p>
-                  <p className="mt-1 text-sm text-muted text-xl">{person.role}</p>
+                  <p className="mt-4 font-bold text-base sm:text-lg">{person.name}</p>
+                  <p className="mt-1 text-sm text-muted">{person.role}</p>
                 </div>
               </ScrollReveal>
             ))}
