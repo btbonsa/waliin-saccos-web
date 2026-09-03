@@ -1,9 +1,9 @@
 import { cn } from "./utils";
 
 export default function SectionHeader({
-  eyebrow,
   title,
   description,
+  moreDescription,
   align = "center",
   className,
   light = false,
@@ -11,6 +11,7 @@ export default function SectionHeader({
   eyebrow?: string;
   title: string;
   description?: string;
+  moreDescription?: string;
   align?: "center" | "left";
   className?: string;
   light?: boolean;
@@ -19,31 +20,27 @@ export default function SectionHeader({
     <div
       className={cn(
         "max-w-2xl space-y-3",
-        align === "center" && "mx-auto text-center",
+        align === "left" && "mx-auto text-center",
         className,
       )}
     >
-      {eyebrow && (
-        <p
-          className={cn(
-            "text-sm font-bold text-gold",
-            light && "text-gold-soft",
-          )}
-        >
-          {eyebrow}
-        </p>
-      )}
-      <h2
+
+      <h1
         className={cn(
-          "text-3xl sm:text-4xl font-bold tracking-tight text-ink",
-          light && "text-white",
+          "text-6xl font-bold ",
+          light && "text-yellow-600",
         )}
       >
         {title}
-      </h2>
+      </h1>
       {description && (
-        <p className={cn("text-muted leading-relaxed", light && "text-white/70")}>
+        <p className={cn("text-muted leading-relaxed text-xl", light && "text-white/70")}>
           {description}
+        </p>
+      )}
+      {moreDescription && (
+        <p className={cn(" text-muted leading-relaxed text-xl", light && "text-white/70")}>
+          {moreDescription}
         </p>
       )}
     </div>

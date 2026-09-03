@@ -4,6 +4,7 @@ import Container from "../components/ui/container";
 import SectionHeader from "../components/ui/section-header";
 import FeatureCard from "../components/ui/feature-card";
 import ScrollReveal from "../components/ui/ScrollReveal";
+import logo from "../assets/logo.jpg"
 
 const values = [
   { icon: Shield, title: "Integrity", description: "We operate with full transparency and accountability to every member." },
@@ -14,9 +15,6 @@ const values = [
 
 const leadership = [
   { name: "Hailu Delesa", role: "Chairman", initials: "HD" },
-  { name: "Tigist Bekele", role: "General Manager", initials: "TB" },
-  { name: "Abebe Girma", role: "Finance Director", initials: "AG" },
-  { name: "Mekdes Alemu", role: "Operations Manager", initials: "MA" },
 ];
 
 export default function About() {
@@ -80,20 +78,19 @@ export default function About() {
         <Container>
           <ScrollReveal>
             <SectionHeader
-              eyebrow="The team"
               title="Our leadership"
               description="Professionals stewarding Waliin SACCO Ltd on behalf of members."
             />
           </ScrollReveal>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex justify-center items-center py-20">
             {leadership.map((person, i) => (
               <ScrollReveal key={person.name} delay={i * 0.08}>
-                <div className="rounded-2xl border border-line bg-cream/40 p-8 text-center">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-forest text-lg font-bold text-gold-soft">
-                    {person.initials}
+                <div className="rounded-2xl shadow bg-white p-8 text-center w-100 h-60">
+                  <div className="mx-auto flex h-20 w-20 items-center justify-center border border-yellow-500 rounded-full bg-transparent text-lg font-bold text-red-700">
+                    <img src={logo} className=" border border-4xl border-green-400 rounded rounded-full "/>
                   </div>
-                  <p className="mt-4 font-bold text-ink">{person.name}</p>
-                  <p className="mt-1 text-sm text-muted">{person.role}</p>
+                  <p className="mt-4 font-bold text-xl">{person.name}</p>
+                  <p className="mt-1 text-sm text-muted text-xl">{person.role}</p>
                 </div>
               </ScrollReveal>
             ))}

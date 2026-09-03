@@ -39,11 +39,12 @@ export default function Home() {
     <div>
       <HeroSection />
       <section className="bg-white py-20 sm:py-24">
-        <Container>
+        <Container className="text-left">
           <ScrollReveal>
             <SectionHeader
               title="Built around member success"
-              description="Cooperative finance with the discipline of a savings institution and the heart of a community."
+              description="Cooperative finance with the discipline of a savings institution and the heart of a community. finance with the discipline of a savings institution and the heart of a community."
+              moreDescription = "finance with the discipline of a savings institution and the heart of a community. finance with the discipline of a savings institution and the heart of a community."
             />
           </ScrollReveal>
           <div className="mt-14 grid gap-6 grid-cols-1 md:grid-cols-3 lg:gap-8 bg-white p-4 sm:p-6 rounded-3xl">
@@ -81,7 +82,7 @@ export default function Home() {
             </ul>
             <Link
               to="/contact"
-              className="inline-flex h-11 items-center gap-2 rounded-full bg-yellow-500 px-6 text-sm font-bold text-white hover:bg-yellow-500 hover:text-white hover:brightness-105 transition-all"
+              className="inline-flex h-11 items-center gap-2 rounded-full bg-yellow-500 px-6 text-xl text-white hover:bg-yellow-500 hover:text-white hover:brightness-105 transition-all"
             >
               Talk to us
               <ArrowRight size={16} />
@@ -115,8 +116,6 @@ export default function Home() {
       <FaqSection />
 
       <section className="bg-yellow-500 py-20 brounded-4xl sm:py-24 brightness-85 ">
-              <div className="absolute inset-0 bg-yellow-600 mix-blend-multiply brightness-130" />
-
         <Container className="max-w-3xl text-center">
           <h2 className="text-3xl font-bold text-white sm:text-4xl brightness-105">Ready to start saving with Waliin?</h2>
           <p className="mt-4 text-white">
@@ -127,7 +126,7 @@ export default function Home() {
               to="/contact"
               className="inline-flex h-12 items-center gap-2 rounded-full bg-white px-7 text-sm font-bold text-xl text-yellow-500 hover:bg-white/90 transition-all brightness-105"
             >
-              Visit the office 
+              Visit the office
             </Link>
             <Link
               to="/services"

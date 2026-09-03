@@ -90,7 +90,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={loading}
-        className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-forest text-sm font-bold text-white hover:bg-forest-deep disabled:cursor-not-allowed disabled:opacity-60"
+        className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-yellow-500 text-lg text-white hover:bg-yellow- disabled:cursor-not-allowed disabled:opacity-60"
       >
         {loading ? <Loader2 size={17} className="animate-spin" /> : <Send size={17} />}
         {loading ? "Sending..." : "Send message"}
