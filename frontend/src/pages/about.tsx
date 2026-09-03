@@ -22,8 +22,8 @@ export default function About() {
     <div>
       <PageHero
         eyebrow="Our story"
-        title="About Waliin SACCO Ltd"
-        description="A member-owned cooperative committed to inclusive financial growth in Holeta and across Ethiopia."
+        title="About Walin SACCO Ltd"
+        description="A member-owned cooperative committed to inclusive financial growth in Holeta Town and across Ethiopia."
         image="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1800&q=80"
       />
 

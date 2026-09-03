@@ -89,23 +89,10 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal direction="right">
-            <div className="rounded-4xl shadow shadow-lg bg-white p-8">
-              <h3 className="mt-2 text-xl sm:text-2xl text-ink">Shareholders and institutions</h3>
-              <p className="mt-3 text-sm sm:text-base leading-relaxed text-muted">
+            <div className="rounded-4xl shadow shadow-lg bg-white p-8 h-80">
+              <h3 className="mt-2 text-2xl">Shareholders and institutions</h3>
+              <p className="mt-3 text-lg leading-relaxed text-muted">
                 Our members form a network of cooperative owners,  and regional partners/Private wealthier and  traders focused on sustainable saving and credit financial access for all members with maintaining Member transparency, Equality, and clear auditing system.              </p>
-              <div className="mt-6 grid grid-cols-2 gap-4">
-                {[
-                  { label: "Member transparency", value: "100%" },
-                  { label: "Annual dividends", value: "Paid" },
-                  { label: "Member voting", value: "Equal" },
-                  { label: "Audit cycle", value: "Yearly" },
-                ].map((item) => (
-                  <div key={item.label} className="rounded-4xl bg-green-100/60 p-4">
-                    <p className="text-base sm:text-lg font-bold text-forest">{item.value}</p>
-                    <p className="mt-0.5 text-xs sm:text-sm text-muted">{item.label}</p>
-                  </div>
-                ))}
-              </div>
             </div>
           </ScrollReveal>
         </Container>
