@@ -22,8 +22,8 @@ export default function FeatureCard({
       <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-green-200 text-green-900 font-bold hover:bg-green-300 transition-all duration-600 group-hover:bg-green-900 group-hover:text-white">
         <Icon className="h-6 w-6" strokeWidth={1.75} />
       </div>
-      <h3 className="mb-2 text-lg sm:text-xl font-bold text-ink">{title}</h3>
-      <p className="text-sm leading-relaxed text-muted">{description}</p>
+      <h3 className="mb-2 text-xl font-bold text-ink">{title}</h3>
+      <p className="text-md leading-relaxed text-muted">{description}</p>
     </article>
   );
 }

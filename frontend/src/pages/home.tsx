@@ -13,17 +13,17 @@ const whyChooseUs = [
   {
     icon: ShieldCheck,
     title: "Secure and transparent",
-    description: "Member-led oversight, regular audits, and clear savings and loan terms.",
+    description: "Member-led oversight, regular audits, and clear savings and loan terms Through digitalized financial system.",
   },
   {
     icon: Users,
     title: "Member-owned",
-    description: "Every member holds an equal vote and shares in the cooperative surplus.",
+    description: "Every member controls, holds an equal vote and shares in the cooperative surplus.",
   },
   {
     icon: HeartHandshake,
     title: "Credit that fits life",
-    description: "Personal, business, housing, vehicle, and salary products at fair rates.",
+    description: "Personal, social, business, housing, vehicle, professional and salary based loan products at fair rates.",
   },
 ];
 
@@ -31,7 +31,6 @@ const partnerBenefits = [
   "Financial literacy for members",
   "Support for small traders",
   "Youth and family savings",
-  "Inclusive local credit",
 ];
 
 export default function Home() {
@@ -53,6 +52,7 @@ export default function Home() {
                   icon={item.icon}
                   title={item.title}
                   description={item.description}
+                  className="h-60"
                 />
               </ScrollReveal>
             ))}
@@ -66,10 +66,10 @@ export default function Home() {
       <section className="bg-gray-100 py-20 sm:py-24">
         <Container className="grid items-center gap-12 grid-cols-1 lg:grid-cols-2 lg:gap-20">
           <ScrollReveal direction="left" className="space-y-6">
-            <SectionHeader
+            <SectionHeader className="text-left"
               align="left"
               title="Work with a community cooperative"
-              description="We welcome foundations, CSR programs, and institutions committed to inclusive economic development in Holeta and beyond."
+              description="We welcome foundations, other financial cooperative, union, subgrant with different charities and cooperative banks/institutions in Holeta town and beyond"
             />
             <ul className="space-y-3">
               {partnerBenefits.map((b) => (
@@ -92,8 +92,7 @@ export default function Home() {
             <div className="rounded-4xl shadow shadow-lg bg-white p-8">
               <h3 className="mt-2 text-xl sm:text-2xl text-ink">Shareholders and institutions</h3>
               <p className="mt-3 text-sm sm:text-base leading-relaxed text-muted">
-                Our members form a network of cooperative owners and regional partners focused on sustainable wealth in Ethiopia.
-              </p>
+                Our members form a network of cooperative owners,  and regional partners/Private wealthier and  traders focused on sustainable saving and credit financial access for all members with maintaining Member transparency, Equality, and clear auditing system.              </p>
               <div className="mt-6 grid grid-cols-2 gap-4">
                 {[
                   { label: "Member transparency", value: "100%" },
@@ -114,7 +113,7 @@ export default function Home() {
 
       <FaqSection />
 
-      <section className="bg-yellow-500 py-20 brounded-4xl sm:py-24 brightness-85 ">
+      <section className="bg-yellow-500 py-20 brounded-4xl sm:py-24 ">
         <Container className="max-w-3xl text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white sm:text-4xl brightness-105">Ready to start saving with Waliin?</h2>
           <p className="mt-4 text-white">

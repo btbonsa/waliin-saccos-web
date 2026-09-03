@@ -5,8 +5,8 @@ import ScrollReveal from "../../../components/ui/ScrollReveal";
 
 const items = [
   {
-    q: "Who can join Waliin SACCO Ltd?",
-    a: "Residents who can visit our Holeta office, present a valid ID, and commit to monthly mandatory savings of ETB 500 may apply for membership.",
+    q: "Who can join Walin SACCO Ltd?",
+    a: "Residents who can buy a minimum of five shares of 5000 ETB,  registration fee 1000 ETB, and  500 compulsory savings.",
   },
   {
     q: "How do I qualify for a loan?",
@@ -17,7 +17,7 @@ const items = [
     a: "Yes. Adult mandatory and voluntary savings currently earn 7%, and children’s savings earn 10.5%.",
   },
   {
-    q: "Is Waliin member-owned?",
+    q: "Is Walin member-owned?",
     a: "Yes. Every member has an equal vote, and surplus is shared through cooperative dividends after annual audits.",
   },
 ];
@@ -29,8 +29,9 @@ export default function FaqSection() {
         <ScrollReveal direction="left">
           <SectionHeader
             align="left"
+            className="text-left"
             title="Clear answers before you join"
-            description="A savings and credit cooperative is not a commercial bank. You are an owner, not just a customer."
+            description="While you become a member of WALIN SACCO you are a member/owner not a customer, so you have the right to access all services and information that have been given here."
           />
         </ScrollReveal>
         <ScrollReveal direction="right">

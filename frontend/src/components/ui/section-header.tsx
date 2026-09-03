@@ -34,12 +34,12 @@ export default function SectionHeader({
         {title}
       </h1>
       {description && (
-        <p className={cn("text-muted leading-relaxed text-base sm:text-lg", light && "text-white/70")}>
+        <p className={cn("text-gray-600 leading-relaxed text-base sm:text-lg", light && "text-white/70")}>
           {description}
         </p>
       )}
       {moreDescription && (
-        <p className={cn("text-muted leading-relaxed text-base sm:text-lg", light && "text-white/70")}>
+        <p className={cn("text-gray-600 leading-relaxed text-base sm:text-lg", light && "text-white/70")}>
           {moreDescription}
         </p>
       )}

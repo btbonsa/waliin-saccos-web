@@ -19,10 +19,10 @@ export default function Faq({ items }: { items: FaqItem[] }) {
             <button
               type="button"
               onClick={() => setOpen(isOpen ? null : i)}
-              className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+              className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left bg-green-100"
               aria-expanded={isOpen}
             >
-              <span className="font-bold text-xl">{item.q}</span>
+              <span className="text-lg">{item.q}</span>
               <ChevronDown
                 className={`h-4 w-4 shrink-0 text-muted transition-transform ${isOpen ? "rotate-180" : ""}`}
               />
@@ -36,7 +36,7 @@ export default function Faq({ items }: { items: FaqItem[] }) {
                   transition={{ duration: 0.25 }}
                   className="overflow-hidden"
                 >
-                  <p className="px-5 pb-5 pt-3 text-xl leading-relaxed text-muted">
+                  <p className="px-5 pb-5 pt-3 text-lg text-muted">
                     {item.a}
                   </p>
                 </motion.div>
