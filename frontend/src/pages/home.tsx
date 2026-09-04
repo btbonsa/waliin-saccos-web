@@ -45,7 +45,7 @@ export default function Home() {
               description="The members have started to borrow a Loan and engaged in in different business"
             />
           </ScrollReveal>
-          <div className="mt-14 grid gap-6 grid-cols-1 md:grid-cols-3 lg:gap-8 bg-white p-4 sm:p-6 rounded-3xl">
+          <div className="mt-14 grid gap-6 grid-cols-1 md:grid-cols-3 lg:gap-8 bg-white p-4 sm:p-6">
             {whyChooseUs.map((item, i) => (
               <ScrollReveal key={item.title} delay={i * 0.1}>
                 <FeatureCard

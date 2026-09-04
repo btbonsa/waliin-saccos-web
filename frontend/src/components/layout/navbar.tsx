@@ -1,9 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import logo from "../../assets/logo.jpg";
 import { cn } from "../ui/utils";
+import { useLang } from "../../context/LanguageContext";
+import type { Lang } from "../../context/LanguageContext";
+
+const LANGUAGES: { code: Lang; label: string; short: string }[] = [
+  { code: "en", label: "English",  short: "EN" },
+  { code: "am", label: "አማርኛ",    short: "AM" },
+  { code: "om", label: "Oromiffa", short: "OM" },
+];
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -22,6 +30,20 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
+  const { lang, setLang } = useLang();
+  const activeLang = LANGUAGES.find((l) => l.code === lang)!;
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -100,6 +122,43 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-4 md:flex">
+          {/* Language picker */}
+          <div ref={langRef} className="relative">
+            <button
+              onClick={() => setLangOpen(!langOpen)}
+              className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-bold text-muted hover:text-ink transition-colors"
+            >
+              <Globe size={14} />
+              {activeLang.short}
+              <ChevronDown size={12} className={`transition-transform ${langOpen ? "rotate-180" : ""}`} />
+            </button>
+            <AnimatePresence>
+              {langOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 6, scale: 0.97 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 6, scale: 0.97 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute right-0 top-full mt-2 w-36 overflow-hidden rounded-2xl border border-line bg-white shadow-lg"
+                >
+                  {LANGUAGES.map((l) => (
+                    <button
+                      key={l.code}
+                      onClick={() => { setLang(l.code); setLangOpen(false); }}
+                      className={cn(
+                        "flex w-full items-center justify-between px-4 py-2.5 text-sm transition-colors hover:bg-gray-50",
+                        lang === l.code ? "font-bold text-forest" : "text-muted"
+                      )}
+                    >
+                      {l.label}
+                      {lang === l.code && <span className="h-1.5 w-1.5 rounded-full bg-yellow-500" />}
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
           <Link to="/login" className="text-sm font-bold text-muted hover:text-ink">
             Sign in
           </Link>
@@ -185,6 +244,29 @@ export default function Navbar() {
               >
                 Become a member
               </Link>
+
+              {/* Mobile language picker */}
+              <div className="mt-4 border-t border-line pt-4">
+                <p className="mb-2 flex items-center gap-1.5 px-1 text-xs font-bold uppercase tracking-widest text-muted">
+                  <Globe size={12} /> Language
+                </p>
+                <div className="flex gap-2">
+                  {LANGUAGES.map((l) => (
+                    <button
+                      key={l.code}
+                      onClick={() => setLang(l.code)}
+                      className={cn(
+                        "flex-1 rounded-xl py-2 text-sm font-bold transition-colors",
+                        lang === l.code
+                          ? "bg-forest text-white"
+                          : "bg-gray-100 text-muted hover:bg-gray-200"
+                      )}
+                    >
+                      {l.short}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         )}

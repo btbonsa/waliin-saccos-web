@@ -13,7 +13,7 @@ export default function PageHero({
   image?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-yellow-500 py-16 sm:py-20 min-h-[280px] sm:min-h-[340px]">
+    <section className="relative overflow-hidden bg-yellow-500 py-16 sm:py-20 h-140">
       {image && (
         <motion.img
           src={image}

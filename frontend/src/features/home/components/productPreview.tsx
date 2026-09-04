@@ -20,48 +20,33 @@ export default function ProductPreview() {
           />
         </ScrollReveal>
 
-        <div className="mt-14 hidden sm:flex gap-5 items-end">
+        <div className="mt-14 hidden sm:flex items-center">
           {featured.map((service, i) => {
-            const Icon = service.icon;
             const isCenter = i === 1;
+
             return (
-              <ScrollReveal key={service.id} delay={i * 0.07} className={isCenter ? "flex-[1.35]" : "flex-1"}>
+              <ScrollReveal key={service.id} delay={i * 0.07} className={isCenter ? "flex-[1]" : "flex-1"}>
                 <Link
                   to={`/services/${service.id}`}
-                  className={`group relative flex flex-col overflow-hidden rounded-2xl shadow-md transition-transform duration-500 ease-out hover:-translate-y-4 ${
-                    isCenter ? "h-[560px]" : "h-[460px]"
-                  }`}
+                  className={`group relative flex flex-col overflow-hidden rounded-4xl shadow-md transition-transform duration-500 ease-out hover:scale-105 ${isCenter ? "h-[600px] w-[400px]" : "h-[500px] w-[400px]"
+                    }`}
                 >
-                  {/* background image with zoom on hover */}
                   {service.image ? (
                     <motion.img
                       src={service.image}
                       alt={service.title}
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-100"
                     />
                   ) : (
-                    <div className="absolute inset-0 bg-forest-deep" />
+                    <div className="absolute inset-0 bg-yellow-500 mix-blend-multiply" />
                   )}
 
-                  {/* dark gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
 
-                  {/* top-left icon badge */}
-                  <div className="absolute left-4 top-4 flex items-center gap-2">
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      className="flex h-9 w-9 items-center justify-center rounded-xl bg-yellow-400/90 backdrop-blur-sm"
-                    >
-                      <Icon className="h-4 w-4 text-forest-deep" strokeWidth={2} />
-                    </motion.div>
-                    <span className="rounded-full bg-black/40 px-2.5 py-0.5 text-xs font-bold text-white/80 backdrop-blur-sm">
-                      {service.subtitle}
-                    </span>
-                  </div>
+      
 
-                  {/* bottom content — slides up on hover */}
-                  <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-2 transition-transform duration-300 group-hover:translate-y-0">
-                    <h3 className="text-base font-bold text-white leading-snug">
+                  <div className="absolute bottom-10 right-0 p-5 translate-y-2 transition-transform duration-300 group-hover:translate-y-0">
+                    <h3 className="text-center font-bold text-white leading-snug">
                       {service.title}
                     </h3>
                     <p className="mt-1.5 text-xs leading-relaxed text-white/70 line-clamp-2 max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-h-20 group-hover:opacity-100">
@@ -78,7 +63,6 @@ export default function ProductPreview() {
           })}
         </div>
 
-        {/* mobile: stacked single column */}
         <div className="mt-14 flex flex-col gap-5 sm:hidden">
           {featured.map((service, i) => {
             const Icon = service.icon;

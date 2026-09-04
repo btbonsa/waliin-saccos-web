@@ -1,17 +1,25 @@
 import { Link } from "react-router-dom";
-import { motion } from "motion/react";
+import { easeInOut, motion } from "motion/react";
 import banner from "../../../assets/banner.png";
 import Container from "../../../components/ui/container";
 
 export default function HeroSection() {
   return (
     <section className="relative overflow-hidden">
-      <img
+      <motion.img
+            initial={{ opacity: 0, y: 1 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, 
+              duration:8,
+              ease:easeInOut,
+
+              repeat:Infinity
+            }}
         src={banner}
         alt=""
-        className="absolute inset-0 h-full w-full object-cover opacity-95"
+        className="absolute inset-0 h-full w-full object-cover opacity-100"
       />
-      <div className="absolute inset-0 bg-yellow-600 mix-blend-multiply brightness-" />
+      <div className="absolute inset-0 bg-yellow-600 mix-blend-multiply brightness-105" />
 
       <Container className="relative grid min-h-[88vh] py-10 px-4 sm:px-6 lg:px-8">
         <div className="w-full space-y-10 max-w-3xl">

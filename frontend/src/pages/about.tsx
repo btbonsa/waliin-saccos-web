@@ -1,17 +1,10 @@
-import { Target, Eye, Shield, Users, TrendingUp, Heart } from "lucide-react";
+import { Target, Eye, CheckCircle2 } from "lucide-react";
 import PageHero from "../components/ui/page-hero";
 import Container from "../components/ui/container";
 import SectionHeader from "../components/ui/section-header";
 import FeatureCard from "../components/ui/feature-card";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import logo from "../assets/logo.jpg"
-
-const values = [
-  { icon: Shield, title: "Integrity", description: "We operate with full transparency and accountability to every member." },
-  { icon: Users, title: "Community", description: "Member-owned and member-driven — every voice shapes our direction." },
-  { icon: TrendingUp, title: "Growth", description: "We invest in financial literacy and sustainable economic empowerment." },
-  { icon: Heart, title: "Inclusion", description: "Accessible financial services for all, regardless of background." },
-];
 
 const leadership = [
   { name: "Hailu Delesa", role: "Chairman", initials: "HD" },
@@ -32,23 +25,26 @@ export default function About() {
           <ScrollReveal>
             <SectionHeader eyebrow="Purpose" title="Mission and vision" />
           </ScrollReveal>
-          <div className="mt-14 grid gap-6 md:grid-cols-2">
+          <div className="mt-14 grid gap-6 md:grid-cols-2 h-full">
             {[
-              {
-                icon: Target,
+                  {
+                icon: Eye,
                 title: "Our mission",
                 description:
-                  "To empower members through accessible, transparent, and sustainable cooperative financial services — fostering economic independence and community resilience.",
+                  "The mission is to meet the fundamental needs of members by providing convenient, accessible, and efficient financial services, while building a sustainable and inclusive financial institution through a skilled and ethically grounded workforce, the use of modern technology, and continuous public awareness creation.",
+                  
               },
               {
-                icon: Eye,
+                icon: Target,
                 title: "Our vision",
                 description:
-                  "To be the most trusted savings and credit cooperative in our region — where every member thrives through shared prosperity and financial dignity.",
+                  "By the year 2030 E.C, the members will be middle-income, entrepreneurs, and be freed from poverty.",
               },
+              
+          
             ].map((card, i) => (
               <ScrollReveal key={card.title} delay={i * 0.1} direction={i === 0 ? "left" : "right"}>
-                <FeatureCard {...card} />
+                <FeatureCard {...card} className="h-80" />
               </ScrollReveal>
             ))}
           </div>
@@ -60,17 +56,46 @@ export default function About() {
           <ScrollReveal>
             <SectionHeader
               eyebrow="What we stand for"
-              title="Our core values"
-              description="The principles that guide every decision we make."
+              title="Ethical Conduct of Waliin"
+              description="The principles that guide every decision, every member, and every service we provide."
             />
           </ScrollReveal>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((v, i) => (
-              <ScrollReveal key={v.title} delay={i * 0.08}>
-                <FeatureCard {...v} />
-              </ScrollReveal>
-            ))}
-          </div>
+          <ScrollReveal delay={0.1} direction="up">
+            <div className="mt-12 rounded-3xl border border-line bg-white shadow-sm overflow-hidden">
+              {/* top accent bar */}
+              <div className="h-1.5 w-full bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-400" />
+              <div className="p-8 sm:p-12">
+                <p className="text-sm font-bold uppercase tracking-widest text-yellow-600">Our ethics</p>
+                <h3 className="mt-3 text-2xl sm:text-3xl font-bold text-ink leading-snug">
+                  A cooperative built on trust,<br className="hidden sm:block" /> transparency, and shared responsibility.
+                </h3>
+                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">
+                  Waliin SACCO Ltd holds every member, leader, and employee to a clear ethical standard. These values are not aspirational — they are operational.
+                </p>
+
+                <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {[
+                    { title: "Honesty",                desc: "We communicate truthfully with members, partners, and regulators at all times — no hidden fees, no misleading terms." },
+                    { title: "Transparency",           desc: "Financial records, loan decisions, and dividend distributions are open and accessible to every member." },
+                    { title: "Accountability",         desc: "Leaders and staff are answerable to the membership. Annual audits and member assemblies enforce this commitment." },
+                    { title: "Participation",          desc: "Every member has an equal vote. Active participation in cooperative decisions is encouraged and protected." },
+                    { title: "Social Responsibility", desc: "We invest in the economic wellbeing of Holeta and surrounding communities through inclusive credit and financial literacy." },
+                    { title: "Consideration for Others", desc: "We design products and policies with empathy — recognising that members have diverse needs, backgrounds, and circumstances." },
+                  ].map((item) => (
+                    <div key={item.title} className="flex gap-4 rounded-2xl bg-gray-50 p-5 transition-all duration-300 hover:bg-yellow-50 hover:shadow-sm">
+                      <div className="mt-0.5 shrink-0">
+                        <CheckCircle2 className="h-5 w-5 text-yellow-500" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-bold text-ink">{item.title}</p>
+                        <p className="mt-1 text-xs leading-relaxed text-muted">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
         </Container>
       </section>
 
@@ -85,7 +110,7 @@ export default function About() {
           <div className="flex justify-center items-center py-20">
             {leadership.map((person, i) => (
               <ScrollReveal key={person.name} delay={i * 0.08}>
-                <div className="rounded-2xl shadow bg-white p-6 sm:p-8 text-center w-full max-w-xs sm:max-w-sm">
+                <div className="rounded-2xl shadow bg-white p-6 sm:p-8 text-center w-full">
                   <div className="mx-auto flex h-20 w-20 items-center justify-center border border-yellow-500 rounded-full bg-transparent text-lg font-bold text-red-700">
                     <img src={logo} className=" border border-4xl border-green-400 rounded rounded-full "/>
                   </div>
