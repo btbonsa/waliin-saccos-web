@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import banner from "../../../assets/banner.png";
 import Container from "../../../components/ui/container";
+import { useLang } from "../../../context/LanguageContext";
 
 export default function HeroSection() {
+  const { t } = useLang();
+
   return (
     <section className="relative overflow-hidden min-h-screen">
       {/* Background image with subtle Ken Burns zoom */}
@@ -28,7 +31,7 @@ export default function HeroSection() {
             transition={{ delay: 0.05 }}
             className="inline-block text-xs font-semibold tracking-widest uppercase text-[#d4af5a]"
           >
-            Waliin SACCO — Est. 2024
+            {t("est2024")}
           </motion.span>
 
           <motion.h1
@@ -37,8 +40,8 @@ export default function HeroSection() {
             transition={{ delay: 0.12 }}
             className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
           >
-            Waliin Madda{" "}
-            <span className="text-[#d4af5a]">Guddina!</span>
+            {t("headline").split(" ").slice(0, -1).join(" ")} {" "}
+            <span className="text-[#d4af5a]">{t("headline").split(" ").slice(-1)[0]}</span>
           </motion.h1>
 
           <motion.p
@@ -47,7 +50,7 @@ export default function HeroSection() {
             transition={{ delay: 0.2 }}
             className="text-base text-white/65 sm:text-lg leading-relaxed"
           >
-            Quusannaa Ge'essoota, Qussanna Yeroon Danga'u, liqii haqa qabeessa fi bu'aa waggaa Kan Hirmachisuu.
+            {t("tagline")}
           </motion.p>
 
           <motion.div
@@ -60,13 +63,13 @@ export default function HeroSection() {
               to="/login"
               className="inline-flex h-12 items-center rounded-full bg-[#d4a017] px-7 text-sm font-bold text-white tracking-wide hover:bg-[#d4af5a] transition-colors"
             >
-              Become a Member
+              {t("becomeMember")}
             </Link>
             <Link
               to="/services"
               className="inline-flex h-12 items-center rounded-full border border-white/25 px-7 text-sm font-medium text-white hover:bg-white/10 transition-colors"
             >
-              View Products
+              {t("viewProducts")}
             </Link>
           </motion.div>
         </div>
@@ -78,7 +81,7 @@ export default function HeroSection() {
           transition={{ delay: 0.8 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
         >
-          <span className="text-[10px] tracking-widest uppercase text-white/40">Scroll</span>
+          <span className="text-[10px] tracking-widest uppercase text-white/40">{t("scroll")}</span>
           <motion.div
             animate={{ y: [0, 6, 0] }}
             transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}

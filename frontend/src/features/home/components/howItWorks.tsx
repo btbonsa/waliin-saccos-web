@@ -2,26 +2,29 @@ import { UserPlus, PiggyBank, Landmark } from "lucide-react";
 import Container from "../../../components/ui/container";
 import SectionHeader from "../../../components/ui/section-header";
 import ScrollReveal from "../../../components/ui/ScrollReveal";
-
-const steps = [
-  {
-    icon: UserPlus,
-    title: "Join as a member",
-    desc: "Visit our office in Holeta town with your ID and 2 photos to register as a member.",
-  },
-  {
-    icon: PiggyBank,
-    title: "Save consistently",
-    desc: "Start with a minimum mandatory saving of 500 ETB per month, plus voluntary deposits anytime.",
-  },
-  {
-    icon: Landmark,
-    title: "Access fair credit",
-    desc: "Qualify for personal, business, housing, social, and urban farm expansion loans.",
-  },
-];
+import { useLang } from "../../../context/LanguageContext";
 
 export default function HowItWorks() {
+  const { t } = useLang();
+
+  const steps = [
+    {
+      icon: UserPlus,
+      title: t("joinAsMember"),
+      desc: t("joinAsMemberDesc"),
+    },
+    {
+      icon: PiggyBank,
+      title: t("saveConsistently"),
+      desc: t("saveConsistentlyDesc"),
+    },
+    {
+      icon: Landmark,
+      title: t("accessFairCredit"),
+      desc: t("accessFairCreditDesc"),
+    },
+  ];
+
   return (
     <section className="flex bg-green-950 py-20 sm:py-24 border-y border-[#e6e0d6] h-full">
       <Container>

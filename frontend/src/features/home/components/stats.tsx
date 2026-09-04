@@ -1,13 +1,16 @@
 import Container from "../../../components/ui/container";
-
-const stats = [
-  { value: "250+", label: "Active members" },
-  { value: "5M+", label: "Total savings (ETB)" },
-  { value: "100K+", label: "Loans disbursed (ETB)" },
-  { value: "Holeta", label: "Community we serve" },
-];
+import { useLang } from "../../../context/LanguageContext";
 
 export default function Stats() {
+  const { t } = useLang();
+
+  const stats = [
+    { value: "250+", label: t("activeMembers") },
+    { value: "5M+", label: t("totalSavings") },
+    { value: "100K+", label: t("loansDisbursed") },
+    { value: "Holeta", label: t("communityServed") },
+  ];
+
   return (
     <section className="border-y border-[#e6e0d6] bg-green-100">
       <Container className="py-12">
