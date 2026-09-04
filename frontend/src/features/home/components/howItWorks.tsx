@@ -1,4 +1,4 @@
-import { UserPlus, PiggyBank, Landmark,  } from "lucide-react";
+import { UserPlus, PiggyBank, Landmark } from "lucide-react";
 import Container from "../../../components/ui/container";
 import SectionHeader from "../../../components/ui/section-header";
 import ScrollReveal from "../../../components/ui/ScrollReveal";
@@ -7,39 +7,40 @@ const steps = [
   {
     icon: UserPlus,
     title: "Join as a member",
-    desc: "Visit our work place at Holeta town, come  with your ID and 2 Photos  to be our member. ",
+    desc: "Visit our office in Holeta town with your ID and 2 photos to register as a member.",
   },
   {
     icon: PiggyBank,
     title: "Save consistently",
-    desc: "After registration, Start with a minimum  mandatory saving of  500 ETB per month , plus voluntary deposits anytime any amount.",
+    desc: "Start with a minimum mandatory saving of 500 ETB per month, plus voluntary deposits anytime.",
   },
   {
     icon: Landmark,
     title: "Access fair credit",
-    desc: "Qualify various loan types   :- personal, business, housing, social , urban farm expansion and improve your livelihood as general",
+    desc: "Qualify for personal, business, housing, social, and urban farm expansion loans.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="bg-yellow-100 h-full py-20 sm:py-14 ">
+    <section className="flex bg-green-950 py-20 sm:py-24 border-y border-[#e6e0d6] h-full">
       <Container>
         <ScrollReveal>
-          <SectionHeader className="text-left"
-            title="How Waliin SACCO works"
-            description="Simple primary cooperative Society which enables you to Save, borrow and improve your financial access for your business. "
+          <SectionHeader
+            className="text-left text-white"
+            title="How Walin SACCO works"
+            moreDescription="A simple cooperative that enables you to save, borrow, and improve your financial access."
           />
         </ScrollReveal>
-        <div className="mt-14 grid gap-9 sm:grid-cols-2 lg:grid-cols-3 h-full">
-          {steps.map((step,) => (
-            <ScrollReveal key={step.title}>
-              <div className="group rounded-2xl shadow-lg bg-white p-5 sm:p-7 transition-all duration-500 hover:-translate-y-3 ease-in-out h-60">
-                <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-yellow-100 text-yellow-500 font-bold group-hover:bg-yellow-500 transition-all duration-600 group-hover:text-white">
-                  <step.icon className="h-6 w-6" />
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {steps.map((step, i) => (
+            <ScrollReveal key={step.title} delay={i * 0.08} >
+              <div className="group rounded-2xl bg-white shadow shadow-gray-300 p-6 sm:p-7 transition-all duration-300 hover:-translate-y-2 hover:shadow-md">
+                <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-yellow-100 text-yellow-600 group-hover:bg-yellow-500 group-hover:text-white transition-colors duration-300">
+                  <step.icon className="h-5 w-5" />
                 </div>
-                <h3 className="mb-2 font-bold text-black text-lg sm:text-xl">{step.title}</h3>
-                <p className="text-md leading-relaxed text-muted">{step.desc}</p>
+                <h3 className="mb-2 font-bold text-[#000] text-base sm:text-lg">{step.title}</h3>
+                <p className="text-sm leading-relaxed text-[#5d6f68]">{step.desc}</p>
               </div>
             </ScrollReveal>
           ))}

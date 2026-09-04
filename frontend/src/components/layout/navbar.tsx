@@ -14,16 +14,16 @@ const LANGUAGES: { code: Lang; label: string; short: string }[] = [
 ];
 
 const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "Services", path: "/services" },
-  { name: "News", path: "/news" },
-  { name: "Contact", path: "/contact" },
+  { key: "home" as const, path: "/" },
+  { key: "services" as const, path: "/services" },
+  { key: "news" as const, path: "/news" },
+  { key: "contact" as const, path: "/contact" },
 ];
 
 const aboutSubLinks = [
-  { name: "Overview", path: "/about" },
-  { name: "Mission & Vision", path: "/about#mission" },
-  { name: "Leadership", path: "/about#leadership" },
+  { key: "overview" as const, path: "/about" },
+  { key: "missionVision" as const, path: "/about#mission" },
+  { key: "leadership" as const, path: "/about#leadership" },
 ];
 
 export default function Navbar() {
@@ -32,7 +32,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
-  const { lang, setLang } = useLang();
+  const { lang, setLang, t } = useLang();
   const activeLang = LANGUAGES.find((l) => l.code === lang)!;
 
   useEffect(() => {
@@ -88,7 +88,7 @@ export default function Navbar() {
 
         <nav className="hidden items-center gap-1 md:flex text-lg">
           <NavLink to="/" end className={linkClass}>
-            Home
+            {t("home")}
           </NavLink>
 
           <div className="group relative">
@@ -96,7 +96,7 @@ export default function Navbar() {
               to="/about"
               className="flex items-center gap-1 rounded-lg px-3 py-2 text-lg text-muted hover:text-ink"
             >
-              About
+              {t("about")}
               <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />
             </Link>
             <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-all group-hover:visible group-hover:opacity-100">
@@ -107,7 +107,7 @@ export default function Navbar() {
                     to={sub.path}
                     className="block px-4 py-2.5 text-sm font-bold text-muted hover:bg-cream hover:text-ink"
                   >
-                    {sub.name}
+                    {t(sub.key)}
                   </Link>
                 ))}
               </div>
@@ -116,7 +116,7 @@ export default function Navbar() {
 
           {navLinks.slice(1).map((link) => (
             <NavLink key={link.path} to={link.path} className={linkClass}>
-              {link.name}
+              {t(link.key)}
             </NavLink>
           ))}
         </nav>
@@ -160,13 +160,13 @@ export default function Navbar() {
           </div>
 
           <Link to="/login" className="text-sm font-bold text-muted hover:text-ink">
-            Sign in
+            {t("signIn")}
           </Link>
           <Link
             to="/login"
             className="inline-flex h-10 items-center rounded-full bg-yellow-500 px-5 text-sm font-bold text-white hover:bg-yellow-500 hover:text-white hover:brightness-105 transition-all"
           >
-            Become a member
+            {t("becomeMember")}
           </Link>
         </div>
 
@@ -196,14 +196,14 @@ export default function Navbar() {
                   cn("block rounded-xl px-4 py-3 text-sm font-bold", isActive ? "bg-yellow-500 text-ink" : "text-muted")
                 }
               >
-                Home
+                {t("home")}
               </NavLink>
 
               <button
                 onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
                 className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-bold text-muted"
               >
-                About
+                {t("about")}
                 <ChevronDown size={16} className={mobileAboutOpen ? "rotate-180" : ""} />
               </button>
               {mobileAboutOpen && (
@@ -218,7 +218,7 @@ export default function Navbar() {
                       }}
                       className="block rounded-lg px-3 py-2 text-sm text-muted"
                     >
-                      {sub.name}
+                      {t(sub.key)}
                     </Link>
                   ))}
                 </div>
@@ -233,7 +233,7 @@ export default function Navbar() {
                     cn("block rounded-xl px-4 py-3 text-sm font-bold", isActive ? "bg-yellow-500 text-ink" : "text-muted")
                   }
                 >
-                  {link.name}
+                  {t(link.key)}
                 </NavLink>
               ))}
 
@@ -242,13 +242,13 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="mt-3 block rounded-full bg-yellow-500 px-4 py-3 text-center text-sm font-bold text-white"
               >
-                Become a member
+                {t("becomeMember")}
               </Link>
 
               {/* Mobile language picker */}
               <div className="mt-4 border-t border-line pt-4">
                 <p className="mb-2 flex items-center gap-1.5 px-1 text-xs font-bold uppercase tracking-widest text-muted">
-                  <Globe size={12} /> Language
+                  <Globe size={12} /> {t("language")}
                 </p>
                 <div className="flex gap-2">
                   {LANGUAGES.map((l) => (

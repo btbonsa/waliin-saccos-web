@@ -47,19 +47,20 @@ export default function LoginPage() {
   };
 
   const inputClass =
-    "w-full rounded-xl border border-line bg-cream py-3 pl-10 pr-4 text-sm text-ink placeholder:text-muted/50 focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/15";
+    "w-full rounded-xl border border-[#e6e0d6] bg-[#fffcf8] py-3 pl-10 pr-4 text-sm text-[#000] placeholder:text-[#5d6f68]/50 focus:border-[#0e241d] focus:outline-none focus:ring-2 focus:ring-[#0e241d]/10";
 
   return (
-    <section className="bg-cream py-16 sm:py-20">
+    <section className="bg-[#fffcf8] py-16 sm:py-20">
       <Container>
-        <div className="mx-auto grid max-w-5xl overflow-hidden rounded-3xl border border-line bg-paper lg:grid-cols-2">
-          <div className="hidden flex-col justify-between bg-forest-deep p-10 text-white lg:flex">
+        <div className="mx-auto grid max-w-5xl overflow-hidden rounded-3xl border border-[#e6e0d6] bg-white lg:grid-cols-2">
+          {/* Left panel */}
+          <div className="hidden flex-col justify-between bg-[#0e241d] p-10 text-white lg:flex">
             <div>
-              <p className="text-sm font-bold text-gold-soft">Waliin SACCO Ltd</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-[#d4af5a]">Waliin SACCO Ltd</p>
               <h2 className="mt-8 text-3xl font-bold leading-tight">
                 Your financial future starts with membership.
               </h2>
-              <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/65">
+              <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
                 Sign in to manage savings, follow loan progress, and stay connected as an owner of the cooperative.
               </p>
             </div>
@@ -67,17 +68,18 @@ export default function LoginPage() {
               {perks.map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-3">
                   <div className="rounded-lg bg-white/10 p-2">
-                    <Icon className="h-4 w-4 text-gold-soft" />
+                    <Icon className="h-4 w-4 text-[#d4af5a]" />
                   </div>
-                  <span className="text-sm text-white/75">{text}</span>
+                  <span className="text-sm text-white/70">{text}</span>
                 </div>
               ))}
             </div>
           </div>
 
+          {/* Right panel */}
           <div className="p-8 sm:p-12">
-            <h3 className="text-2xl font-bold text-ink">Welcome back</h3>
-            <p className="mt-1.5 text-sm text-muted">Sign in to your Waliin account</p>
+            <h3 className="text-2xl font-bold text-[#000]">Welcome back</h3>
+            <p className="mt-1.5 text-sm text-[#5d6f68]">Sign in to your Waliin account</p>
 
             {errorMessage && (
               <div className="mt-6 rounded-xl border border-red-200 bg-red-50 p-3.5 text-sm text-red-700">
@@ -87,9 +89,9 @@ export default function LoginPage() {
 
             <form onSubmit={handleSubmit} className="mt-8 space-y-5">
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-muted">Member ID or phone</label>
+                <label className="block text-xs font-bold text-[#5d6f68]">Member ID or phone</label>
                 <div className="relative">
-                  <User size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted" />
+                  <User size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#5d6f68]" />
                   <input
                     name="username"
                     type="text"
@@ -103,13 +105,13 @@ export default function LoginPage() {
 
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <label className="block text-xs font-bold text-muted">Password</label>
-                  <Link to="/forgot-password" className="text-xs font-bold text-forest hover:underline">
+                  <label className="block text-xs font-bold text-[#5d6f68]">Password</label>
+                  <Link to="/forgot-password" className="text-xs font-bold text-[#0e241d] hover:underline">
                     Forgot?
                   </Link>
                 </div>
                 <div className="relative">
-                  <Lock size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted" />
+                  <Lock size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#5d6f68]" />
                   <input
                     name="password"
                     type={showPassword ? "text" : "password"}
@@ -121,7 +123,7 @@ export default function LoginPage() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-muted hover:text-ink"
+                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#5d6f68] hover:text-[#000]"
                     aria-label="Toggle password visibility"
                   >
                     {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
@@ -134,15 +136,15 @@ export default function LoginPage() {
                   type="checkbox"
                   checked={rememberMe}
                   onChange={(e) => setRememberMe(e.target.checked)}
-                  className="h-4 w-4 rounded border-line text-forest"
+                  className="h-4 w-4 rounded border-[#e6e0d6] text-[#0e241d]"
                 />
-                <span className="text-sm text-muted">Remember this device</span>
+                <span className="text-sm text-[#5d6f68]">Remember this device</span>
               </label>
 
               <button
                 type="submit"
                 disabled={isLoading}
-                className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-forest text-sm font-bold text-white hover:bg-forest-deep disabled:opacity-60"
+                className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#0e241d] text-sm font-bold text-white hover:bg-[#16382e] disabled:opacity-60 transition-colors"
               >
                 {isLoading ? (
                   <>
@@ -155,9 +157,9 @@ export default function LoginPage() {
               </button>
             </form>
 
-            <p className="mt-8 border-t border-line pt-6 text-center text-sm text-muted">
+            <p className="mt-8 border-t border-[#e6e0d6] pt-6 text-center text-sm text-[#5d6f68]">
               Not a member yet?{" "}
-              <Link to="/contact" className="font-bold text-forest underline underline-offset-4">
+              <Link to="/contact" className="font-bold text-[#0e241d] underline underline-offset-4">
                 Apply at our office
               </Link>
             </p>

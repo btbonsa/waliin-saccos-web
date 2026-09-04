@@ -39,7 +39,7 @@ export default function SectionHeader({
         </p>
       )}
       {moreDescription && (
-        <p className={cn("text-gray-600 leading-relaxed text-base sm:text-lg", light && "text-white/70")}>
+        <p className={cn("text-gray-100 leading-relaxed text-base sm:text-lg", light && "text-white/70")}>
           {moreDescription}
         </p>
       )}
