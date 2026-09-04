@@ -42,9 +42,9 @@ export default function Contact() {
           </div>
 
           <ScrollReveal direction="right" className="lg:col-span-3">
-            <div className="rounded-3xl shadow-lg bg-gray-100 p-8 sm:p-10">
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#000]">Send us a message</h2>
-              <p className="mt-2 mb-8 text-sm text-[#5d6f68]">We aim to respond to all inquiries within 24 business hours.</p>
+            <div className="rounded-3xl shadow-lg bg-white p-10 sm:p-12 w-140">
+              <h2 className="text-2xl sm:text-3xl font-bold text-ink">Send us a message</h2>
+              <p className="mt-2 mb-8 text-sm text-muted">We aim to respond to all inquiries within 24 business hours.</p>
               <ContactForm />
             </div>
           </ScrollReveal>

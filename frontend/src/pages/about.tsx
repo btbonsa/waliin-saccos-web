@@ -1,13 +1,29 @@
-import { Target, Eye, CheckCircle2 } from "lucide-react";
+import { Target, Eye } from "lucide-react";
 import PageHero from "../components/ui/page-hero";
 import Container from "../components/ui/container";
 import SectionHeader from "../components/ui/section-header";
 import FeatureCard from "../components/ui/feature-card";
 import ScrollReveal from "../components/ui/ScrollReveal";
-import logo from "../assets/logo.jpg"
-
+import hailuImage from "../assets/hailu.png";
 const leadership = [
   { name: "Hailu Delesa", role: "Chairman", initials: "HD" },
+];
+
+const coreValues = [
+  { value: "Equality", icon: "⚖️", desc: "All members have the same rights and responsibilities within the organization." },
+  { value: "Solidarity", icon: "🤝", desc: "Members stand united and support one another through shared common goals." },
+  { value: "Self-help", icon: "💪", desc: "Members rely on their own efforts and capabilities to improve their lives." },
+  { value: "Self-responsibility", icon: "🎯", desc: "Individuals take personal accountability for the group's success and well-being." },
+  { value: "Democracy", icon: "🗳️", desc: "Members have an equal voice in running the cooperative." },
+];
+
+const ethicalValues = [
+  { value: "Honesty", icon: "🤝" },
+  { value: "Transparency", icon: "🔍" },
+  { value: "Accountability", icon: "⚖️" },
+  { value: "Participation", icon: "🗳️" },
+  { value: "Social Responsibility", icon: "🌱" },
+  { value: "Consideration for Others", icon: "💛" },
 ];
 
 export default function About() {
@@ -23,25 +39,20 @@ export default function About() {
       <section id="mission" className="bg-white py-20">
         <Container>
           <ScrollReveal>
-            <SectionHeader eyebrow="Purpose" title="Mission and vision" />
+            <SectionHeader eyebrow="Purpose" title="Mission and Vision" />
           </ScrollReveal>
           <div className="mt-14 grid gap-6 md:grid-cols-2 h-full">
             {[
-                  {
-                icon: Eye,
-                title: "Our mission",
-                description:
-                  "The mission is to meet the fundamental needs of members by providing convenient, accessible, and efficient financial services, while building a sustainable and inclusive financial institution through a skilled and ethically grounded workforce, the use of modern technology, and continuous public awareness creation.",
-                  
-              },
               {
                 icon: Target,
-                title: "Our vision",
-                description:
-                  "By the year 2030 E.C, the members will be middle-income, entrepreneurs, and be freed from poverty.",
+                title: "Our Vision",
+                description: "By the year 2030 E.C, the members will be middle-income, entrepreneurs, and be freed from poverty.",
               },
-              
-          
+              {
+                icon: Eye,
+                title: "Our Mission",
+                description: "To meet the fundamental needs of members by providing convenient, accessible, and efficient financial services, while building a sustainable and inclusive financial institution through a skilled and ethically grounded workforce, the use of modern technology, and continuous public awareness creation.",
+              },
             ].map((card, i) => (
               <ScrollReveal key={card.title} delay={i * 0.1} direction={i === 0 ? "left" : "right"}>
                 <FeatureCard {...card} className="h-80" />
@@ -56,43 +67,46 @@ export default function About() {
           <ScrollReveal>
             <SectionHeader
               eyebrow="What we stand for"
-              title="Ethical Conduct of Waliin"
+              title="Core & Ethical Values of Walin"
               description="The principles that guide every decision, every member, and every service we provide."
             />
           </ScrollReveal>
+
           <ScrollReveal delay={0.1} direction="up">
             <div className="mt-12 rounded-3xl border border-line bg-white shadow-sm overflow-hidden">
-              {/* top accent bar */}
               <div className="h-1.5 w-full bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-400" />
               <div className="p-8 sm:p-12">
-                <p className="text-sm font-bold uppercase tracking-widest text-yellow-600">Our ethics</p>
-                <h3 className="mt-3 text-2xl sm:text-3xl font-bold text-ink leading-snug">
-                  A cooperative built on trust,<br className="hidden sm:block" /> transparency, and shared responsibility.
-                </h3>
-                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">
-                  Waliin SACCO Ltd holds every member, leader, and employee to a clear ethical standard. These values are not aspirational — they are operational.
-                </p>
 
-                <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {[
-                    { title: "Honesty",                desc: "We communicate truthfully with members, partners, and regulators at all times — no hidden fees, no misleading terms." },
-                    { title: "Transparency",           desc: "Financial records, loan decisions, and dividend distributions are open and accessible to every member." },
-                    { title: "Accountability",         desc: "Leaders and staff are answerable to the membership. Annual audits and member assemblies enforce this commitment." },
-                    { title: "Participation",          desc: "Every member has an equal vote. Active participation in cooperative decisions is encouraged and protected." },
-                    { title: "Social Responsibility", desc: "We invest in the economic wellbeing of Holeta and surrounding communities through inclusive credit and financial literacy." },
-                    { title: "Consideration for Others", desc: "We design products and policies with empathy — recognising that members have diverse needs, backgrounds, and circumstances." },
-                  ].map((item) => (
-                    <div key={item.title} className="flex gap-4 rounded-2xl bg-gray-50 p-5 transition-all duration-300 hover:bg-yellow-50 hover:shadow-sm">
-                      <div className="mt-0.5 shrink-0">
-                        <CheckCircle2 className="h-5 w-5 text-yellow-500" />
+                {/* Core Values */}
+                <div>
+                  <h4 className="mt-1 text-xl font-bold text-ink">Our Core Values</h4>
+                  <p className="mt-1 mb-5 text-sm text-muted">The principles that guide every decision we make.</p>
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                    {coreValues.map((v) => (
+                      <div key={v.value} className="flex flex-col gap-2 rounded-2xl border border-yellow-200 bg-yellow-50 px-5 py-4 hover:bg-yellow-100 transition-colors">
+                        <span className="text-2xl">{v.icon}</span>
+                        <p className="text-sm font-bold text-yellow-800">{v.value}</p>
+                        <p className="text-xs leading-relaxed text-muted">{v.desc}</p>
                       </div>
-                      <div>
-                        <p className="text-sm font-bold text-ink">{item.title}</p>
-                        <p className="mt-1 text-xs leading-relaxed text-muted">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
+
+                {/* Ethical Values */}
+                <div className="mt-10">
+                  <h4 className="text-xl font-bold text-ink mb-5">Ethical Values</h4>
+                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                    {ethicalValues.map((v) => (
+                      <div key={v.value} className="flex flex-col items-center gap-2 rounded-2xl border border-yellow-200 bg-yellow-50 px-4 py-5 text-center hover:bg-yellow-100 transition-colors">
+                        <span className="text-2xl">{v.icon}</span>
+                        <span className="text-xs font-bold text-yellow-800">{v.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+          
+
               </div>
             </div>
           </ScrollReveal>
@@ -107,12 +121,12 @@ export default function About() {
               description="Professionals stewarding Waliin SACCO Ltd on behalf of members."
             />
           </ScrollReveal>
-          <div className="flex justify-center items-center py-20 w-full gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 2xl:gap-20">
+          <div className="flex justify-center items-center py-20 w-full">
             {leadership.map((person, i) => (
               <ScrollReveal key={person.name} delay={i * 0.08}>
-                <div className="rounded-2xl shadow shadow-lg bg-white p-6 sm:p-8 text-center w-80">
-                  <div className="mx-auto flex h-20 w-20 items-center justify-center shadow shadow-lg rounded-full bg-transparent text-lg font-bold text-red-700">
-                    <img src={logo} className=" border border-4xl border-green-400 rounded rounded-full "/>
+                <div className="rounded-2xl shadow-lg bg-white p-6 sm:p-8 text-center w-80">
+                  <div className="mx-auto h-20 w-20 overflow-hidden rounded-full border-2 border-yellow-400">
+                    <img src={hailuImage} alt={person.name} className="h-full w-full object-cover" />
                   </div>
                   <p className="mt-4 font-bold text-base sm:text-lg">{person.name}</p>
                   <p className="mt-1 text-sm text-muted">{person.role}</p>

@@ -1,7 +1,14 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import {
-  ArrowLeft, CheckCircle2, ChevronDown, Clock, AlertCircle, PhoneCall, Layers, HandCoins,
+  ArrowLeft,
+  CheckCircle2,
+  ChevronDown,
+  Clock,
+  AlertCircle,
+  PhoneCall,
+  Layers,
+  HandCoins,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { getService } from "../data/services";
@@ -16,11 +23,24 @@ export default function ServiceDetailPage() {
 
   if (!service) {
     return (
-      <div className="flex min-h-[72vh] flex-col items-center justify-center gap-4 px-4 text-center">
-        <AlertCircle className="h-12 w-12 text-line" />
-        <h2 className="text-xl font-bold text-ink">Service not found</h2>
-        <Link to="/services" className="text-lg font-bold text-forest underline underline-offset-4">
-          Back to services
+      <div className="flex min-h-[72vh] flex-col items-center justify-center gap-5 px-4 text-center">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-paper border border-line">
+          <AlertCircle className="h-7 w-7 text-muted" strokeWidth={1.75} />
+        </div>
+        <div className="space-y-2">
+          <h2 className="text-xl font-semibold tracking-tight text-ink">
+            Service not found
+          </h2>
+          <p className="text-sm text-muted">
+            The product you’re looking for doesn’t exist or has been removed.
+          </p>
+        </div>
+        <Link
+          to="/services"
+          className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-forest hover:underline underline-offset-4"
+        >
+          <ArrowLeft size={15} />
+          Back to all services
         </Link>
       </div>
     );
@@ -38,9 +58,14 @@ export default function ServiceDetailPage() {
             content: (
               <div className="space-y-3">
                 {service.subTypes.map((sub) => (
-                  <div key={sub.name} className="rounded-xl border border-line bg-white p-4">
-                    <p className="text-sm font-bold text-ink">{sub.name}</p>
-                    <p className="mt-1 text-sm leading-relaxed text-muted">{sub.desc}</p>
+                  <div
+                    key={sub.name}
+                    className="rounded-xl border border-line bg-white p-5 shadow-sm"
+                  >
+                    <p className="text-sm font-semibold text-ink">{sub.name}</p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted">
+                      {sub.desc}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -54,14 +79,17 @@ export default function ServiceDetailPage() {
       content: (
         <div className="space-y-3">
           {service.tiers.map((tier) => (
-            <div key={tier.label} className="flex flex-col gap-3 rounded-4xl bg-white p-4 sm:flex-row sm:items-center">
-              <span className="inline-flex h-7 shrink-0 items-center rounded-full bg-forest px-3 text-xs font-bold text-white">
+            <div
+              key={tier.label}
+              className="flex flex-col gap-3 rounded-2xl border border-line bg-white p-5 sm:flex-row sm:items-center sm:gap-5"
+            >
+              <span className="inline-flex h-8 shrink-0 items-center rounded-full bg-forest px-3.5 text-xs font-semibold tracking-wide text-white">
                 {tier.label}
               </span>
-              <div>
-                <p className="text-xs text-muted">{tier.condition}</p>
-                <p className="mt-1 flex items-center gap-1.5 text-sm font-bold text-forest">
-                  <CheckCircle2 size={13} />
+              <div className="min-w-0">
+                <p className="text-sm text-muted">{tier.condition}</p>
+                <p className="mt-1.5 flex items-center gap-2 text-sm font-semibold text-forest">
+                  <CheckCircle2 size={14} className="shrink-0" />
                   {tier.limit}
                 </p>
               </div>
@@ -78,11 +106,19 @@ export default function ServiceDetailPage() {
           {[
             { label: "Interest rate", value: service.interestRate },
             { label: "Tenure", value: service.tenure },
-            { label: "Required savings", value: `${service.savingsPercent} continuous` },
+            {
+              label: "Required savings",
+              value: `${service.savingsPercent} continuous`,
+            },
           ].map((item) => (
-            <div key={item.label} className="rounded-xl shadow bg-white p-4 text-center">
-              <p className="mb-1 text-xs font-bold text-muted">{item.label}</p>
-              <p className="font-bold text-ink">{item.value}</p>
+            <div
+              key={item.label}
+              className="rounded-xl border border-line bg-white p-5 text-center shadow-sm"
+            >
+              <p className="mb-1.5 text-xs font-medium uppercase tracking-wider text-muted">
+                {item.label}
+              </p>
+              <p className="text-base font-semibold text-ink">{item.value}</p>
             </div>
           ))}
         </div>
@@ -91,96 +127,134 @@ export default function ServiceDetailPage() {
   ];
 
   return (
-    <div>
-      <section className="bg-yellow-500 py-16">
+    <div className="bg-paper">
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-yellow-500 py-14 sm:py-16">
         <Container>
           <button
             type="button"
             onClick={() => navigate("/services")}
-            className="mb-8 inline-flex items-center gap-2 text-lg font-bold text-white/80 hover:text-white"
+            className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-white"
           >
             <ArrowLeft size={16} />
             Back to services
           </button>
-          <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-            <div className="rounded-3xl bg-green-900 p-3">
+
+          <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-green-900 shadow-lg">
               <Icon className="h-8 w-8 text-white" strokeWidth={1.75} />
             </div>
-            
-            <div>
-              <p className="text-sm font-bold text-gold-soft">{service.subtitle}</p>
-              <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">{service.title}</h1>
+
+            <div className="min-w-0">
+              <p className="text-sm font-medium tracking-wide text-gold-soft">
+                {service.subtitle}
+              </p>
+              <h1 className="mt-1 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                {service.title}
+              </h1>
             </div>
           </div>
         </Container>
       </section>
 
-      <section className="bg-white py-16">
-        <Container className="grid gap-10 lg:grid-cols-3">
-          <div className="space-y-5">
+      {/* Content */}
+      <section className="py-14 sm:py-16">
+        <Container className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+          {/* Sidebar */}
+          <aside className="space-y-6 lg:col-span-4">
             <ScrollReveal direction="left">
-              <div className="rounded-2xl shadow bg-white p-7">
-                <h2 className="text-base font-bold text-ink">About this product</h2>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{service.overview}</p>
+              <div className="rounded-2xl border border-line bg-white p-7 shadow-sm">
+                <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">
+                  About this product
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-ink/90">
+                  {service.overview}
+                </p>
               </div>
             </ScrollReveal>
-            <ScrollReveal direction="left" delay={0.08}>
-              <div className="rounded-2xl bg-yellow-500 p-7 text-white">
 
-                <h3 className="font-bold">Ready to apply?</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/65">
+            <ScrollReveal direction="left" delay={0.08}>
+              <div className="rounded-2xl bg-yellow-500 p-7 text-white shadow-md">
+                <h3 className="text-lg font-semibold tracking-tight">
+                  Ready to apply?
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/75">
                   Visit our office or contact us to start your application.
                 </p>
-                <Link
-                  to="/contact"
-                  className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-white text-sm font-bold text-forest-deep hover:bg-white/90"
-                >
-                  <PhoneCall size={15} />
-                  Contact us
-                </Link>
-                <Link
-                  to="/login"
-                  className="mt-3 inline-flex h-11 w-full items-center justify-center rounded-full border border-white/15 text-sm font-bold text-white hover:bg-white/10"
-                >
-                  Become a member
-                </Link>
+
+                <div className="mt-6 space-y-3">
+                  <Link
+                    to="/contact"
+                    className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-white text-sm font-semibold text-forest-deep transition-colors hover:bg-white/95"
+                  >
+                    <PhoneCall size={16} />
+                    Contact us
+                  </Link>
+                  <Link
+                    to="/login"
+                    className="inline-flex h-11 w-full items-center justify-center rounded-full border border-white/25 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                  >
+                    Become a member
+                  </Link>
+                </div>
               </div>
             </ScrollReveal>
-          </div>
+          </aside>
 
-          <div className="lg:col-span-2">
-            <ScrollReveal className="mb-6">
-              <h2 className="text-xl font-bold text-ink">Full details</h2>
-              <p className="mt-1 text-sm text-muted">Open each section for terms, tiers, and savings rules.</p>
+          {/* Main content */}
+          <div className="lg:col-span-8">
+            <ScrollReveal className="mb-8">
+              <h2 className="text-xl font-semibold tracking-tight text-ink">
+                Full details
+              </h2>
+              <p className="mt-1.5 text-sm text-muted">
+                Expand each section for terms, tiers, and savings rules.
+              </p>
             </ScrollReveal>
+
             <div className="space-y-3">
               {sections.map((section, i) => {
                 const isOpen = openSection === i;
                 const SecIcon = section.icon;
+
                 return (
-                  <div key={section.title} className="overflow-hidden rounded-2xl border border-line bg-paper">
+                  <div
+                    key={section.title}
+                    className="overflow-hidden rounded-2xl border border-line bg-white shadow-sm"
+                  >
                     <button
                       type="button"
                       onClick={() => toggle(i)}
-                      className="flex w-full items-center justify-between px-6 py-4 text-left"
+                      aria-expanded={isOpen}
+                      className="flex w-full items-center justify-between px-6 py-4 text-left transition-colors hover:bg-paper/60"
                     >
-                      <span className="flex items-center gap-3">
-                        <span className="rounded-xl bg-cream p-2">
+                      <span className="flex items-center gap-3.5">
+                        <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-cream">
                           <SecIcon className="h-4 w-4 text-forest" />
                         </span>
-                        <span className="text-sm font-bold text-ink">{section.title}</span>
+                        <span className="text-sm font-semibold text-ink">
+                          {section.title}
+                        </span>
                       </span>
-                      <ChevronDown className={`h-4 w-4 text-muted transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                      <ChevronDown
+                        className={`h-4 w-4 shrink-0 text-muted transition-transform duration-200 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
                     </button>
+
                     <AnimatePresence initial={false}>
                       {isOpen && (
                         <motion.div
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25, ease: "easeInOut" }}
                           className="overflow-hidden"
                         >
-                          <div className="border-t border-line px-6 pb-6 pt-4">{section.content}</div>
+                          <div className="border-t border-line px-6 pb-6 pt-5">
+                            {section.content}
+                          </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
