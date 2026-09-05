@@ -16,7 +16,7 @@ export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     if (status !== "idle") setStatus("idle");
   };
 
@@ -36,53 +36,63 @@ export default function ContactForm() {
   };
 
   const inputClass =
-    "w-full rounded-4xl px-4 py-3 text-lg bg-white placeholder:text-muted/50 focus:ring-yellow-500/15 focus:shadow-xl shadow-sm border border-line focus:outline-none focus:ring-2 transition-all duration-300";
+    "w-full rounded-xl border border-[#e6e0d6] bg-[#f7f5f0] px-4 py-3 text-sm text-[#0e241d] placeholder:text-[#5d6f68]/50 transition-all duration-200 focus:border-[#d4a017]/50 focus:outline-none focus:ring-2 focus:ring-[#d4a017]/15 focus:bg-white";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3">
-      <div className="grid grid-cols-1 gap-4">
-        <div className="space-y-1.5 w-full  ">
-          <label className="text-md text-ink font-bold">
-            Full name
+    <form onSubmit={handleSubmit} className="w-full space-y-5">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <div className="space-y-1.5">
+          <label htmlFor="full_name" className="block text-xs font-bold uppercase tracking-wider text-[#5d6f68]">
+            Full name <span className="text-red-500">*</span>
           </label>
-          <input name="full_name" value={form.full_name} onChange={handleChange} placeholder="Your full name" required className={inputClass}  />
+          <input
+            id="full_name" name="full_name" value={form.full_name}
+            onChange={handleChange} placeholder="Your full name" required
+            className={inputClass}
+          />
         </div>
         <div className="space-y-1.5">
-          <label className="block text-xs font-bold text-ink/80">
+          <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-[#5d6f68]">
             Email <span className="text-red-500">*</span>
           </label>
-          <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="you@example.com" required className={inputClass} />
+          <input
+            id="email" name="email" type="email" value={form.email}
+            onChange={handleChange} placeholder="you@example.com" required
+            className={inputClass}
+          />
         </div>
       </div>
 
       <div className="space-y-1.5">
-        <label className="block text-xs font-bold text-white/80">Phone</label>
-        <input name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="+251 9XX XXX XXX" className={inputClass} />
+        <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-[#5d6f68]">
+          Phone <span className="text-xs font-normal normal-case text-[#5d6f68]/60">(optional)</span>
+        </label>
+        <input
+          id="phone" name="phone" type="tel" value={form.phone}
+          onChange={handleChange} placeholder="+251 9XX XXX XXX"
+          className={inputClass}
+        />
       </div>
 
       <div className="space-y-1.5">
-        <label className="block text-xs font-bold text-white/80">
+        <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-[#5d6f68]">
           Message <span className="text-red-500">*</span>
         </label>
         <textarea
-          name="message"
-          value={form.message}
-          onChange={handleChange}
-          rows={5}
-          placeholder="How can we help you?"
-          required
-          className={`${inputClass} resize-none`}
+          id="message" name="message" value={form.message}
+          onChange={handleChange} rows={5} placeholder="How can we help you?" required
+          className={`${inputClass} resize-y min-h-[120px]`}
         />
       </div>
 
       {status === "success" && (
-        <div className="flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
-          <CheckCircle2 size={16} className="shrink-0" />
-          Message sent. We will get back to you within 24 hours.
+        <div className="flex items-start gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3.5 text-sm text-emerald-800">
+          <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-emerald-600" />
+          Message sent. We'll get back to you within 24 hours.
         </div>
       )}
       {status === "error" && (
-        <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+        <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3.5 text-sm text-red-700">
           Something went wrong. Please try again.
         </div>
       )}
@@ -90,10 +100,13 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={loading}
-        className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-yellow-800 text-lg text-white hover:bg-black/50 disabled:cursor-not-allowed disabled:opacity-60"
+        className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#0e241d] text-sm font-bold text-white transition-colors hover:bg-[#16382e] focus:outline-none focus:ring-2 focus:ring-[#d4a017]/40 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {loading ? <Loader2 size={17} className="animate-spin" /> : <Send size={17} />}
-        {loading ? "Sending..." : "Send message"}
+        {loading ? (
+          <><Loader2 size={16} className="animate-spin" /> Sending...</>
+        ) : (
+          <><Send size={16} /> Send message</>
+        )}
       </button>
     </form>
   );

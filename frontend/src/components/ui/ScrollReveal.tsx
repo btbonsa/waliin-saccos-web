@@ -16,8 +16,8 @@ export default function ScrollReveal({
   className,
   delay = 0,
   direction = "up",
-  distance = 28,
-  duration = 0.2,
+  distance = 40,
+  duration = 0.6,
   once = true,
 }: ScrollRevealProps) {
   const axis = {

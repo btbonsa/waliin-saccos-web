@@ -1,54 +1,133 @@
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react";
+import { motion } from "motion/react";
 import ContactForm from "../features/contact/components/contactForm";
-import PageHero from "../components/ui/page-hero";
 import Container from "../components/ui/container";
 import ScrollReveal from "../components/ui/ScrollReveal";
+import banner from "../assets/banner.png";
 
-const contactInfo = [
+const INFO = [
   { icon: MapPin, label: "Office Address", value: "Holeta 44 Gamoo Jalala Cafe Harmonay Gubba, Biroo 204, Ethiopia" },
-  { icon: Phone, label: "Phone", value: "+251 911 915 610" },
-  { icon: Mail, label: "Email", value: "hailudelesa16@gmail.com" },
-  { icon: Clock, label: "Working hours", value: "Mon – Fri, 8:00 AM – 5:00 PM" },
+  { icon: Phone,  label: "Phone",          value: "+251 911 915 610" },
+  { icon: Mail,   label: "Email",          value: "hailudelesa16@gmail.com" },
+  { icon: Clock,  label: "Working Hours",  value: "Mon – Fri, 8:00 AM – 5:00 PM" },
 ];
 
 export default function Contact() {
   return (
-    <div>
-      <PageHero
-        eyebrow="Reach out"
-        title="A cooperative that has your back"
-        description="Questions about membership, savings, or loans? Visit us in Holeta or send a message."
-      />
+    <div className="bg-white">
 
-      <section className="bg-white py-20 sm:py-24">
-        <Container className="grid gap-12 lg:grid-cols-5 lg:gap-20">
-          <div className="space-y-6 lg:col-span-2">
+      <section className="relative overflow-hidden" style={{ height: 420 }}>
+        <motion.img
+          src={banner}
+          alt=""
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.06 }}
+          transition={{ duration: 12, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0e241d]/95 via-[#0e241d]/60 to-[#0e241d]/30" />
+        <div className="absolute top-0 inset-x-0 h-[3px] bg-[#d4a017]" />
+
+        <Container className="relative flex h-full flex-col justify-end pb-12">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-3 text-xs font-bold uppercase tracking-widest text-[#d4af5a]"
+          >
+            Reach out
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.07 }}
+            className="text-3xl sm:text-5xl font-bold text-white leading-tight max-w-2xl"
+          >
+            A cooperative that<br className="hidden sm:block" /> has your back
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.14 }}
+            className="mt-3 max-w-lg text-sm leading-relaxed text-white/60"
+          >
+            Questions about membership, savings, or loans? Visit us in Holeta or send a message.
+          </motion.p>
+        </Container>
+      </section>
+
+      {/* ── Main content ── */}
+      <section className="py-16 sm:py-24">
+        <Container className="grid gap-12 lg:grid-cols-5 lg:gap-16">
+
+          {/* Left — info */}
+          <div className="lg:col-span-2 space-y-8">
             <ScrollReveal direction="left">
-              <p className="text-lg font-bold uppercase tracking-widest text-[#d4a017]">Contact</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-[#d4a017]">Contact info</p>
+              <h2 className="mt-2 text-2xl font-bold text-[#0e241d]">Get in touch</h2>
+              <p className="mt-2 text-sm leading-relaxed text-[#5d6f68]">
+                We're here to help. Reach out through any of the channels below.
+              </p>
             </ScrollReveal>
-            {contactInfo.map((info, i) => (
-              <ScrollReveal key={info.label} delay={i * 0.06} direction="left">
-                <div className="flex items-start gap-4 rounded-2xl">
-                  <div className="rounded-full bg-[#f5f3ef] p-3 shrink-0">
-                    <info.icon className="h-5 w-5 text-[#d4a017]" />
+
+            <div className="space-y-4">
+              {INFO.map((item, i) => (
+                <ScrollReveal key={item.label} delay={i * 0.07} direction="left">
+                  <div className="flex items-start gap-4 rounded-2xl border border-[#e6e0d6] bg-white p-5 group hover:border-[#d4a017]/40 transition-colors">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#f7f5f0] group-hover:bg-[#d4a017] transition-colors">
+                      <item.icon className="h-5 w-5 text-[#d4a017] group-hover:text-white transition-colors" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs font-bold uppercase tracking-wider text-[#5d6f68]">{item.label}</p>
+                      <p className="mt-1 text-sm font-semibold text-[#0e241d] break-words">{item.value}</p>
+                    </div>
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-md font-bold text-[#5d6f68]">{info.label}</p>
-                    <p className="mt-1 text-md break-words text-[#000]">{info.value}</p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
+                </ScrollReveal>
+              ))}
+            </div>
+
+            {/* CTA card */}
+            <ScrollReveal direction="left" delay={0.3}>
+              <div className="rounded-2xl bg-[#0e241d] p-6 text-white">
+                <p className="text-sm font-bold">Want to become a member?</p>
+                <p className="mt-1 text-xs leading-relaxed text-white/60">
+                  Join Waliin SACCO today and start saving toward your goals.
+                </p>
+                <a
+                  href="/login"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#d4af5a] hover:text-[#d4a017] transition-colors"
+                >
+                  Apply now <ArrowRight size={13} />
+                </a>
+              </div>
+            </ScrollReveal>
           </div>
 
+          {/* Right — form */}
           <ScrollReveal direction="right" className="lg:col-span-3">
-            <div className="rounded-3xl shadow-lg bg-white p-10 sm:p-12 w-140">
-              <h2 className="text-2xl sm:text-3xl font-bold text-ink">Send us a message</h2>
-              <p className="mt-2 mb-8 text-sm text-muted">We aim to respond to all inquiries within 24 business hours.</p>
+            <div className="rounded-2xl border border-[#e6e0d6] bg-white p-8 sm:p-10">
+              <h2 className="text-2xl font-bold text-[#0e241d]">Send us a message</h2>
+              <p className="mt-1 mb-8 text-sm text-[#5d6f68]">
+                We aim to respond to all inquiries within 24 business hours.
+              </p>
               <ContactForm />
             </div>
           </ScrollReveal>
+
         </Container>
+      </section>
+
+      {/* ── Map strip ── */}
+      <section className="border-t border-[#e6e0d6]">
+        <iframe
+          title="Waliin SACCO location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.5!2d38.5!3d9.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zSG9sZXRh!5e0!3m2!1sen!2set!4v1"
+          width="100%"
+          height="340"
+          style={{ border: 0, display: "block" }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
       </section>
     </div>
   );

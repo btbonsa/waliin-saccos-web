@@ -5,16 +5,37 @@ import SectionHeader from "../components/ui/section-header";
 import FeatureCard from "../components/ui/feature-card";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import hailuImage from "../assets/hailu.png";
+
 const leadership = [
-  { name: "Hailu Delesa", role: "Chairman", initials: "HD" },
+  { name: "Hailu Delesa", role: "Chairman", image: hailuImage },
 ];
 
 const coreValues = [
-  { value: "Equality", icon: "⚖️", desc: "All members have the same rights and responsibilities within the organization." },
-  { value: "Solidarity", icon: "🤝", desc: "Members stand united and support one another through shared common goals." },
-  { value: "Self-help", icon: "💪", desc: "Members rely on their own efforts and capabilities to improve their lives." },
-  { value: "Self-responsibility", icon: "🎯", desc: "Individuals take personal accountability for the group's success and well-being." },
-  { value: "Democracy", icon: "🗳️", desc: "Members have an equal voice in running the cooperative." },
+  {
+    value: "Equality",
+    icon: "⚖️",
+    desc: "All members have the same rights and responsibilities within the organization.",
+  },
+  {
+    value: "Solidarity",
+    icon: "🤝",
+    desc: "Members stand united and support one another through shared common goals.",
+  },
+  {
+    value: "Self-help",
+    icon: "💪",
+    desc: "Members rely on their own efforts and capabilities to improve their lives.",
+  },
+  {
+    value: "Self-responsibility",
+    icon: "🎯",
+    desc: "Individuals take personal accountability for the group's success and well-being.",
+  },
+  {
+    value: "Democracy",
+    icon: "🗳️",
+    desc: "Members have an equal voice in running the cooperative.",
+  },
 ];
 
 const ethicalValues = [
@@ -24,6 +45,21 @@ const ethicalValues = [
   { value: "Participation", icon: "🗳️" },
   { value: "Social Responsibility", icon: "🌱" },
   { value: "Consideration for Others", icon: "💛" },
+];
+
+const missionVision = [
+  {
+    icon: Target,
+    title: "Our Vision",
+    description:
+      "By the year 2030 E.C, the members will be middle-income, entrepreneurs, and be freed from poverty.",
+  },
+  {
+    icon: Eye,
+    title: "Our Mission",
+    description:
+      "To meet the fundamental needs of members by providing convenient, accessible, and efficient financial services, while building a sustainable and inclusive financial institution through a skilled and ethically grounded workforce, the use of modern technology, and continuous public awareness creation.",
+  },
 ];
 
 export default function About() {
@@ -36,33 +72,29 @@ export default function About() {
         image="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1800&q=80"
       />
 
-      <section id="mission" className="bg-white py-20">
+      {/* Mission & Vision */}
+      <section id="mission" className="bg-white py-16 sm:py-20 lg:py-24">
         <Container>
           <ScrollReveal>
             <SectionHeader eyebrow="Purpose" title="Mission and Vision" />
           </ScrollReveal>
-          <div className="mt-14 grid gap-6 md:grid-cols-2 h-full">
-            {[
-              {
-                icon: Target,
-                title: "Our Vision",
-                description: "By the year 2030 E.C, the members will be middle-income, entrepreneurs, and be freed from poverty.",
-              },
-              {
-                icon: Eye,
-                title: "Our Mission",
-                description: "To meet the fundamental needs of members by providing convenient, accessible, and efficient financial services, while building a sustainable and inclusive financial institution through a skilled and ethically grounded workforce, the use of modern technology, and continuous public awareness creation.",
-              },
-            ].map((card, i) => (
-              <ScrollReveal key={card.title} delay={i * 0.1} direction={i === 0 ? "left" : "right"}>
-                <FeatureCard {...card} className="h-80" />
+
+          <div className="mt-10 grid gap-6 sm:mt-12 md:grid-cols-2 lg:mt-14">
+            {missionVision.map((card, i) => (
+              <ScrollReveal
+                key={card.title}
+                delay={i * 0.1}
+                direction={i === 0 ? "left" : "right"}
+              >
+                <FeatureCard {...card} className="h-full min-h-[280px] sm:min-h-[320px]" />
               </ScrollReveal>
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="bg-white py-20">
+      {/* Core & Ethical Values */}
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
         <Container>
           <ScrollReveal>
             <SectionHeader
@@ -73,62 +105,92 @@ export default function About() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.1} direction="up">
-            <div className="mt-12 rounded-3xl border border-line bg-white shadow-sm overflow-hidden">
+            <div className="mt-10 overflow-hidden rounded-2xl border border-line bg-white shadow-sm sm:mt-12 sm:rounded-3xl">
+              {/* Accent bar */}
               <div className="h-1.5 w-full bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-400" />
-              <div className="p-8 sm:p-12">
 
+              <div className="p-6 sm:p-8 lg:p-12">
                 {/* Core Values */}
                 <div>
-                  <h4 className="mt-1 text-xl font-bold text-ink">Our Core Values</h4>
-                  <p className="mt-1 mb-5 text-sm text-muted">The principles that guide every decision we make.</p>
-                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  <h3 className="text-lg font-bold text-ink sm:text-xl">
+                    Our Core Values
+                  </h3>
+                  <p className="mt-1 text-sm text-muted">
+                    The principles that guide every decision we make.
+                  </p>
+
+                  <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                     {coreValues.map((v) => (
-                      <div key={v.value} className="flex flex-col gap-2 rounded-2xl border border-yellow-200 bg-yellow-50 px-5 py-4 hover:bg-yellow-100 transition-colors">
-                        <span className="text-2xl">{v.icon}</span>
-                        <p className="text-sm font-bold text-yellow-800">{v.value}</p>
-                        <p className="text-xs leading-relaxed text-muted">{v.desc}</p>
+                      <div
+                        key={v.value}
+                        className="flex flex-col gap-2 rounded-2xl border border-yellow-200 bg-yellow-50 px-4 py-4 transition-colors hover:bg-yellow-100 sm:px-5"
+                      >
+                        <span className="text-2xl" aria-hidden="true">
+                          {v.icon}
+                        </span>
+                        <p className="text-sm font-bold text-yellow-800">
+                          {v.value}
+                        </p>
+                        <p className="text-xs leading-relaxed text-muted">
+                          {v.desc}
+                        </p>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Ethical Values */}
-                <div className="mt-10">
-                  <h4 className="text-xl font-bold text-ink mb-5">Ethical Values</h4>
-                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                <div className="mt-10 sm:mt-12">
+                  <h3 className="text-lg font-bold text-ink sm:text-xl">
+                    Ethical Values
+                  </h3>
+
+                  <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
                     {ethicalValues.map((v) => (
-                      <div key={v.value} className="flex flex-col items-center gap-2 rounded-2xl border border-yellow-200 bg-yellow-50 px-4 py-5 text-center hover:bg-yellow-100 transition-colors">
-                        <span className="text-2xl">{v.icon}</span>
-                        <span className="text-xs font-bold text-yellow-800">{v.value}</span>
+                      <div
+                        key={v.value}
+                        className="flex flex-col items-center gap-2 rounded-2xl border border-yellow-200 bg-yellow-50 px-3 py-4 text-center transition-colors hover:bg-yellow-100 sm:px-4 sm:py-5"
+                      >
+                        <span className="text-2xl" aria-hidden="true">
+                          {v.icon}
+                        </span>
+                        <span className="text-xs font-bold leading-snug text-yellow-800">
+                          {v.value}
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
-
-          
-
               </div>
             </div>
           </ScrollReveal>
         </Container>
       </section>
 
-      <section id="leadership" className="bg-white py-20">
+      {/* Leadership */}
+      <section id="leadership" className="bg-white py-16 sm:py-20 lg:py-24">
         <Container>
           <ScrollReveal>
             <SectionHeader
               title="Our leadership"
-              description="Professionals stewarding Waliin SACCO Ltd on behalf of members."
+              description="Professionals stewarding Walin SACCO Ltd on behalf of members."
             />
           </ScrollReveal>
-          <div className="flex justify-center items-center py-20 w-full">
+
+          <div className="mt-10 flex justify-center sm:mt-12">
             {leadership.map((person, i) => (
               <ScrollReveal key={person.name} delay={i * 0.08}>
-                <div className="rounded-2xl shadow-lg bg-white p-6 sm:p-8 text-center w-80">
-                  <div className="mx-auto h-20 w-20 overflow-hidden rounded-full border-2 border-yellow-400">
-                    <img src={hailuImage} alt={person.name} className="h-full w-full object-cover" />
+                <div className="w-full max-w-xs rounded-2xl bg-white p-6 text-center shadow-lg sm:p-8">
+                  <div className="mx-auto h-20 w-20 overflow-hidden rounded-full border-2 border-yellow-400 sm:h-24 sm:w-24">
+                    <img
+                      src={person.image}
+                      alt={person.name}
+                      className="h-full w-full object-cover"
+                    />
                   </div>
-                  <p className="mt-4 font-bold text-base sm:text-lg">{person.name}</p>
+                  <p className="mt-4 text-base font-bold text-ink sm:text-lg">
+                    {person.name}
+                  </p>
                   <p className="mt-1 text-sm text-muted">{person.role}</p>
                 </div>
               </ScrollReveal>

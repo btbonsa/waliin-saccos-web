@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import logo from "../../assets/logo.jpg";
@@ -13,33 +13,34 @@ const LANGUAGES: { code: Lang; label: string; short: string }[] = [
   { code: "om", label: "Oromiffa", short: "OM" },
 ];
 
-const navLinks = [
-  { key: "home" as const, path: "/" },
+const NAV_LINKS = [
+  { key: "home"     as const, path: "/" },
   { key: "services" as const, path: "/services" },
-  { key: "news" as const, path: "/news" },
-  { key: "contact" as const, path: "/contact" },
+  { key: "news"     as const, path: "/news" },
+  { key: "contact"  as const, path: "/contact" },
 ];
 
-const aboutSubLinks = [
-  { key: "overview" as const, path: "/about" },
+const ABOUT_SUB = [
+  { key: "overview"      as const, path: "/about" },
   { key: "missionVision" as const, path: "/about#mission" },
-  { key: "leadership" as const, path: "/about#leadership" },
+  { key: "leadership"    as const, path: "/about#leadership" },
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen]               = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [langOpen, setLangOpen] = useState(false);
+  const [scrolled, setScrolled]           = useState(false);
+  const [langOpen, setLangOpen]           = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
   const { lang, setLang, t } = useLang();
   const activeLang = LANGUAGES.find((l) => l.code === lang)!;
+  const location = useLocation();
+  const isAboutActive = location.pathname.startsWith("/about");
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+      if (langRef.current && !langRef.current.contains(e.target as Node))
         setLangOpen(false);
-      }
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
@@ -53,59 +54,81 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
-
-  const linkClass = ({ isActive }: { isActive: boolean }) =>
-    cn(
-      "rounded-lg px-3 py-2 text-lg transition-colors",
-      isActive ? "text-forest" : "text-muted hover:text-ink",
-    );
 
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b transition-all duration-300",
-        scrolled
-          ? "border-line bg-white shadow-sm backdrop-blur-xl"
-          : "border-transparent bg-white backdrop-blur-md",
+        "sticky top-0 z-50 border-b transition-all duration-300 bg-white",
+        scrolled ? "border-[#e6e0d6] shadow-sm" : "border-transparent",
       )}
     >
-      <div className="mx-auto flex h-[80px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3">
+      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-3 shrink-0">
           <img
             src={logo}
             alt="Waliin SACCO Ltd"
-            className="h-10 w-10 rounded-full border border-line object-cover"
+            className="h-10 w-10 rounded-full border border-[#e6e0d6] object-cover"
           />
           <div className="leading-tight">
-            <p className="text-md font-bold text-ink">Waliin</p>
-            <p className="text-[11px] text-muted">SACCO Ltd</p>
+            <p className="text-sm font-bold text-[#0e241d]">Waliin</p>
+            <p className="text-[10px] text-[#5d6f68]">SACCO Ltd</p>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex text-lg">
-          <NavLink to="/" end className={linkClass}>
-            {t("home")}
+        {/* Desktop nav */}
+        <nav className="hidden items-center gap-0 md:flex">
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) =>
+              cn(
+                "relative px-4 py-2 text-sm font-semibold transition-colors",
+                isActive ? "text-[#0e241d]" : "text-[#5d6f68] hover:text-[#0e241d]",
+              )
+            }
+          >
+            {({ isActive }) => (
+              <>
+                {t("home")}
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-underline"
+                    className="absolute bottom-0 inset-x-4 h-[2px] rounded-full bg-[#d4a017]"
+                  />
+                )}
+              </>
+            )}
           </NavLink>
 
+          {/* About dropdown */}
           <div className="group relative">
             <Link
               to="/about"
-              className="flex items-center gap-1 rounded-lg px-3 py-2 text-lg text-muted hover:text-ink"
+              className={cn(
+                "relative flex items-center gap-1 px-4 py-2 text-sm font-semibold transition-colors",
+                isAboutActive ? "text-[#0e241d]" : "text-[#5d6f68] hover:text-[#0e241d]",
+              )}
             >
               {t("about")}
-              <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />
+              <ChevronDown size={13} className="transition-transform duration-200 group-hover:rotate-180" />
+              {isAboutActive && (
+                <motion.span
+                  layoutId="nav-underline"
+                  className="absolute bottom-0 inset-x-4 h-[2px] rounded-full bg-[#d4a017]"
+                />
+              )}
             </Link>
-            <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-all group-hover:visible group-hover:opacity-100">
-              <div className="w-52 overflow-hidden rounded-2xl border border-line bg-paper py-2 shadow-lg">
-                {aboutSubLinks.map((sub) => (
+            <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+              <div className="w-52 overflow-hidden rounded-xl border border-[#e6e0d6] bg-white py-1.5 shadow-lg">
+                {ABOUT_SUB.map((sub) => (
                   <Link
                     key={sub.path}
                     to={sub.path}
-                    className="block px-4 py-2.5 text-sm font-bold text-muted hover:bg-cream hover:text-ink"
+                    className="block px-4 py-2.5 text-sm text-[#5d6f68] hover:bg-[#f7f5f0] hover:text-[#0e241d] transition-colors"
                   >
                     {t(sub.key)}
                   </Link>
@@ -114,23 +137,43 @@ export default function Navbar() {
             </div>
           </div>
 
-          {navLinks.slice(1).map((link) => (
-            <NavLink key={link.path} to={link.path} className={linkClass}>
-              {t(link.key)}
+          {NAV_LINKS.slice(1).map((link) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              className={({ isActive }) =>
+                cn(
+                  "relative px-4 py-2 text-sm font-semibold transition-colors",
+                  isActive ? "text-[#0e241d]" : "text-[#5d6f68] hover:text-[#0e241d]",
+                )
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  {t(link.key)}
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 inset-x-4 h-[2px] rounded-full bg-[#d4a017]"
+                    />
+                  )}
+                </>
+              )}
             </NavLink>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-4 md:flex">
+        {/* Right side */}
+        <div className="hidden items-center gap-3 md:flex">
           {/* Language picker */}
           <div ref={langRef} className="relative">
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-bold text-muted hover:text-ink transition-colors"
+              className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-semibold text-[#5d6f68] hover:text-[#0e241d] transition-colors"
             >
               <Globe size={14} />
               {activeLang.short}
-              <ChevronDown size={12} className={`transition-transform ${langOpen ? "rotate-180" : ""}`} />
+              <ChevronDown size={12} className={`transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`} />
             </button>
             <AnimatePresence>
               {langOpen && (
@@ -139,19 +182,19 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 6, scale: 0.97 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute right-0 top-full mt-2 w-36 overflow-hidden rounded-2xl border border-line bg-white shadow-lg"
+                  className="absolute right-0 top-full mt-2 w-36 overflow-hidden rounded-xl border border-[#e6e0d6] bg-white shadow-lg"
                 >
                   {LANGUAGES.map((l) => (
                     <button
                       key={l.code}
                       onClick={() => { setLang(l.code); setLangOpen(false); }}
                       className={cn(
-                        "flex w-full items-center justify-between px-4 py-2.5 text-sm transition-colors hover:bg-gray-50",
-                        lang === l.code ? "font-bold text-forest" : "text-muted"
+                        "flex w-full items-center justify-between px-4 py-2.5 text-sm transition-colors hover:bg-[#f7f5f0]",
+                        lang === l.code ? "font-bold text-[#0e241d]" : "text-[#5d6f68]",
                       )}
                     >
                       {l.label}
-                      {lang === l.code && <span className="h-1.5 w-1.5 rounded-full bg-yellow-500" />}
+                      {lang === l.code && <span className="h-1.5 w-1.5 rounded-full bg-[#d4a017]" />}
                     </button>
                   ))}
                 </motion.div>
@@ -159,95 +202,135 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          <Link to="/login" className="text-sm font-bold text-muted hover:text-ink">
-            {t("signIn")}
-          </Link>
           <Link
             to="/login"
-            className="inline-flex h-10 items-center rounded-full bg-yellow-500 px-5 text-sm font-bold text-white hover:bg-yellow-500 hover:text-white hover:brightness-105 transition-all"
+            className="text-sm font-semibold text-[#5d6f68] hover:text-[#0e241d] transition-colors"
+          >
+            {t("signIn")}
+          </Link>
+
+          <Link
+            to="/login"
+            className="inline-flex h-10 items-center rounded-full bg-[#0e241d] px-5 text-sm font-bold text-white hover:bg-[#16382e] transition-colors"
           >
             {t("becomeMember")}
           </Link>
         </div>
 
+        {/* Mobile hamburger */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex h-10 w-10 items-center justify-center rounded-xl border border-line text-ink md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#e6e0d6] text-[#0e241d] md:hidden"
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
+      {/* Mobile drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-line bg-paper md:hidden"
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden border-t border-[#e6e0d6] bg-white md:hidden"
           >
-            <div className="space-y-1 px-4 py-4">
+            <div className="space-y-0.5 px-4 py-4">
               <NavLink
                 to="/"
                 end
                 onClick={() => setIsOpen(false)}
                 className={({ isActive }) =>
-                  cn("block rounded-xl px-4 py-3 text-sm font-bold", isActive ? "bg-yellow-500 text-ink" : "text-muted")
+                  cn(
+                    "block rounded-xl px-4 py-3 text-sm font-semibold transition-colors",
+                    isActive
+                      ? "bg-[#f7f5f0] text-[#0e241d] border-l-2 border-[#d4a017]"
+                      : "text-[#5d6f68] hover:bg-[#f7f5f0] hover:text-[#0e241d]",
+                  )
                 }
               >
                 {t("home")}
               </NavLink>
 
+              {/* About accordion */}
               <button
                 onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
-                className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-bold text-muted"
+                className={cn(
+                  "flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition-colors",
+                  isAboutActive
+                    ? "bg-[#f7f5f0] text-[#0e241d] border-l-2 border-[#d4a017]"
+                    : "text-[#5d6f68] hover:bg-[#f7f5f0] hover:text-[#0e241d]",
+                )}
               >
                 {t("about")}
-                <ChevronDown size={16} className={mobileAboutOpen ? "rotate-180" : ""} />
+                <ChevronDown
+                  size={16}
+                  className={`transition-transform duration-200 ${mobileAboutOpen ? "rotate-180" : ""}`}
+                />
               </button>
-              {mobileAboutOpen && (
-                <div className="ml-4 space-y-1 border-l border-line pl-3">
-                  {aboutSubLinks.map((sub) => (
-                    <Link
-                      key={sub.path}
-                      to={sub.path}
-                      onClick={() => {
-                        setIsOpen(false);
-                        setMobileAboutOpen(false);
-                      }}
-                      className="block rounded-lg px-3 py-2 text-sm text-muted"
-                    >
-                      {t(sub.key)}
-                    </Link>
-                  ))}
-                </div>
-              )}
+              <AnimatePresence>
+                {mobileAboutOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="overflow-hidden ml-4 border-l border-[#e6e0d6] pl-3"
+                  >
+                    {ABOUT_SUB.map((sub) => (
+                      <Link
+                        key={sub.path}
+                        to={sub.path}
+                        onClick={() => { setIsOpen(false); setMobileAboutOpen(false); }}
+                        className="block rounded-lg px-3 py-2.5 text-sm text-[#5d6f68] hover:text-[#0e241d] transition-colors"
+                      >
+                        {t(sub.key)}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
-              {navLinks.slice(1).map((link) => (
+              {NAV_LINKS.slice(1).map((link) => (
                 <NavLink
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
-                    cn("block rounded-xl px-4 py-3 text-sm font-bold", isActive ? "bg-yellow-500 text-ink" : "text-muted")
+                    cn(
+                      "block rounded-xl px-4 py-3 text-sm font-semibold transition-colors",
+                      isActive
+                        ? "bg-[#f7f5f0] text-[#0e241d] border-l-2 border-[#d4a017]"
+                        : "text-[#5d6f68] hover:bg-[#f7f5f0] hover:text-[#0e241d]",
+                    )
                   }
                 >
                   {t(link.key)}
                 </NavLink>
               ))}
 
-              <Link
-                to="/login"
-                onClick={() => setIsOpen(false)}
-                className="mt-3 block rounded-full bg-yellow-500 px-4 py-3 text-center text-sm font-bold text-white"
-              >
-                {t("becomeMember")}
-              </Link>
+              <div className="pt-3 border-t border-[#e6e0d6] mt-3 space-y-2">
+                <Link
+                  to="/login"
+                  onClick={() => setIsOpen(false)}
+                  className="block rounded-xl px-4 py-3 text-sm font-semibold text-[#5d6f68] hover:bg-[#f7f5f0] hover:text-[#0e241d] transition-colors"
+                >
+                  {t("signIn")}
+                </Link>
+                <Link
+                  to="/login"
+                  onClick={() => setIsOpen(false)}
+                  className="block rounded-full bg-[#0e241d] px-4 py-3 text-center text-sm font-bold text-white hover:bg-[#16382e] transition-colors"
+                >
+                  {t("becomeMember")}
+                </Link>
+              </div>
 
               {/* Mobile language picker */}
-              <div className="mt-4 border-t border-line pt-4">
-                <p className="mb-2 flex items-center gap-1.5 px-1 text-xs font-bold uppercase tracking-widest text-muted">
+              <div className="mt-4 border-t border-[#e6e0d6] pt-4">
+                <p className="mb-2 flex items-center gap-1.5 px-1 text-xs font-bold uppercase tracking-widest text-[#5d6f68]">
                   <Globe size={12} /> {t("language")}
                 </p>
                 <div className="flex gap-2">
@@ -258,8 +341,8 @@ export default function Navbar() {
                       className={cn(
                         "flex-1 rounded-xl py-2 text-sm font-bold transition-colors",
                         lang === l.code
-                          ? "bg-forest text-white"
-                          : "bg-gray-100 text-muted hover:bg-gray-200"
+                          ? "bg-[#0e241d] text-white"
+                          : "bg-[#f7f5f0] text-[#5d6f68] hover:bg-[#e6e0d6]",
                       )}
                     >
                       {l.short}

@@ -10,17 +10,14 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
-import savingsImg from "../assets/savingandLoan.png";
-
-const UNSPLASH = {
-  social:       "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=70",
-  business:     "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=70",
-  housing:      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=70",
-  vehicle:      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=70",
-  bajaj:        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=70",
-  salary:       "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=70",
-  professional: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=70",
-};
+import savingsImg      from "../assets/service/saving and loan.png";
+import socialImg       from "../assets/service/socail.png";
+import businessImg     from "../assets/service/business saving and loan.png";
+import housingImg      from "../assets/service/house saving.png";
+import vehicleImg      from "../assets/service/vehicle loan.png";
+import bajajImg        from "../assets/service/tuk tuk.png";
+import salaryImg       from "../assets/service/salary.png";
+import professionalImg from "../assets/service/profetional.png";
 
 export interface LoanTier {
   label: string;
@@ -87,7 +84,7 @@ export const SERVICES: ServiceDetail[] = [
     id: "qusanna-hawaasummaa",
     title: "Qusanna Hawaasummaa",
     subtitle: "Social Saving",
-    image: UNSPLASH.social,
+    image: socialImg,
     description:
       "Community-focused savings that unlock social loans based on your consistent 25% savings record.",
     overview:
@@ -106,7 +103,7 @@ export const SERVICES: ServiceDetail[] = [
     id: "qusannoo-daldalaa",
     title: "Qusannoo Daldalaa",
     subtitle: "Business Savings & Loan",
-    image: UNSPLASH.business,
+    image: businessImg,
     description:
       "Grow your trade with business savings and loans tied to 30% continuous savings.",
     overview:
@@ -125,7 +122,7 @@ export const SERVICES: ServiceDetail[] = [
     id: "qusannoo-manaa",
     title: "Qusannoo Manaa",
     subtitle: "Housing Savings & Loan",
-    image: UNSPLASH.housing,
+    image: housingImg,
     description:
       "Save toward renovating, building, or buying a home with housing credit up to ETB 2 million.",
     overview:
@@ -144,7 +141,7 @@ export const SERVICES: ServiceDetail[] = [
     id: "qusannoo-konkolaataa",
     title: "Qusannoo Konkolaataa",
     subtitle: "Vehicle Loan",
-    image: UNSPLASH.vehicle,
+    image: vehicleImg,
     description:
       "Purchase a vehicle after six months of 30% continuous savings, with limits up to ETB 2 million.",
     overview:
@@ -161,7 +158,7 @@ export const SERVICES: ServiceDetail[] = [
     id: "qusannoo-baajaajii",
     title: "Qusannoo Baajaajii",
     subtitle: "Bajaj / Tuk-Tuk Loan",
-    image: UNSPLASH.bajaj,
+    image: bajajImg,
     description:
       "Finance a three-wheeler for livelihood after 4–6 months of 30% savings, up to ETB 1 million.",
     overview:
@@ -178,7 +175,7 @@ export const SERVICES: ServiceDetail[] = [
     id: "qusannoo-liqii-mindaa",
     title: "Qusannoo Liqii Mindaa",
     subtitle: "Salary Advance Loan",
-    image: UNSPLASH.salary,
+    image: salaryImg,
     description:
       "Salary-backed credit for employed members, including emergency advances of up to four months’ net pay.",
     overview:
@@ -196,7 +193,7 @@ export const SERVICES: ServiceDetail[] = [
     id: "qusannaa-oogeesootaa",
     title: "Qusannaa Oogeesootaa",
     subtitle: "Professional Savings & Loan",
-    image: UNSPLASH.professional,
+    image: professionalImg,
     description:
       "Credit for experienced professionals starting or expanding a practice after five or more years of service.",
     overview:

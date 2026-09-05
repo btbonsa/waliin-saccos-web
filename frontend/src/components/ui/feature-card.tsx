@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import type { LucideIcon } from "lucide-react";
 import { cn } from "./utils";
 
@@ -13,17 +14,23 @@ export default function FeatureCard({
   className?: string;
 }) {
   return (
-    <article
+    <motion.article
+      whileHover={{ y: -8, boxShadow: "0 20px 40px -12px rgba(0,0,0,0.12)" }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
       className={cn(
-        "group rounded-4xl shadow shadow-lg bg-white p-5 sm:p-7 transition-shadow duration-600 transition-all hover:-translate-y-3",
+        "group rounded-3xl bg-white border border-[#e6e0d6] p-6 sm:p-8 cursor-default",
         className,
       )}
     >
-      <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-green-200 text-green-900 font-bold hover:bg-green-300 transition-all duration-600 group-hover:bg-green-900 group-hover:text-white">
-        <Icon className="h-6 w-6" strokeWidth={1.75} />
-      </div>
-      <h3 className="mb-2 text-xl font-bold text-ink">{title}</h3>
-      <p className="text-md leading-relaxed text-muted">{description}</p>
-    </article>
+      <motion.div
+        whileHover={{ scale: 1.15, rotate: -6 }}
+        transition={{ type: "spring", stiffness: 400, damping: 15 }}
+        className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-green-100 text-green-900 group-hover:bg-green-900 group-hover:text-white transition-colors duration-300"
+      >
+        <Icon className="h-5 w-5" strokeWidth={1.75} />
+      </motion.div>
+      <h3 className="mb-2 text-lg font-bold text-ink">{title}</h3>
+      <p className="text-sm leading-relaxed text-muted">{description}</p>
+    </motion.article>
   );
 }
