@@ -9,6 +9,8 @@ import {
   Bike,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import type { Lang } from "../context/LanguageContext";
+import serviceTranslations from "./serviceTranslations.json";
 
 import savingsImg      from "../assets/service/saving and loan.png";
 import socialImg       from "../assets/service/socail.png";
@@ -39,6 +41,10 @@ export interface ServiceDetail {
   subTypes?: { name: string; desc: string }[];
   image?: string;
 }
+
+type ServiceCopy = Partial<Pick<ServiceDetail, "title" | "subtitle" | "description" | "overview" | "tiers" | "subTypes">>;
+
+const localizedServiceTranslations = serviceTranslations as Partial<Record<Lang, Record<string, ServiceCopy>>>;
 
 export const SERVICES: ServiceDetail[] = [
   {
@@ -210,4 +216,17 @@ export const SERVICES: ServiceDetail[] = [
 
 export function getService(id: string | undefined) {
   return SERVICES.find((s) => s.id === id);
+}
+
+export function getServices(lang: Lang): ServiceDetail[] {
+  const translations = localizedServiceTranslations[lang] ?? localizedServiceTranslations.en ?? {};
+
+  return SERVICES.map((service) => ({
+    ...service,
+    ...translations[service.id],
+  }));
+}
+
+export function getLocalizedService(id: string | undefined, lang: Lang) {
+  return getServices(lang).find((service) => service.id === id);
 }

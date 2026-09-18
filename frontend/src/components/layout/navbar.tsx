@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import logo from "../../assets/logo.jpg";
@@ -27,15 +27,39 @@ const ABOUT_SUB = [
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen]               = useState(false);
-  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
-  const [scrolled, setScrolled]           = useState(false);
-  const [langOpen, setLangOpen]           = useState(false);
-  const langRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen]                   = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen]   = useState(false);
+  const [scrolled, setScrolled]                 = useState(false);
+  const [langOpen, setLangOpen]                 = useState(false);
+  const [aboutOpen, setAboutOpen]               = useState(false);
+  const langRef    = useRef<HTMLDivElement>(null);
+  const aboutRef   = useRef<HTMLDivElement>(null);
+  const aboutTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { lang, setLang, t } = useLang();
   const activeLang = LANGUAGES.find((l) => l.code === lang)!;
-  const location = useLocation();
+  const location  = useLocation();
+  const navigate   = useNavigate();
   const isAboutActive = location.pathname.startsWith("/about");
+
+  const handleAboutSub = useCallback((path: string) => {
+    setAboutOpen(false);
+    const [route, hash] = path.split("#");
+    if (location.pathname === route && hash) {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      navigate(path);
+    }
+  }, [location.pathname, navigate]);
+
+  const openAbout  = useCallback(() => {
+    if (aboutTimer.current) clearTimeout(aboutTimer.current);
+    setAboutOpen(true);
+  }, []);
+
+  const closeAbout = useCallback(() => {
+    aboutTimer.current = setTimeout(() => setAboutOpen(false), 120);
+  }, []);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -105,36 +129,59 @@ export default function Navbar() {
           </NavLink>
 
           {/* About dropdown */}
-          <div className="group relative">
-            <Link
-              to="/about"
+          <div
+            ref={aboutRef}
+            className="relative"
+            onMouseEnter={openAbout}
+            onMouseLeave={closeAbout}
+          >
+            <button
+              type="button"
+              onClick={() => setAboutOpen((v) => !v)}
               className={cn(
                 "relative flex items-center gap-1 px-4 py-2 text-sm font-semibold transition-colors",
-                isAboutActive ? "text-[#0e241d]" : "text-[#5d6f68] hover:text-[#0e241d]",
+                isAboutActive || aboutOpen ? "text-[#0e241d]" : "text-[#5d6f68] hover:text-[#0e241d]",
               )}
             >
               {t("about")}
-              <ChevronDown size={13} className="transition-transform duration-200 group-hover:rotate-180" />
+              <ChevronDown
+                size={13}
+                className={`transition-transform duration-200 ${aboutOpen ? "rotate-180" : ""}`}
+              />
               {isAboutActive && (
                 <motion.span
                   layoutId="nav-underline"
                   className="absolute bottom-0 inset-x-4 h-[2px] rounded-full bg-[#d4a017]"
                 />
               )}
-            </Link>
-            <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
-              <div className="w-52 overflow-hidden rounded-xl border border-[#e6e0d6] bg-white py-1.5 shadow-lg">
-                {ABOUT_SUB.map((sub) => (
-                  <Link
-                    key={sub.path}
-                    to={sub.path}
-                    className="block px-4 py-2.5 text-sm text-[#5d6f68] hover:bg-[#f7f5f0] hover:text-[#0e241d] transition-colors"
-                  >
-                    {t(sub.key)}
-                  </Link>
-                ))}
-              </div>
-            </div>
+            </button>
+
+            <AnimatePresence>
+              {aboutOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 6, scale: 0.97 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 6, scale: 0.97 }}
+                  transition={{ duration: 0.15 }}
+                  onMouseEnter={openAbout}
+                  onMouseLeave={closeAbout}
+                  className="absolute left-0 top-full pt-2 z-50"
+                >
+                  <div className="w-52 overflow-hidden rounded-xl border border-[#e6e0d6] bg-white py-1.5 shadow-lg">
+                    {ABOUT_SUB.map((sub) => (
+                      <button
+                        key={sub.path}
+                        type="button"
+                        onClick={() => handleAboutSub(sub.path)}
+                        className="block w-full text-left px-4 py-2.5 text-sm text-[#5d6f68] hover:bg-[#f7f5f0] hover:text-[#0e241d] transition-colors"
+                      >
+                        {t(sub.key)}
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           {NAV_LINKS.slice(1).map((link) => (
@@ -280,14 +327,14 @@ export default function Navbar() {
                     className="overflow-hidden ml-4 border-l border-[#e6e0d6] pl-3"
                   >
                     {ABOUT_SUB.map((sub) => (
-                      <Link
+                      <button
                         key={sub.path}
-                        to={sub.path}
-                        onClick={() => { setIsOpen(false); setMobileAboutOpen(false); }}
-                        className="block rounded-lg px-3 py-2.5 text-sm text-[#5d6f68] hover:text-[#0e241d] transition-colors"
+                        type="button"
+                        onClick={() => { setIsOpen(false); setMobileAboutOpen(false); handleAboutSub(sub.path); }}
+                        className="block w-full text-left rounded-lg px-3 py-2.5 text-sm text-[#5d6f68] hover:text-[#0e241d] transition-colors"
                       >
                         {t(sub.key)}
-                      </Link>
+                      </button>
                     ))}
                   </motion.div>
                 )}

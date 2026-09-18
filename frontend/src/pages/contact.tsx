@@ -4,15 +4,18 @@ import ContactForm from "../features/contact/components/contactForm";
 import Container from "../components/ui/container";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import banner from "../assets/banner.png";
+import { useLang } from "../context/LanguageContext";
+import type { TranslationKey } from "../context/LanguageContext";
 
-const INFO = [
-  { icon: MapPin, label: "Office Address", value: "Holeta 44 Gamoo Jalala Cafe Harmonay Gubba, Biroo 204, Ethiopia" },
-  { icon: Phone,  label: "Phone",          value: "+251 911 915 610" },
-  { icon: Mail,   label: "Email",          value: "hailudelesa16@gmail.com" },
-  { icon: Clock,  label: "Working Hours",  value: "Mon – Fri, 8:00 AM – 5:00 PM" },
+const INFO: { icon: React.ElementType; label: TranslationKey; value: string }[] = [
+  { icon: MapPin, label: "officeAddressLabel", value: "Holeta 44 Gamoo Jalala Cafe Harmonay Gubba, Biroo 204, Ethiopia" },
+  { icon: Phone,  label: "phoneLabel",         value: "+251 911 915 610" },
+  { icon: Mail,   label: "emailLabel",         value: "hailudelesa16@gmail.com" },
+  { icon: Clock,  label: "workingHoursLabel",  value: "Mon – Fri, 8:00 AM – 5:00 PM" },
 ];
 
 export default function Contact() {
+  const { t } = useLang();
   return (
     <div className="bg-white">
 
@@ -34,7 +37,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             className="mb-3 text-xs font-bold uppercase tracking-widest text-[#d4af5a]"
           >
-            Reach out
+            {t("contactEyebrow")}
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
@@ -42,7 +45,7 @@ export default function Contact() {
             transition={{ delay: 0.07 }}
             className="text-3xl sm:text-5xl font-bold text-white leading-tight max-w-2xl"
           >
-            A cooperative that<br className="hidden sm:block" /> has your back
+            {t("contactTitle")}<br className="hidden sm:block" />
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 14 }}
@@ -50,7 +53,7 @@ export default function Contact() {
             transition={{ delay: 0.14 }}
             className="mt-3 max-w-lg text-sm leading-relaxed text-white/60"
           >
-            Questions about membership, savings, or loans? Visit us in Holeta or send a message.
+            {t("contactDescription")}
           </motion.p>
         </Container>
       </section>
@@ -62,10 +65,10 @@ export default function Contact() {
           {/* Left — info */}
           <div className="lg:col-span-2 space-y-8">
             <ScrollReveal direction="left">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#d4a017]">Contact info</p>
-              <h2 className="mt-2 text-2xl font-bold text-[#0e241d]">Get in touch</h2>
+              <p className="text-xs font-bold uppercase tracking-widest text-[#d4a017]">{t("contactInfoLabel")}</p>
+              <h2 className="mt-2 text-2xl font-bold text-[#0e241d]">{t("contactGetInTouch")}</h2>
               <p className="mt-2 text-sm leading-relaxed text-[#5d6f68]">
-                We're here to help. Reach out through any of the channels below.
+                {t("contactDescription")}
               </p>
             </ScrollReveal>
 
@@ -77,7 +80,7 @@ export default function Contact() {
                       <item.icon className="h-5 w-5 text-[#d4a017] group-hover:text-white transition-colors" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-xs font-bold uppercase tracking-wider text-[#5d6f68]">{item.label}</p>
+                      <p className="text-xs font-bold uppercase tracking-wider text-[#5d6f68]">{t(item.label)}</p>
                       <p className="mt-1 text-sm font-semibold text-[#0e241d] break-words">{item.value}</p>
                     </div>
                   </div>
@@ -87,16 +90,16 @@ export default function Contact() {
 
             {/* CTA card */}
             <ScrollReveal direction="left" delay={0.3}>
-              <div className="rounded-2xl bg-[#0e241d] p-6 text-white">
-                <p className="text-sm font-bold">Want to become a member?</p>
+                <div className="rounded-2xl bg-[#0e241d] p-6 text-white">
+                <p className="text-sm font-bold">{t("wantToBecomeMember")}</p>
                 <p className="mt-1 text-xs leading-relaxed text-white/60">
-                  Join Waliin SACCO today and start saving toward your goals.
+                  {t("joinWaliin")}
                 </p>
                 <a
                   href="/login"
                   className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#d4af5a] hover:text-[#d4a017] transition-colors"
                 >
-                  Apply now <ArrowRight size={13} />
+                  {t("applyNow")} <ArrowRight size={13} />
                 </a>
               </div>
             </ScrollReveal>

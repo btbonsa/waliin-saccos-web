@@ -1,19 +1,22 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
-import { SERVICES } from "../data/services";
+import { getServices } from "../data/services";
 import banner1 from "../assets/banner1.png";
 import PageHero from "../components/ui/page-hero";
 import Container from "../components/ui/container";
 import ScrollReveal from "../components/ui/ScrollReveal";
+import { useLang } from "../context/LanguageContext";
 
 export default function ServicesPage() {
+  const { lang, t } = useLang();
+  const services = getServices(lang);
   return (
     <div className="bg-[#f7f5f0]">
       <PageHero
-        eyebrow="What we offer"
-        title="Our Products & Services"
-        description="Waliin SACCO Ltd serves members with clear terms, consistent savings, and credit that matches real household and business needs."
+        eyebrow={t("whatWeOffer")}
+        title={t("servicesTitle")}
+        description={t("servicesDescription")}
         image={banner1}
       />
 
@@ -23,21 +26,20 @@ export default function ServicesPage() {
           <ScrollReveal>
             <div className="mb-12 text-center">
               <p className="text-xs font-bold uppercase tracking-widest text-[#d4a017]">
-                What we offer
+                {t("whatWeOffer")}
               </p>
               <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-[#0e241d]">
-                Savings & Loan Products
+                {t("savingsLoanProducts")}
               </h2>
               <p className="mt-2 text-sm text-[#5d6f68] max-w-xl mx-auto">
-                Choose from a range of savings and loan products designed to
-                meet your personal, business, and social needs.
+                {t("servicesIntro")}
               </p>
             </div>
           </ScrollReveal>
 
           {/* Cards grid — slightly larger cards + more breathing room */}
           <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4">
-            {SERVICES.map((service, i) => {
+            {services.map((service, i) => {
               const Icon = service.icon;
               return (
                 <ScrollReveal key={service.id} delay={(i % 4) * 0.07}>
@@ -86,18 +88,13 @@ export default function ServicesPage() {
                       <h3 className="text-lg font-bold text-white leading-snug group-hover:text-[#f5e6b8] transition-colors duration-300">
                         {service.title}
                       </h3>
-
-                      <p className="mt-2 text-sm text-white/70 leading-relaxed line-clamp-3 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-350">
-                        {service.description}
-                      </p>
-
                       {/* CTA row */}
                       <div className="mt-5 flex items-center justify-between">
                         <Link
                           to={`/services/${service.id}`}
                           className="inline-flex items-center gap-2 text-sm font-bold text-[#d4af5a] hover:text-white transition-colors"
                         >
-                          Learn More
+                          {t("learnMore")}
                           <motion.span
                             className="inline-block"
                             initial={{ x: 0 }}
@@ -112,7 +109,7 @@ export default function ServicesPage() {
                           to="/login"
                           className="inline-flex h-8 items-center rounded-full bg-[#d4a017] px-4 text-xs font-bold text-white opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-[#d4af5a] hover:scale-105 active:scale-95"
                         >
-                          Apply
+                            {t("apply")}
                         </Link>
                       </div>
                     </div>
@@ -126,14 +123,14 @@ export default function ServicesPage() {
           <ScrollReveal delay={0.2}>
             <div className="mt-16 flex flex-col items-center gap-3 text-center">
               <p className="text-sm text-[#5d6f68]">
-                Not sure which product is right for you?
+                {t("unsureProduct")}
               </p>
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
                 <Link
                   to="/contact"
                   className="inline-flex h-12 items-center gap-2 rounded-full bg-yellow-500 px-8 text-sm font-bold text-white hover:bg-[#16382e] transition-colors"
                 >
-                  Talk to us
+                  {t("talkToUs")}
                   <ArrowRight size={15} />
                 </Link>
               </motion.div>

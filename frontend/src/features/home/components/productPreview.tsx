@@ -1,13 +1,14 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
-import { SERVICES } from "../../../data/services";
+import { getServices } from "../../../data/services";
 import Container from "../../../components/ui/container";
 import ScrollReveal from "../../../components/ui/ScrollReveal";
-
-const PRODUCTS = SERVICES.slice(0, 3);
+import { useLang } from "../../../context/LanguageContext";
 
 export default function ProductPreview() {
+  const { lang, t } = useLang();
+  const products = getServices(lang).slice(0, 3);
   return (
     <section className="bg-[#f7f5f0] py-20 sm:py-28">
       <Container>
@@ -16,24 +17,24 @@ export default function ProductPreview() {
           <div className="mb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-[#d4a017] mb-2">
-                Our Products
+                {t("productsLabel")}
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#0e241d] leading-tight">
-                Savings & loans<br className="hidden sm:block" /> for real life
+                {t("productsTitle")}
               </h2>
             </div>
             <Link
               to="/services"
               className="inline-flex h-11 items-center gap-2 rounded-full border border-[#e6e0d6] px-6 text-sm font-bold text-[#0e241d] hover:bg-white transition-colors shrink-0"
             >
-              See all products <ArrowRight size={14} />
+              {t("seeAllProducts")} <ArrowRight size={14} />
             </Link>
           </div>
         </ScrollReveal>
 
         {/* 3 Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-          {PRODUCTS.map((service, i) => {
+          {products.map((service, i) => {
             const Icon = service.icon;
             return (
               <ScrollReveal key={service.id} delay={i * 0.1}>
@@ -78,26 +79,21 @@ export default function ProductPreview() {
                       {service.title}
                     </h3>
 
-                    {/* Description — slides up on hover */}
-                    <div className="overflow-hidden max-h-0 group-hover:max-h-24 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
-                      <p className="mt-2 text-sm leading-relaxed text-white/70 line-clamp-2">
-                        {service.description}
-                      </p>
-                    </div>
+                  
 
-                    {/* CTA row */}
+                    {/* CTA row */}z
                     <div className="mt-4 flex items-center gap-3 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-75">
                       <Link
                         to={`/services/${service.id}`}
                         className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[#d4a017] px-4 text-xs font-bold text-white hover:bg-[#d4af5a] transition-colors"
                       >
-                        Learn More <ArrowRight size={11} />
+                        {t("learnMore")} <ArrowRight size={11} />
                       </Link>
                       <Link
                         to="/login"
                         className="inline-flex h-8 items-center rounded-full border border-white/30 px-4 text-xs font-bold text-white hover:bg-white/10 transition-colors"
                       >
-                        Apply
+                        {t("apply")}
                       </Link>
                     </div>
                   </div>

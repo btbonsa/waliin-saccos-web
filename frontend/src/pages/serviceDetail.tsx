@@ -12,14 +12,16 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { getService } from "../data/services";
+import { getLocalizedService } from "../data/services";
 import Container from "../components/ui/container";
 import ScrollReveal from "../components/ui/ScrollReveal";
+import { useLang } from "../context/LanguageContext";
 
 export default function ServiceDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const service = getService(id);
+  const { lang, t } = useLang();
+  const service = getLocalizedService(id, lang);
   const [openSection, setOpenSection] = useState(0);
 
   if (!service) {
@@ -29,16 +31,16 @@ export default function ServiceDetailPage() {
           <AlertCircle className="h-7 w-7 text-[#5d6f68]" strokeWidth={1.75} />
         </div>
         <div className="space-y-2">
-          <h2 className="text-xl font-semibold tracking-tight text-[#0e241d]">Service not found</h2>
+          <h2 className="text-xl font-semibold tracking-tight text-[#0e241d]">{t("serviceNotFound")}</h2>
           <p className="text-sm text-[#5d6f68]">
-            The product you're looking for doesn't exist or has been removed.
+            {t("serviceNotFoundDescription")}
           </p>
         </div>
         <Link
           to="/services"
           className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-[#0e241d] hover:underline underline-offset-4"
         >
-          <ArrowLeft size={15} /> Back to all services
+          <ArrowLeft size={15} /> {t("backToServices")}
         </Link>
       </div>
     );
@@ -51,7 +53,7 @@ export default function ServiceDetailPage() {
     ...(service.subTypes
       ? [
           {
-            title: "Types of savings",
+            title: t("typesOfSavings"),
             icon: Layers,
             content: (
               <div className="space-y-3">
@@ -67,7 +69,7 @@ export default function ServiceDetailPage() {
         ]
       : []),
     {
-      title: "Loan tiers",
+      title: t("loanTiers"),
       icon: HandCoins,
       content: (
         <div className="space-y-3">
@@ -92,14 +94,14 @@ export default function ServiceDetailPage() {
       ),
     },
     {
-      title: "Loan information",
+      title: t("loanInformation"),
       icon: Clock,
       content: (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {[
-            { label: "Interest rate",      value: service.interestRate },
-            { label: "Tenure",             value: service.tenure },
-            { label: "Required savings",   value: `${service.savingsPercent} continuous` },
+            { label: t("interestRate"), value: service.interestRate },
+            { label: t("tenure"), value: service.tenure },
+            { label: t("requiredSavings"), value: `${service.savingsPercent} ${t("continuous")}` },
           ].map((item) => (
             <div key={item.label} className="rounded-xl border border-[#e6e0d6] bg-white p-5 text-center">
               <p className="mb-1.5 text-xs font-medium uppercase tracking-wider text-[#5d6f68]">
@@ -145,7 +147,7 @@ export default function ServiceDetailPage() {
             onClick={() => navigate("/services")}
             className="inline-flex items-center gap-2 text-sm font-semibold text-white/70 hover:text-white transition-colors w-fit"
           >
-            <ArrowLeft size={15} /> Back to services
+            <ArrowLeft size={15} /> {t("backToServices")}
           </button>
 
           {/* Bottom content */}
@@ -194,8 +196,8 @@ export default function ServiceDetailPage() {
               className="flex gap-3 shrink-0"
             >
               {[
-                { label: "Interest", value: service.interestRate },
-                { label: "Tenure",   value: service.tenure },
+                { label: t("interest"), value: service.interestRate },
+                { label: t("tenure"), value: service.tenure },
               ].map((s) => (
                 <div
                   key={s.label}
@@ -219,7 +221,7 @@ export default function ServiceDetailPage() {
             <ScrollReveal direction="left">
               <div className="rounded-2xl border border-[#e6e0d6] bg-white p-7">
                 <p className="text-xs font-bold uppercase tracking-widest text-[#5d6f68] mb-4">
-                  About this product
+                  {t("aboutThisProduct")}
                 </p>
                 <p className="text-sm leading-relaxed text-[#0e241d]/80">{service.overview}</p>
               </div>
@@ -227,22 +229,22 @@ export default function ServiceDetailPage() {
 
             <ScrollReveal direction="left" delay={0.08}>
               <div className="rounded-2xl bg-[#0e241d] p-7 text-white">
-                <h3 className="text-lg font-bold">Ready to apply?</h3>
+                <h3 className="text-lg font-bold">{t("readyToApply")}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-white/60">
-                  Visit our office or contact us to start your application.
+                  {t("applyDescription")}
                 </p>
                 <div className="mt-6 space-y-3">
                   <Link
                     to="/contact"
                     className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[#d4a017] text-sm font-bold text-white hover:bg-[#d4af5a] transition-colors"
                   >
-                    <PhoneCall size={15} /> Contact us
+                    <PhoneCall size={15} /> {t("contactUs")}
                   </Link>
                   <Link
                     to="/login"
                     className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border border-white/20 text-sm font-bold text-white hover:bg-white/10 transition-colors"
                   >
-                    Become a member <ArrowRight size={13} />
+                    {t("becomeMember")} <ArrowRight size={13} />
                   </Link>
                 </div>
               </div>
@@ -252,9 +254,9 @@ export default function ServiceDetailPage() {
           {/* Main accordion */}
           <div className="lg:col-span-8">
             <ScrollReveal className="mb-8">
-              <h2 className="text-xl font-bold text-[#0e241d]">Full details</h2>
+              <h2 className="text-xl font-bold text-[#0e241d]">{t("fullDetails")}</h2>
               <p className="mt-1 text-sm text-[#5d6f68]">
-                Expand each section for terms, tiers, and savings rules.
+                {t("fullDetailsDescription")}
               </p>
             </ScrollReveal>
 

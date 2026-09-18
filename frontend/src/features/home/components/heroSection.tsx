@@ -43,7 +43,7 @@ export default function HeroSection() {
             transition={{ delay: 0.05 }}
             className="inline-block text-xs font-semibold tracking-widest uppercase text-[#d4af5a]"
           >
-            {t("est2024")}
+            {t("est2026")}
           </motion.span>
 
           {/* Headline with cycling word */}

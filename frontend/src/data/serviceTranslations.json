@@ -1,0 +1,63 @@
+{
+  "en": {
+    "qusanna-fi-liqii": {
+      "title": "Savings & Loan",
+      "subtitle": "Savings & Loan",
+      "description": "Save regularly and qualify for member loans. Mandatory and voluntary savings earn 7% for adults and 10.5% for children.",
+      "overview": "Members can access loans by saving in different ways. Waliin pays 7% interest on mandatory and voluntary adult savings and 10.5% on children's savings.",
+      "subTypes": [
+        { "name": "Mandatory Savings", "desc": "Members save 500 ETB every month continuously. Mandatory savings can only be withdrawn when membership is ended." },
+        { "name": "Voluntary Savings", "desc": "Members may save any amount they choose with the cooperative and can withdraw it at any time." },
+        { "name": "Children's Savings", "desc": "Children can save money through their parents or guardians. Children's savings start at 500 ETB." },
+        { "name": "Productive Savings", "desc": "Members who maintain 25% continuous savings for three to four months or more can access a productive loan." }
+      ],
+      "tiers": [{ "label": "Tier 1", "condition": "25% savings continuously for 3–4 months", "limit": "Up to 200,000 ETB" }]
+    },
+    "qusanna-hawaasummaa": {
+      "title": "Social Savings", "subtitle": "Social Savings", "description": "Community-focused savings that unlock social loans based on your consistent 25% savings record.", "overview": "Members who maintain 25% continuous savings can access a social loan. The loan limit depends on the savings tier.", "tiers": [
+        { "label": "Tier 1", "condition": "25% savings for 4 months or more", "limit": "200,000–400,000 ETB" },
+        { "label": "Tier 2", "condition": "25% savings for 5 months or more", "limit": "400,000–800,000 ETB" },
+        { "label": "Tier 3", "condition": "25% savings for 6 months or more", "limit": "800,000–1,000,000 ETB" }
+      ]
+    },
+    "qusannoo-daldalaa": {
+      "title": "Business Savings", "subtitle": "Business Savings & Loan", "description": "Grow your trade with business savings and loans tied to 30% continuous savings.", "overview": "Members who maintain 30% continuous savings can access a business loan. The loan limit depends on the savings tier.", "tiers": [
+        { "label": "Tier 1", "condition": "30% savings for 5 months or more", "limit": "1,000,000–1,200,000 ETB" },
+        { "label": "Tier 2", "condition": "30% savings for 6 months or more", "limit": "1,200,000–1,500,000 ETB" },
+        { "label": "Tier 3", "condition": "30% savings continuously for 6+ months", "limit": "1,500,000–2,000,000 ETB" }
+      ]
+    },
+    "qusannoo-manaa": {
+      "title": "Housing Savings", "subtitle": "Housing Savings & Loan", "description": "Save toward renovating, building, or buying a home with housing credit up to ETB 2 million.", "overview": "Members who maintain 30% continuous savings for six months or more can access a housing loan.", "tiers": [
+        { "label": "Tier 1 — Renovation", "condition": "30% savings for 6 months or more", "limit": "Up to 1,000,000 ETB" },
+        { "label": "Tier 2 — Build / Renovate / Buy", "condition": "30% savings for 6 months or more", "limit": "Up to 1,500,000 ETB" },
+        { "label": "Tier 3 — Buy / Build / Renovate", "condition": "30% savings for 6 months or more", "limit": "Up to 2,000,000 ETB" }
+      ]
+    },
+    "qusannoo-konkolaataa": {
+      "title": "Vehicle Savings", "subtitle": "Vehicle Loan", "description": "Purchase a vehicle after six months of 30% continuous savings, with limits up to ETB 2 million.", "overview": "Members who maintain 30% continuous savings for six months or more can access a vehicle purchase loan.", "tiers": [{ "label": "Buy a vehicle", "condition": "30% savings continuously for 6 months or more", "limit": "Up to 2,000,000 ETB" }]
+    },
+    "qusannoo-baajaajii": {
+      "title": "Bajaj Savings", "subtitle": "Bajaj / Tuk-Tuk Loan", "description": "Finance a three-wheeler for livelihood after 4–6 months of 30% savings, up to ETB 1 million.", "overview": "Members who save 30% continuously for four to six months or more can access a bajaj loan to buy a three-wheeler.", "tiers": [{ "label": "Buy a bajaj", "condition": "30% savings for 4–6 months or more", "limit": "Up to 1,000,000 ETB" }]
+    },
+    "qusannoo-liqii-mindaa": {
+      "title": "Salary Loan Savings", "subtitle": "Salary Advance Loan", "description": "Salary-backed credit for employed members, including emergency advances of up to four months' net pay.", "overview": "Members employed by different organizations can access an emergency loan of up to four months of net salary when urgent needs arise.", "tiers": [
+        { "label": "Emergency loan", "condition": "25% savings continuously for 2 months (for employed members)", "limit": "Four months of net salary" },
+        { "label": "Regular loan", "condition": "25% savings continuously for 4 months or more", "limit": "Up to 300,000 ETB" }
+      ]
+    },
+    "qusannaa-oogeesootaa": {
+      "title": "Professional Savings", "subtitle": "Professional Savings & Loan", "description": "Credit for experienced professionals starting or expanding a practice after five or more years of service.", "overview": "Members with five or more years of professional service can use their experience to start or expand their own institution or business.", "tiers": [{ "label": "Experienced professionals", "condition": "5+ years of service and 25% savings for 5 months or more", "limit": "Up to 1,500,000 ETB" }]
+    }
+  },
+  "om": {
+    "qusanna-fi-liqii": { "title": "Qusanna fi Liqii", "subtitle": "Qusanna fi Liqii" },
+    "qusanna-hawaasummaa": { "title": "Qusanna Hawaasummaa", "subtitle": "Qusanna Hawaasummaa" },
+    "qusannoo-daldalaa": { "title": "Qusannoo Daldalaa", "subtitle": "Qusannoo Daldalaa fi Liqii" },
+    "qusannoo-manaa": { "title": "Qusannoo Manaa", "subtitle": "Qusannoo Manaa fi Liqii" },
+    "qusannoo-konkolaataa": { "title": "Qusannoo Konkolaataa", "subtitle": "Liqii Konkolaataa" },
+    "qusannoo-baajaajii": { "title": "Qusannoo Baajaajii", "subtitle": "Liqii Baajaajii" },
+    "qusannoo-liqii-mindaa": { "title": "Qusannoo Liqii Mindaa", "subtitle": "Liqii Mindaa" },
+    "qusannaa-oogeesootaa": { "title": "Qusannaa Oogeesootaa", "subtitle": "Qusannaa fi Liqii Ogeeyyii" }
+  }
+}

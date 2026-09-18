@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Target, Eye } from "lucide-react";
 import PageHero from "../components/ui/page-hero";
 import Container from "../components/ui/container";
@@ -5,6 +7,7 @@ import SectionHeader from "../components/ui/section-header";
 import FeatureCard from "../components/ui/feature-card";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import hailuImage from "../assets/hailu.png";
+import { useLang } from "../context/LanguageContext";
 
 const leadership = [
   { name: "Hailu Delesa", role: "Chairman", image: hailuImage },
@@ -63,12 +66,24 @@ const missionVision = [
 ];
 
 export default function About() {
+  const { t } = useLang();
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) return;
+    const id = hash.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+    }
+  }, [hash]);
+
   return (
     <div>
       <PageHero
-        eyebrow="Our story"
-        title="About Walin SACCO Ltd"
-        description="A member-owned cooperative committed to inclusive financial growth in Holeta Town and across Ethiopia."
+        eyebrow={t("ourStory")}
+        title={t("aboutTitle")}
+        description={t("aboutDescription")}
         image="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1800&q=80"
       />
 
@@ -76,7 +91,7 @@ export default function About() {
       <section id="mission" className="bg-white py-16 sm:py-20 lg:py-24">
         <Container>
           <ScrollReveal>
-            <SectionHeader eyebrow="Purpose" title="Mission and Vision" />
+            <SectionHeader eyebrow={t("purpose")} title={t("missionAndVisionTitle")} />
           </ScrollReveal>
 
           <div className="mt-10 grid gap-6 sm:mt-12 md:grid-cols-2 lg:mt-14">
@@ -98,9 +113,9 @@ export default function About() {
         <Container>
           <ScrollReveal>
             <SectionHeader
-              eyebrow="What we stand for"
-              title="Core & Ethical Values of Walin"
-              description="The principles that guide every decision, every member, and every service we provide."
+              eyebrow={t("whatWeStandFor")}
+              title={t("coreEthicalValuesTitle")}
+              description={t("coreValuesDescription")}
             />
           </ScrollReveal>
 
@@ -113,10 +128,10 @@ export default function About() {
                 {/* Core Values */}
                 <div>
                   <h3 className="text-lg font-bold text-ink sm:text-xl">
-                    Our Core Values
+                    {t("ourCoreValues")}
                   </h3>
-                  <p className="mt-1 text-sm text-muted">
-                    The principles that guide every decision we make.
+                  <p className="mt-1 text-md text-black">
+                    {t("coreValuesDescription")}
                   </p>
 
                   <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -131,7 +146,7 @@ export default function About() {
                         <p className="text-sm font-bold text-yellow-800">
                           {v.value}
                         </p>
-                        <p className="text-xs leading-relaxed text-muted">
+                        <p className="text-xs leading-relaxed text-black">
                           {v.desc}
                         </p>
                       </div>
@@ -142,7 +157,7 @@ export default function About() {
                 {/* Ethical Values */}
                 <div className="mt-10 sm:mt-12">
                   <h3 className="text-lg font-bold text-ink sm:text-xl">
-                    Ethical Values
+                    {t("ethicalValues")}
                   </h3>
 
                   <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
@@ -172,8 +187,8 @@ export default function About() {
         <Container>
           <ScrollReveal>
             <SectionHeader
-              title="Our leadership"
-              description="Professionals stewarding Walin SACCO Ltd on behalf of members."
+              title={t("leadershipTitle")}
+              description={t("leadershipDescription")}
             />
           </ScrollReveal>
 

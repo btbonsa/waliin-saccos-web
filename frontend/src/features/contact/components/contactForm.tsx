@@ -36,7 +36,7 @@ export default function ContactForm() {
   };
 
   const inputClass =
-    "w-full rounded-xl border border-[#e6e0d6] bg-[#f7f5f0] px-4 py-3 text-sm text-[#0e241d] placeholder:text-[#5d6f68]/50 transition-all duration-200 focus:border-[#d4a017]/50 focus:outline-none focus:ring-2 focus:ring-[#d4a017]/15 focus:bg-white";
+    "w-full rounded-xl shadow shadow-sm border-[#e6e0d6] bg-gray-100 px-4 py-3 text-sm text-[#0e241d] placeholder:text-[#5d6f68]/30 transition-all duration-200 focus:border-[#d4a017]/50 focus:outline-none focus:ring-2 focus:ring-[#d4a017]/15 focus:bg-white";
 
   return (
     <form onSubmit={handleSubmit} className="w-full space-y-5">
