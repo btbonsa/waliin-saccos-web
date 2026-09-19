@@ -38,7 +38,7 @@ export default function ServicesPage() {
           </ScrollReveal>
 
           {/* Cards grid — slightly larger cards + more breathing room */}
-          <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, i) => {
               const Icon = service.icon;
               return (

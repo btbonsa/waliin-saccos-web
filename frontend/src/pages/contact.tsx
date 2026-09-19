@@ -8,10 +8,10 @@ import { useLang } from "../context/LanguageContext";
 import type { TranslationKey } from "../context/LanguageContext";
 
 const INFO: { icon: React.ElementType; label: TranslationKey; value: string }[] = [
-  { icon: MapPin, label: "officeAddressLabel", value: "Holeta 44 Gamoo Jalala Cafe Harmonay Gubba, Biroo 204, Ethiopia" },
-  { icon: Phone,  label: "phoneLabel",         value: "+251 911 915 610" },
+  { icon: MapPin, label: "officeAddressLabel", value: "Holeta 44 Around Vision Fund micro finance, Ethiopia" },
+  { icon: Phone,  label: "phoneLabel",         value: "+251 911 915 610/+251 911 02 59 46" },
   { icon: Mail,   label: "emailLabel",         value: "hailudelesa16@gmail.com" },
-  { icon: Clock,  label: "workingHoursLabel",  value: "Mon – Fri, 8:00 AM – 5:00 PM" },
+  { icon: Clock,  label: "workingHoursLabel",  value: "Mon – sat, 8:00 AM – 5:00 PM" },
 ];
 
 export default function Contact() {

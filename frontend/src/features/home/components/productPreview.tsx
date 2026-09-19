@@ -79,9 +79,14 @@ export default function ProductPreview() {
                       {service.title}
                     </h3>
 
-                  
+                    {/* Description — slides up on hover */}
+                    <div className="overflow-hidden max-h-0 group-hover:max-h-20 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
+                      <p className="mt-2 text-sm leading-relaxed text-white/70 line-clamp-2">
+                        {service.description}
+                      </p>
+                    </div>
 
-                    {/* CTA row */}z
+                    {/* CTA row */}
                     <div className="mt-4 flex items-center gap-3 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-75">
                       <Link
                         to={`/services/${service.id}`}

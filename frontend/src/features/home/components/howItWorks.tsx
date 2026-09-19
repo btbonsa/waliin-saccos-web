@@ -22,7 +22,7 @@ export default function HowItWorks() {
         <ScrollReveal>
           <SectionHeader
             className="text-left text-white"
-            title="How Walin SACCO works"
+            title="How Walin SACCO Works"
             moreDescription="A simple cooperative that enables you to save, borrow, and improve your financial access."
           />
         </ScrollReveal>

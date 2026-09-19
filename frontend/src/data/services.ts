@@ -6,7 +6,6 @@ import {
   BadgeEuro,
   Briefcase,
   Truck,
-  Bike,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { Lang } from "../context/LanguageContext";
@@ -17,7 +16,6 @@ import socialImg       from "../assets/service/socail.png";
 import businessImg     from "../assets/service/business saving and loan.png";
 import housingImg      from "../assets/service/house saving.png";
 import vehicleImg      from "../assets/service/vehicle loan.png";
-import bajajImg        from "../assets/service/tuk tuk.png";
 import salaryImg       from "../assets/service/salary.png";
 import professionalImg from "../assets/service/profetional.png";
 
@@ -53,7 +51,7 @@ export const SERVICES: ServiceDetail[] = [
     subtitle: "Savings & Loan",
     image: savingsImg,
     description:
-      "Save regularly and qualify for member loans. Mandatory and voluntary savings earn 7% for adults and 10.5% for children.",
+      "Save regularly and qualify for member loans. Mandatory and voluntary savings earn interest of 7% for adults and 10.5% for children.",
     overview:
       "Miseensi qusennaa adda adda qusachuu dhan Liqii kan liqeefatan ni ta'a. Miseensoon WALIIN qusatanif waldichii qusanna fedhii fi dirqama waraa gaheessotaaf dhalaa dhibentaa 7 kan kafaluu yoo tau'u ijooleedhaaf moo dhibentaa 10.5 kafalaa.",
     icon: HandCoins,
@@ -89,10 +87,10 @@ export const SERVICES: ServiceDetail[] = [
   {
     id: "qusanna-hawaasummaa",
     title: "Qusanna Hawaasummaa",
-    subtitle: "Social Saving",
+    subtitle: "Social Saving & Loan",
     image: socialImg,
     description:
-      "Community-focused savings that unlock social loans based on your consistent 25% savings record.",
+      "Community-focused savings and loans. Save consistently at 25% and unlock social loans up to ETB 1,000,000.",
     overview:
       "Miseensi ama liqii liqeeffatu keesaa qusanna itti fufiiinsaan %25 qusachuudhan liqii hawaasummaa ni argata. Daangaan liqii sadarkaa qusannaa irratti hundaa'a.",
     icon: UserRoundSearch,
@@ -158,23 +156,6 @@ export const SERVICES: ServiceDetail[] = [
     savingsPercent: "30%",
     tiers: [
       { label: "Konkolaataa Bituu", condition: "Qusanna %30 ji'a 6 fi isaa ol itti fufiiinsaan", limit: "Daangaan isaa 2,000,000.00" },
-    ],
-  },
-  {
-    id: "qusannoo-baajaajii",
-    title: "Qusannoo Baajaajii",
-    subtitle: "Bajaj / Tuk-Tuk Loan",
-    image: bajajImg,
-    description:
-      "Finance a three-wheeler for livelihood after 4–6 months of 30% savings, up to ETB 1 million.",
-    overview:
-      "Baajaajii garaa garaa (milaa sadii kan qaban) bituf qusana %30 ji'a 4 hanga ji'a 6 fi isaa ol qusate liqii baajaajii ni argata.",
-    icon: Bike,
-    interestRate: "Dhibentaa 9.5%",
-    tenure: "Ji'a 4 – 6+",
-    savingsPercent: "30%",
-    tiers: [
-      { label: "Baajaajii Bituu", condition: "Qusanna %30 ji'a 4 hanga ji'a 6 fi isaa ol", limit: "Daangaan liqii hangaa 1,000,000.00" },
     ],
   },
   {

@@ -98,8 +98,8 @@ export default function Navbar() {
             className="h-10 w-10 rounded-full border border-[#e6e0d6] object-cover"
           />
           <div className="leading-tight">
-            <p className="text-sm font-bold text-[#0e241d]">Waliin</p>
-            <p className="text-[10px] text-[#5d6f68]">SACCO Ltd</p>
+            <p className="text-md font-bold text-[#0e241d]">WALIN</p>
+            <p className="text-sm font-bold text-[#0e241d]">SACCOS Ltd</p>
           </div>
         </Link>
 
