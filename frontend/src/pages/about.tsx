@@ -13,61 +13,31 @@ const leadership = [
   { name: "Hailu Delesa", role: "Chairman", image: hailuImage },
 ];
 
-const coreValues = [
-  {
-    value: "Equality",
-    icon: "⚖️",
-    desc: "All members have the same rights and responsibilities within the organization.",
-  },
-  {
-    value: "Solidarity",
-    icon: "🤝",
-    desc: "Members stand united and support one another through shared common goals.",
-  },
-  {
-    value: "Self-help",
-    icon: "💪",
-    desc: "Members rely on their own efforts and capabilities to improve their lives.",
-  },
-  {
-    value: "Self-responsibility",
-    icon: "🎯",
-    desc: "Individuals take personal accountability for the group's success and well-being.",
-  },
-  {
-    value: "Democracy",
-    icon: "🗳️",
-    desc: "Members have an equal voice in running the cooperative.",
-  },
-];
-
-const ethicalValues = [
-  { value: "Honesty", icon: "🤝" },
-  { value: "Transparency", icon: "🔍" },
-  { value: "Accountability", icon: "⚖️" },
-  { value: "Participation", icon: "🗳️" },
-  { value: "Social Responsibility", icon: "🌱" },
-  { value: "Consideration for Others", icon: "💛" },
-];
-
-const missionVision = [
-  {
-    icon: Target,
-    title: "Our Vision",
-    description:
-      "By the year 2030 E.C, the members will be middle-income, entrepreneurs, and be freed from poverty.",
-  },
-  {
-    icon: Eye,
-    title: "Our Mission",
-    description:
-      "To meet the fundamental needs of members by providing convenient, accessible, and efficient financial services, while building a sustainable and inclusive financial institution through a skilled and ethically grounded workforce, the use of modern technology, and continuous public awareness creation.",
-  },
-];
-
 export default function About() {
   const { t } = useLang();
   const { hash } = useLocation();
+
+  const coreValues = [
+    { value: t("coreValueEquality"),          icon: "⚖️", desc: t("coreValueEqualityDesc") },
+    { value: t("coreValueSolidarity"),         icon: "🤝", desc: t("coreValueSolidarityDesc") },
+    { value: t("coreValueSelfHelp"),           icon: "💪", desc: t("coreValueSelfHelpDesc") },
+    { value: t("coreValueSelfResponsibility"), icon: "🎯", desc: t("coreValueSelfResponsibilityDesc") },
+    { value: t("coreValueDemocracy"),          icon: "🗳️", desc: t("coreValueDemocracyDesc") },
+  ];
+
+  const ethicalValues = [
+    { value: t("ethicalHonesty"),              icon: "🤝" },
+    { value: t("ethicalTransparency"),         icon: "🔍" },
+    { value: t("ethicalAccountability"),       icon: "⚖️" },
+    { value: t("ethicalParticipation"),        icon: "🗳️" },
+    { value: t("ethicalSocialResponsibility"), icon: "🌱" },
+    { value: t("ethicalConsideration"),        icon: "💛" },
+  ];
+
+  const missionVision = [
+    { icon: Target, title: t("missionVisionVisionTitle"),   description: t("missionVisionVisionDescription") },
+    { icon: Eye,    title: t("missionVisionMissionTitle"),  description: t("missionVisionMissionDescription") },
+  ];
 
   useEffect(() => {
     if (!hash) return;

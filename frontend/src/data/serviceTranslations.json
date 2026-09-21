@@ -1,63 +1,372 @@
+
 {
   "en": {
     "qusanna-fi-liqii": {
       "title": "Savings & Loan",
       "subtitle": "Savings & Loan",
       "description": "Save regularly and qualify for member loans. Mandatory and voluntary savings earn 7% for adults and 10.5% for children.",
-      "overview": "Members can access loans by saving in different ways. Waliin pays 7% interest on mandatory and voluntary adult savings and 10.5% on children's savings.",
+      "overview": "Members can access loans by saving in different ways.  WALIN SACCO pays 7% interest on mandatory and voluntary adult savings and 10.5% for children's savings.",
       "subTypes": [
-        { "name": "Mandatory Savings", "desc": "Members save 500 ETB every month continuously. Mandatory savings can only be withdrawn when membership is ended." },
-        { "name": "Voluntary Savings", "desc": "Members may save any amount they choose with the cooperative and can withdraw it at any time." },
-        { "name": "Children's Savings", "desc": "Children can save money through their parents or guardians. Children's savings start at 500 ETB." },
-        { "name": "Productive Savings", "desc": "Members who maintain 25% continuous savings for three to four months or more can access a productive loan." }
+        {
+          "name": "Mandatory Savings",
+          "desc": "Members save 500 ETB every month continuously. Mandatory savings can only be withdrawn when membership is resigned."
+        },
+        {
+          "name": "Voluntary Savings",
+          "desc": "Members may save any amount they wants with the cooperative and can withdraw it at any time."
+        },
+        {
+          "name": "Children's Savings",
+          "desc": "Children can save money through their parents or guardians. Children's savings start at 500 ETB."
+        },
+        {
+          "name": "Productive Savings",
+          "desc": "Members who maintain 25% continuous savings for three to four months or more can access a loan."
+        }
       ],
-      "tiers": [{ "label": "Tier 1", "condition": "25% savings continuously for 3–4 months", "limit": "Up to 200,000 ETB" }]
+      "tiers": [
+        {
+          "label": "Category one",
+          "condition": "25% savings continuously for 3–4 months",
+          "limit": "Up to 200,000 ETB"
+        }
+      ]
     },
+
     "qusanna-hawaasummaa": {
-      "title": "Social Savings and Loan", "subtitle": "Social Savings", "description": "Community-focused savings that unlock social loans based on your consistent 25% savings record.", "overview": "Members who maintain 25% continuous savings can access a social loan. The loan limit depends on the savings tier.", "tiers": [
-        { "label": "Tier 1", "condition": "25% savings for 4 months or more", "limit": "200,000–400,000 ETB" },
-        { "label": "Tier 2", "condition": "25% savings for 5 months or more", "limit": "400,000–800,000 ETB" },
-        { "label": "Tier 3", "condition": "25% savings for 6 months or more", "limit": "800,000–1,000,000 ETB" }
+      "title": "Social Savings and Loan",
+      "subtitle": "Social Savings",
+      "description": "Continuous Saving for social loans about 25% of your loan amount for 3–4 months",
+      "overview": "Members who maintain 25% continuous savings can access a social loan. The loan limit depends on the savings tier as below described.",
+      "tiers": [
+        {
+          "label": "category two",
+          "condition": "25% savings for 4 months or more",
+          "limit": "above 200,000–400,000 ETB"
+        },
+        {
+          "label": "category three",
+          "condition": "25% savings for 5 months or can take a loan ",
+          "limit": "above 400,000–800,000 ETB"
+        },
+        {
+          "label": "category four",
+          "condition": "25% savings for 6 months or mor",
+          "limit": "above 800,000–1,000,000 ETB"
+        }
       ]
     },
+
     "qusannoo-daldalaa": {
-      "title": "Business Savings and Loan", "subtitle": "Business Savings & Loan", "description": "Grow your trade with business savings and loans tied to 30% continuous savings.", "overview": "Members who maintain 30% continuous savings can access a business loan. The loan limit depends on the savings tier.", "tiers": [
-        { "label": "Tier 1", "condition": "30% savings for 5 months or more", "limit": "1,000,000–1,200,000 ETB" },
-        { "label": "Tier 2", "condition": "30% savings for 6 months or more", "limit": "1,200,000–1,500,000 ETB" },
-        { "label": "Tier 3", "condition": "30% savings continuously for 6+ months", "limit": "1,500,000–2,000,000 ETB" }
+      "title": "Business Savings and Loan",
+      "subtitle": "Business Savings & Loan",
+      "description": "Grow your trade with business savings and loans tied to 30% continuous savings.",
+      "overview": "Members who maintain 30% continuous savings can access a business loan. The loan limit depends on the savings tier.",
+      "tiers": [
+        {
+          "label": "under this loan category one",
+          "condition": "30% savings for 5 months or more",
+          "limit": "above 1,000,000–1,200,000 ETB"
+        },
+        {
+          "label": "category two",
+          "condition": "30% savings for 6 months or more",
+          "limit": "above 1,200,000–1,500,000 ETB"
+        },
+        {
+          "label": "category three",
+          "condition": "30% savings continuously for 6+ months",
+          "limit": "above 1,500,000–2,000,000 ETB"
+        }
       ]
     },
+
     "qusannoo-manaa": {
-      "title": "Housing Savings and Loan", "subtitle": "Housing Savings & Loan", "description": "Save toward renovating, building, or buying a home with housing credit up to ETB 2 million.", "overview": "Members who maintain 30% continuous savings for six months or more can access a housing loan.", "tiers": [
-        { "label": "Tier 1 — Renovation", "condition": "30% savings for 6 months or more", "limit": "Up to 1,000,000 ETB" },
-        { "label": "Tier 2 — Build / Renovate / Buy", "condition": "30% savings for 6 months or more", "limit": "Up to 1,500,000 ETB" },
-        { "label": "Tier 3 — Buy / Build / Renovate", "condition": "30% savings for 6 months or more", "limit": "Up to 2,000,000 ETB" }
+      "title": "Housing Savings and Loan",
+      "subtitle": "Housing Savings & Loan",
+      "description": "Save toward renovating, building, or buying a home with housing credit up to ETB 2 million.",
+      "overview": "Members who maintain 30% continuous savings for six months or more can access a housing loan.",
+      "tiers": [
+        {
+          "label": "Category one — Renovation",
+          "condition": "30% savings for 6 months or more",
+          "limit": "Up to 1,000,000 ETB"
+        },
+        {
+          "label": "category two — Build / Renovate / Buy",
+          "condition": "30% savings for 6 months or more",
+          "limit": "more than 1 milon Up to 1,500,000 ETB"
+        },
+        {
+          "label": "categry three — Buy / Build / Renovate",
+          "condition": "30% savings for 6 months or more",
+          "limit": "Up to 2,000,000 ETB"
+        }
       ]
     },
+
     "qusannoo-konkolaataa": {
-      "title": "Vehicle Savings and Loan", "subtitle": "Vehicle Loan", "description": "Purchase a vehicle after six months of 30% continuous savings, with limits up to ETB 2 million.", "overview": "Members who maintain 30% continuous savings for six months or more can access a vehicle purchase loan.", "tiers": [{ "label": "Buy a vehicle", "condition": "30% savings continuously for 6 months or more", "limit": "Up to 2,000,000 ETB" }]
-    },
-    "qusannoo-baajaajii": {
-      "title": "Bajaj Savings and Loan", "subtitle": "Bajaj / Tuk-Tuk Loan", "description": "Finance a three-wheeler for livelihood after 4–6 months of 30% savings, up to ETB 1 million.", "overview": "Members who save 30% continuously for four to six months or more can access a bajaj loan to buy a three-wheeler.", "tiers": [{ "label": "Buy a bajaj", "condition": "30% savings for 4–6 months or more", "limit": "Up to 1,000,000 ETB" }]
-    },
-    "qusannoo-liqii-mindaa": {
-      "title": "Saving and Salary base Loan", "subtitle": "Salary Advance Loan", "description": "Salary-backed credit for employed members, including emergency advances of up to four months' net pay.", "overview": "Members employed by different organizations can access an emergency loan of up to four months of net salary when urgent needs arise.", "tiers": [
-        { "label": "Emergency loan", "condition": "25% savings continuously for 2 months (for employed members)", "limit": "Four months of net salary" },
-        { "label": "Regular loan", "condition": "25% savings continuously for 4 months or more", "limit": "Up to 300,000 ETB" }
+      "title": "Vehicle Savings and Loan",
+      "subtitle": "Vehicle Loan",
+      "description": "Purchase a vehicle after six months of 30% continuous savings, with limits up to ETB 2 million.",
+      "overview": "Members who maintain 30% continuous savings for six months or more can access a vehicle purchase loan.",
+      "tiers": [
+        {
+          "label": "Buy a vehicle",
+          "condition": "30% savings continuously for 6 months or more",
+          "limit": "Up to 2,000,000 ETB"
+        }
       ]
     },
+
+    "qusannoo-baajaajii": {
+      "title": "Bajaj Savings and Loan",
+      "subtitle": "Bajaj / Tuk-Tuk Loan",
+      "description": "Finance a three-wheeler for a business work 4–6 months of 30% savings, up to ETB 1 million.",
+      "overview": "Members who save 30% continuously for four to six months or more can access a bajaj loan to buy a three-wheeler.",
+      "tiers": [
+        {
+          "label": "Buy a bajaj",
+          "condition": "30% savings for 4–6 months or more",
+          "limit": "Up to 1,000,000 ETB"
+        }
+      ]
+    },
+
+    "qusannoo-liqii-mindaa": {
+      "title": "Saving and Salary base Loan",
+      "subtitle": "Salary Advance Loan",
+      "description": "Salary collateral based credit for employed/unemployed members, including emergency advances.",
+      "overview": "Members employed by different organizations can access an emergency loan of up to four months of net salary when urgent needs arise.",
+      "tiers": [
+        {
+          "label": "Emergency loan",
+          "condition": "25% savings continuously for 2 months (for employed members)",
+          "limit": "Four months of net salary"
+        },
+        {
+          "label": "Regular loan",
+          "condition": "25% savings continuously for 4 months or more",
+          "limit": "Up to 300,000 ETB"
+        }
+      ]
+    },
+
     "qusannaa-oogeesootaa": {
-      "title": "Professional Savings and Loan", "subtitle": "Professional Savings & Loan", "description": "Credit for experienced professionals starting or expanding a practice after five or more years of service.", "overview": "Members with five or more years of professional service can use their experience to start or expand their own institution or business.", "tiers": [{ "label": "Experienced professionals", "condition": "5+ years of service and 25% savings for 5 months or more", "limit": "Up to 1,500,000 ETB" }]
+      "title": "Professional Savings and Loan",
+      "subtitle": "Professional Savings & Loan",
+      "description": "Credit for professionals experienced more than five years of service to starting or expanding a practice.",
+      "overview": "Members with five or more years of professional service can use their experience to start or expand their own institution or business.",
+      "tiers": [
+        {
+          "label": "Experienced professionals",
+          "condition": "5+ years of service and 25% savings for 5 months or more",
+          "limit": "Up to 1,500,000 ETB"
+        }
+      ]
     }
   },
+
+  "am": {
+    "qusanna-fi-liqii": {
+      "title": "ቁጠባ እና ብድር",
+      "subtitle": "ቁጠባ እና ብድር",
+      "description": "በቋሚነት ይቆጥቡ እና ለአባላት ብድር ብቁ ይሁኑ። መደበኛ እና ፈቃደኛ ቁጠባ ይቆጥቡ ።",
+      "overview": "አባላት በተለያዩ መንገዶች በመቆጠብ ብድር ማግኘት ይችላሉ። ወሊን በመደበኛ እና ፈቃደኛ የአዋቂዎች ቁጠባ ላይ 7% ወለድ እና በህፃናት ቁጠባ ላይ 10.5% ይከፍላል።",
+      "subTypes": [
+        {
+          "name": "መደበኛ ቁጠባ",
+          "desc": "አባላት በየወሩ በቋሚነት 500 ብር ይቆጥባሉ። መደበኛ ቁጠባ ከአባልነት ስለቅ ብቻ መውጣት ይቻላል።"
+        },
+        {
+          "name": "ፈቃደኛ ቁጠባ",
+          "desc": "አባላት ከህብረት ስራ ማህበሩ ጋር የሚፈልጉትን ማንኛውንም መጠን መቆጠብ እና በማንኛውም ጊዜ ማውጣት ይችላሉ።"
+        },
+        {
+          "name": "የህፃናት ቁጠባ",
+          "desc": "ህፃናት በወላጆቻቸው ወይም አሳዳጊዎቻቸው በኩል ገንዘብ መቆጠብ ይችላሉ። የህፃናት ቁጠባ ከ 500 ብር ይጀምራል።"
+        },
+        {
+          "name": " የተጠቃሚዎች ቁጠባ",
+          "desc": "ለሦስት እስከ አራት ወራት ወይም ከዚያ በላይ 25% ተከታታይ ቁጠባ የሚያደርጉ አባላት የፍጆታ ብድር ማግኘት ይችላሉ።"
+        }
+      ],
+      "tiers": [
+        {
+          "label": "ደረጃ 1",
+          "condition": "ለ 3 ወራት ተከታታይ 25% ቁጠባ",
+          "limit": "እስከ 120,000 ብር"
+        }
+      ]
+    },
+
+    "qusanna-hawaasummaa": {
+      "title": "ማህበራዊ ቁጠባ እና ብድር",
+      "subtitle": "ማህበራዊ ቁጠባ",
+      "description": "በቋሚ 25% ቁጠባ መዝገብ ላይ የተመሰረተ ማህበራዊ ብድር የሚከፍት የማህበረሰብ ተኮር ቁጠባ።",
+      "overview": "25% ተከታታይ ቁጠባ የሚያደርጉ አባላት ማህበራዊ ብድር ማግኘት ይችላሉ። የብድሩ መጠን በቁጠባ ደረጃው ላይ የተመሰረተ ነው።",
+      "tiers": [
+        {
+          "label": "ደረጃ 1",
+          "condition": "ለ 4 ወራት ወይም ከዚያ በላይ 25% ቁጠባ",
+          "limit": "ከ 200,000 በላይ እስከ–400,000 ብር"
+        },
+        {
+          "label": "ደረጃ 2",
+          "condition": "ለ 5 ወራት ወይም ከዚያ በላይ 25% ቁጠባ",
+          "limit": "ከ 400,000 በላይ እስከ –800,000 ብር"
+        },
+        {
+          "labe3": "ደረጃ 3",
+          "condition": "ለ 6 ወራት ወይም ከዚያ በላይ 25% ቁጠባ",
+          "limit": "ከ 800,000 በላይ እስከ1,000,000 ብር"
+        }
+      ]
+    },
+
+    "qusannoo-daldalaa": {
+      "title": "የንግድ ቁጠባ እና ብድር",
+      "subtitle": "የንግድ ቁጠባ እና ብድር",
+      "description": "ከ 30% ተከታታይ ቁጠባ ጋር የተያያዘ የንግድ ቁጠባ እና ብድር በመጠቀም ንግድዎን ያሳድጉ።",
+      "overview": "30% ተከታታይ ቁጠባ የሚያደርጉ አባላት የንግድ ብድር ማግኘት ይችላሉ። የብድሩ መጠን በቁጠባ ደረጃው ላይ የተመሰረተ ነው።",
+      "tiers": [
+        {
+          "label": "ደረጃ 1",
+          "condition": "ለ 5 ወራት ወይም ከዚያ በላይ 30% ቁጠባ",
+          "limit": "ከ1,000,000 በላይ እስከ,1,200,000 ብር"
+        },
+        {
+          "label": "ደረጃ 2",
+          "condition": "ለ 6 ወራት ወይም ከዚያ በላይ 30% ቁጠባ",
+          "limit": "ከ 1,200,000 በላይ እስከ 1,500,000 ብር"
+        },
+        {
+          "labe3": "ደረጃ 3",
+          "condition": "ለ 6+ ወራት ተከታታይ 30% ቁጠባ",
+          "limit": "ከ 1,500,000 በላይ እስከ 2,000,000 ብር"
+        }
+      ]
+    },
+
+    "qusannoo-manaa": {
+      "title": "የቤት ቁጠባ እና ብድር",
+      "subtitle": "የቤት ቁጠባ እና ብድር",
+      "description": "ቤት ለማደስ፣ ለመገንባት ወይም ለመግዛት እስከ 2 ሚሊዮን ብር የሚደርስ የቤት ብድር በመጠቀም ይቆጥቡ።",
+      "overview": "ለስድስት ወራት ወይም ከዚያ በላይ 30% ተከታታይ ቁጠባ የሚያደርጉ አባላት የቤት ብድር ማግኘት ይችላሉ።",
+      "tiers": [
+        {
+          "label": "ደረጃ 1 — ማደስ",
+          "condition": "ለ 6 ወራት ወይም ከዚያ በላይ 30% ቁጠባ",
+          "limit": "እስከ 1,000,000 ብር"
+        },
+        {
+          "label": "ደረጃ 2 — መገንባት / ማደስ / መግዛት",
+          "condition": "ለ 6 ወራት ወይም ከዚያ በላይ 30% ቁጠባ",
+          "limit": "እስከ 1,500,000 ብር"
+        },
+        {
+          "label": "ደረጃ 3 — መግዛት / መገንባት / ማደስ",
+          "condition": "ለ 6 ወራት ወይም ከዚያ በላይ 30% ቁጠባ",
+          "limit": "እስከ 2,000,000 ብር"
+        }
+      ]
+    },
+
+    "qusannoo-konkolaataa": {
+      "title": "የመኪና ቁጠባ እና ብድር",
+      "subtitle": "የመኪና ብድር",
+      "description": "ከስድስት ወራት 30% ተከታታይ ቁጠባ በኋላ እስከ 2 ሚሊዮን ብር የሚደርስ የመኪና ግዢ ብድር።",
+      "overview": "ለስድስት ወራት ወይም ከዚያ በላይ 30% ተከታታይ ቁጠባ የሚያደርጉ አባላት የመኪና ግዢ ብድር ማግኘት ይችላሉ።",
+      "tiers": [
+        {
+          "label": "መኪና መግዛት",
+          "condition": "ለ 6 ወራት ወይም ከዚያ በላይ ተከታታይ 30% ቁጠባ",
+          "limit": "እስከ 2,000,000 ብር"
+        }
+      ]
+    },
+
+    "qusannoo-baajaajii": {
+      "title": "የባጃጅ ቁጠባ እና ብድር",
+      "subtitle": "የባጃጅ / ቱክ-ቱክ ብድር",
+      "description": "ከ 4–6 ወራት 30% ቁጠባ በኋላ ለንግድ የሚያገለግል ሶስት ጎማ መኪና እስከ 1 ሚሊዮን ብር ፋይናንስ።",
+      "overview": "ለአራት እስከ ስድስት ወራት ወይም ከዚያ በላይ 30% ተከታታይ ቁጠባ የሚያደርጉ አባላት ሶስት ጎማ መኪና ለመግዛት የባጃጅ ብድር ማግኘት ይችላሉ።",
+      "tiers": [
+        {
+          "label": "ባጃጅ መግዛት",
+          "condition": "ለ 4–6 ወራት ወይም ከዚያ በላይ 30% ቁጠባ",
+          "limit": "እስከ 1,000,000 ብር"
+        }
+      ]
+    },
+
+    "qusannoo-liqii-mindaa": {
+      "title": "ቁጠባ እና በደመወዝ ላይ የተመሰረተ ብድር",
+      "subtitle": "የደመወዝ ቅድመ ብድር",
+      "description": "ለተቀጠሩ አባላት/ከውጭ የሉት ውጭ የደመወዝ ዋስትና ያለው ብድር፣ እስከ አራት ወር የተጣራ ደመወዝ የሚደርስ አስቸኳይ ቅድመ ክፍያ ጨምሮ።",
+      "overview": "በተለያዩ ድርጅቶች የተቀጠሩ አባላት አስቸኳይ ፍላጎት ሲኖር የአራት ወር የተጣራ ደመወዝ አስቸኳይ ብድር ማግኘት ይችላሉ።",
+      "tiers": [
+        {
+          "label": "አስቸኳይ ብድር",
+          "condition": "በተለያዩ ድርጅቶች ለተቀጠሩ አባላት ለ 2 ወራት ተከታታይ 25% ቁጠባ",
+          "limit": "የአራት ወር የተጣራ ደመወዝ"
+        },
+        {
+          "label": "መደበኛ ብድር",
+          "condition": "ለ 4 ወራት ወይም ከዚያ በላይ ተከታታይ 25% ቁጠባ",
+          "limit": "እስከ 300,000 ብር"
+        }
+      ]
+    },
+
+    "qusannaa-oogeesootaa": {
+      "title": "የሙያ ቁጠባ እና ብድር",
+      "subtitle": "የሙያ ቁጠባ እና ብድር",
+      "description": "ከአምስት ዓመት ወይም ከዚያ በላይ አገልግሎት በኋላ ልምድ ላላቸው ባለሙያዎች ስራን ለመጀመር ወይም ለማስፋት የሚሰጥ ብድር።",
+      "overview": "ከአምስት ዓመት ወይም ከዚያ በላይ የሙያ አገልግሎት ያላቸው አባላት ልምዳቸውን በመጠቀም የራሳቸውን ተቋም ወይም ንግድ መጀመር ወይም ማስፋት ይችላሉ።",
+      "tiers": [
+        {
+          "label": "ልምድ ያላቸው ባለሙያዎች",
+          "condition": "5+ ዓመት አገልግሎት እና ለ 5 ወራት ወይም ከዚያ በላይ 25% ቁጠባ",
+          "limit": "እስከ 1,500,000 ብር"
+        }
+      ]
+    }
+  },
+
   "om": {
-    "qusanna-fi-liqii": { "title": "Qusanna fi Liqii", "subtitle": "Qusanna fi Liqii" },
-    "qusanna-hawaasummaa": { "title": "Qusanna Hawaasummaa", "subtitle": "Qusanna Hawaasummaa" },
-    "qusannoo-daldalaa": { "title": "Qusannoo Daldalaa", "subtitle": "Qusannoo Daldalaa fi Liqii" },
-    "qusannoo-manaa": { "title": "Qusannoo Manaa", "subtitle": "Qusannoo Manaa fi Liqii" },
-    "qusannoo-konkolaataa": { "title": "Qusannoo Konkolaataa", "subtitle": "Liqii Konkolaataa" },
-    "qusannoo-baajaajii": { "title": "Qusannoo Baajaajii", "subtitle": "Liqii Baajaajii" },
-    "qusannoo-liqii-mindaa": { "title": "Qusannoo Liqii Mindaa", "subtitle": "Liqii Mindaa" },
-    "qusannaa-oogeesootaa": { "title": "Qusannaa Oogeesootaa", "subtitle": "Qusannaa fi Liqii Ogeeyyii" }
+    "qusanna-fi-liqii": {
+      "title": "Qusanna fi Liqii",
+      "subtitle": "Qusanna fi Liqii"
+    },
+    "qusanna-hawaasummaa": {
+      "title": "Qusanna Hawaasummaa",
+      "subtitle": "Qusanna Hawaasummaa"
+    },
+    "qusannoo-daldalaa": {
+      "title": "Qusannoo Daldalaa",
+      "subtitle": "Qusannoo Daldalaa fi Liqii"
+    },
+    "qusannoo-manaa": {
+      "title": "Qusannoo Manaa",
+      "subtitle": "Qusannoo Manaa fi Liqii"
+    },
+    "qusannoo-konkolaataa": {
+      "title": "Qusannoo Konkolaataa",
+      "subtitle": "Liqii Konkolaataa"
+    },
+    "qusannoo-baajaajii": {
+      "title": "Qusannoo Baajaajii",
+      "subtitle": "Liqii Baajaajii"
+    },
+    "qusannoo-liqii-mindaa": {
+      "title": "Qusannoo Liqii Mindaa",
+      "subtitle": "Liqii Mindaa"
+    },
+    "qusannaa-oogeesootaa": {
+      "title": "Qusannaa Oogeesootaa",
+      "subtitle": "Qusannaa fi Liqii Ogeeyyii"
+    }
   }
 }
+

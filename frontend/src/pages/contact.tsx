@@ -108,9 +108,9 @@ export default function Contact() {
           {/* Right — form */}
           <ScrollReveal direction="right" className="lg:col-span-3">
             <div className="rounded-2xl border border-[#e6e0d6] bg-white p-8 sm:p-10">
-              <h2 className="text-2xl font-bold text-[#0e241d]">Send us a message</h2>
+              <h2 className="text-2xl font-bold text-[#0e241d]">{t("sendUsMessage")}</h2>
               <p className="mt-1 mb-8 text-sm text-[#5d6f68]">
-                We aim to respond to all inquiries within 24 business hours.
+                {t("contactResponseNote")}
               </p>
               <ContactForm />
             </div>

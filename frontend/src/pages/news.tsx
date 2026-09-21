@@ -1,13 +1,10 @@
 import { motion } from "motion/react";
 import Container from "../components/ui/container";
 import banner from "../assets/banner.png";
-
-
+import { useLang } from "../context/LanguageContext";
 
 export default function News() {
-
- 
-
+  const { t } = useLang();
 
   return (
     <div className="bg-[#f7f5f0]">
@@ -35,7 +32,7 @@ export default function News() {
             animate={{ opacity: 1, y: 0 }}
             className="mb-2.5 text-xs font-bold uppercase tracking-[0.2em] text-[#d4af5a]"
           >
-            Stay informed
+            {t("contactEyebrow")}
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 14 }}
@@ -43,7 +40,7 @@ export default function News() {
             transition={{ delay: 0.06 }}
             className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl"
           >
-            News & Announcements
+            {t("newsTitle")}
           </motion.h1>
         </Container>
       </section>

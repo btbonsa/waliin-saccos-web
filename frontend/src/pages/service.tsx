@@ -21,7 +21,7 @@ export default function ServicesPage() {
       />
 
       <section className="py-16 sm:py-24">
-        <Container>
+        <Container className="flex flex-col items-center gap-2">
           {/* Section label */}
           <ScrollReveal>
             <div className="mb-12 text-center">
@@ -38,15 +38,19 @@ export default function ServicesPage() {
           </ScrollReveal>
 
           {/* Cards grid — slightly larger cards + more breathing room */}
-          <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto grid w-full max-w-5xl grid-cols-1 items-center justify-items-center gap-7 sm:grid-cols-3 lg:grid-cols-2">
             {services.map((service, i) => {
               const Icon = service.icon;
               return (
-                <ScrollReveal key={service.id} delay={(i % 4) * 0.07}>
+                <ScrollReveal
+                  key={service.id}
+                  delay={(i % 4) * 0.07}
+                  className="w-full"
+                >
                   <motion.div
                     whileHover={{ y: -10, scale: 1.02 }}
                     transition={{ type: "spring", stiffness: 280, damping: 20 }}
-                    className="group relative overflow-hidden rounded-2xl shadow-md hover:shadow-2xl transition-shadow duration-300"
+                    className="group relative mx-auto w-full max-w-[520px] overflow-hidden rounded-2xl shadow-md hover:shadow-2xl transition-shadow duration-300"
                     style={{ height: 360 }} // was 300 → larger cards
                   >
                     {/* Background image */}

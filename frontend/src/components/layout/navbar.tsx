@@ -258,7 +258,7 @@ export default function Navbar() {
 
           <Link
             to="/login"
-            className="inline-flex h-10 items-center rounded-full bg-[#0e241d] px-5 text-sm font-bold text-white hover:bg-[#16382e] transition-colors"
+            className="inline-flex h-10 items-center rounded-full bg-yellow px-5 text-sm font-bold text-white hover:bg-[#16382e] transition-colors"
           >
             {t("becomeMember")}
           </Link>
@@ -369,7 +369,7 @@ export default function Navbar() {
                 <Link
                   to="/login"
                   onClick={() => setIsOpen(false)}
-                  className="block rounded-full bg-[#0e241d] px-4 py-3 text-center text-sm font-bold text-white hover:bg-[#16382e] transition-colors"
+                  className="block rounded-full bg-yellow-500 px-4 py-3 text-center text-sm font-bold text-white hover:bg-[#16382e] transition-colors"
                 >
                   {t("becomeMember")}
                 </Link>
