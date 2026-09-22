@@ -17,8 +17,8 @@ const SECTIONS = ["mission", "values", "leadership", "founding-members"] as cons
 const memberPhotos = [members1Image, members2Image, members3Image];
 
 const leadership = [
-  { name: "Hailu Delesa", role: "Founder and General Manager", image: hailuImage },
-  { name: "Birahanu Tolesa", role: "Customer Relation Officer", image: BirhanuImage },
+  { name: "Hailu Delesa",    roleKey: "leadershipRole1" as const, image: hailuImage },
+  { name: "Birahanu Tolesa", roleKey: "leadershipRole2" as const, image: BirhanuImage },
 ];
 
 export default function About() {
@@ -111,7 +111,7 @@ export default function About() {
                 className="rounded-full px-5 py-2 text-xs font-semibold uppercase tracking-widest transition-all duration-200 hover:-translate-y-0.5"
                 style={{ background: "rgba(212,160,23,0.15)", color: "#eab308", border: "1px solid rgba(212,160,23,0.3)" }}
               >
-                {s === "mission" ? t("missionAndVisionTitle") : s === "values" ? t("whatWeStandFor") : s === "leadership" ? t("leadershipTitle") : "Founding Members"}
+                {s === "mission" ? t("missionAndVisionTitle") : s === "values" ? t("whatWeStandFor") : s === "leadership" ? t("leadershipTitle") : t("foundingMembersTitle")}
               </button>
             ))}
           </motion.div>
@@ -392,10 +392,10 @@ export default function About() {
 
                   {/* role badge */}
                   <span
-                    className="inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest"
-                    style={{ background: "rgba(212,160,23,0.12)", color: "#eab308" }}
+                    className="inline-block rounded-full px-4 py-1.5 text-sm font-semibold uppercase tracking-widest"
+                    style={{ background: "rgba(0, 0, 0, 0.12)", color: "#715500" }}
                   >
-                    {person.role}
+                    {t(person.roleKey)}
                   </span>
 
                   {/* animated bottom bar */}
@@ -421,13 +421,13 @@ export default function About() {
                 className="inline-block rounded-full px-4 py-1 text-xs font-semibold uppercase tracking-widest"
                 style={{ background: "rgba(14,36,29,0.08)", color: "#0e241d" }}
               >
-                Est. 2026
+                {t("foundingMembersEyebrow")}
               </span>
               <h2 className="mt-4 text-3xl font-bold sm:text-4xl" style={{ color: "#0e241d" }}>
-                Founding Members
+                {t("foundingMembersTitle")}
               </h2>
               <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed" style={{ color: "#5d6f68" }}>
-                The individuals who came together to establish Walin SACCO Ltd and lay the foundation for a member-owned cooperative in Holeta Town.
+                {t("foundingMembersDescription")}
               </p>
             </div>
           </ScrollReveal>
@@ -474,7 +474,7 @@ export default function About() {
                         className="inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest"
                         style={{ background: "rgba(212,160,23,0.18)", color: "#eab308", backdropFilter: "blur(6px)" }}
                       >
-                        Founding Member
+                        {t("foundingMemberBadge")}
                       </span>
                     </motion.div>
                   </div>
