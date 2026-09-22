@@ -73,7 +73,7 @@ export default function LoginPage() {
       <Container>
         <div className="mx-auto grid max-w-5xl overflow-hidden rounded-3xl border border-[#e8e4dc] bg-white shadow-sm lg:grid-cols-2">
           {/* Left panel */}
-          <div className="relative hidden flex-col justify-between overflow-hidden bg-[#0e241d] p-10 text-white lg:flex lg:p-12">
+          <div className="relative hidden flex-col justify-between overflow-hidden bg-green-600 p-10 text-white lg:flex lg:p-12">
             {/* Soft gold accent line */}
             <div className="absolute inset-y-0 left-0 w-1 bg-[#d4a017]" />
 
