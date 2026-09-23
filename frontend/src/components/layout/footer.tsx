@@ -18,7 +18,7 @@ const resourceLinks = [
 ];
 
 const socialLinks = [
-  { name: "Facebook", href: "https://www.facebook.com/share/1FJD433Xit/", Icon: FaFacebook },
+  { name: "Facebook", href: "https://www.facebook.com/share/p/1LvS29g9Jk/", Icon: FaFacebook },
   { name: "TikTok", href: "https://tiktok.com/@waliinsacco", Icon: FaTiktok },
   { name: "Instagram", href: "https://www.instagram.com/hailudelesa?stkn=M3hubnh6dTFyanN6", Icon: FaInstagram },
   { name: "LinkedIn", href: "https://www.linkedin.com/in/walin-saccos-ltd-082b612ab", Icon: FaLinkedin },

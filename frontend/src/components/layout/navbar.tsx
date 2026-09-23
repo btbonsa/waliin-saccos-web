@@ -31,7 +31,7 @@ const ABOUT_SUB = [
 const SOCIAL_LINKS = [
   { name: "TikTok", href: "https://tiktok.com/@waliinsacco", Icon: FaTiktok, hover: "hover:text-[#000]" },
   { name: "Telegram", href: "https://t.me/waliinsacco", Icon: FaTelegram, hover: "hover:text-[#229ed9]" },
-  { name: "Facebook", href: "https://www.facebook.com/share/1FJD433Xit/", Icon: FaFacebook, hover: "hover:text-[#1877f2]" },
+  { name: "Facebook", href: "https://www.facebook.com/share/p/1LvS29g9Jk/", Icon: FaFacebook, hover: "hover:text-[#1877f2]" },
   { name: "Instagram", href: "https://www.instagram.com/hailudelesa?stkn=M3hubnh6dTFyanN6", Icon: FaInstagram, hover: "hover:text-[#e4405f]" },
 ];
 
