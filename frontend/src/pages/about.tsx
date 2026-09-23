@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Target, Eye, ChevronDown } from "lucide-react";
-import { motion, AnimatePresence} from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import Container from "../components/ui/container";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import hailuImage from "../assets/hailu.png";
@@ -17,7 +17,7 @@ const SECTIONS = ["mission", "values", "leadership", "founding-members"] as cons
 const memberPhotos = [members1Image, members2Image, members3Image];
 
 const leadership = [
-  { name: "Hailu Delesa",    roleKey: "leadershipRole1" as const, image: hailuImage },
+  { name: "Hailu Delesa", roleKey: "leadershipRole1" as const, image: hailuImage },
   { name: "Birahanu Tolesa", roleKey: "leadershipRole2" as const, image: BirhanuImage },
 ];
 
@@ -28,25 +28,25 @@ export default function About() {
   const [expandedValue, setExpandedValue] = useState<string | null>(null);
 
   const coreValues = [
-    { value: t("coreValueEquality"),          icon: "⚖️", desc: t("coreValueEqualityDesc") },
-    { value: t("coreValueSolidarity"),         icon: "🤝", desc: t("coreValueSolidarityDesc") },
-    { value: t("coreValueSelfHelp"),           icon: "💪", desc: t("coreValueSelfHelpDesc") },
+    { value: t("coreValueEquality"), icon: "⚖️", desc: t("coreValueEqualityDesc") },
+    { value: t("coreValueSolidarity"), icon: "🤝", desc: t("coreValueSolidarityDesc") },
+    { value: t("coreValueSelfHelp"), icon: "💪", desc: t("coreValueSelfHelpDesc") },
     { value: t("coreValueSelfResponsibility"), icon: "🎯", desc: t("coreValueSelfResponsibilityDesc") },
-    { value: t("coreValueDemocracy"),          icon: "🗳️", desc: t("coreValueDemocracyDesc") },
+    { value: t("coreValueDemocracy"), icon: "🗳️", desc: t("coreValueDemocracyDesc") },
   ];
 
   const ethicalValues = [
-    { value: t("ethicalHonesty"),              icon: "🤝" },
-    { value: t("ethicalTransparency"),         icon: "🔍" },
-    { value: t("ethicalAccountability"),       icon: "⚖️" },
-    { value: t("ethicalParticipation"),        icon: "🗳️" },
+    { value: t("ethicalHonesty"), icon: "🤝" },
+    { value: t("ethicalTransparency"), icon: "🔍" },
+    { value: t("ethicalAccountability"), icon: "⚖️" },
+    { value: t("ethicalParticipation"), icon: "🗳️" },
     { value: t("ethicalSocialResponsibility"), icon: "🌱" },
-    { value: t("ethicalConsideration"),        icon: "💛" },
+    { value: t("ethicalConsideration"), icon: "💛" },
   ];
 
   const missionVision = {
-    vision:  { icon: Target, title: t("missionVisionVisionTitle"),  description: t("missionVisionVisionDescription") },
-    mission: { icon: Eye,    title: t("missionVisionMissionTitle"), description: t("missionVisionMissionDescription") },
+    vision: { icon: Target, title: t("missionVisionVisionTitle"), description: t("missionVisionVisionDescription") },
+    mission: { icon: Eye, title: t("missionVisionMissionTitle"), description: t("missionVisionMissionDescription") },
   };
 
   useEffect(() => {
@@ -391,10 +391,7 @@ export default function About() {
                   <div className="my-3 h-px w-12" style={{ background: "rgba(212,160,23,0.4)" }} />
 
                   {/* role badge */}
-                  <span
-                    className="inline-block rounded-full px-4 py-1.5 text-sm font-semibold uppercase tracking-widest"
-                    style={{ background: "rgba(0, 0, 0, 0.12)", color: "#715500" }}
-                  >
+                  <span className="rounded-full bg-amber-400/10 px-4 py-1 text-xs font-bold uppercase tracking-widest text-amber-900 border border-amber-400/20">
                     {t(person.roleKey)}
                   </span>
 

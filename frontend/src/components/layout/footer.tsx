@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail } from "lucide-react";
+import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok , FaTelegram } from "react-icons/fa6";
 import logo from "../../assets/logo.jpg";
 import Container from "../ui/container";
 
@@ -14,6 +15,14 @@ const resourceLinks = [
   { name: "How to join", path: "/contact" },
   { name: "Savings & loans", path: "/services" },
   { name: "Contact", path: "/contact" },
+];
+
+const socialLinks = [
+  { name: "Facebook", href: "https://www.facebook.com/share/1FJD433Xit/", Icon: FaFacebook },
+  { name: "TikTok", href: "https://tiktok.com/@waliinsacco", Icon: FaTiktok },
+  { name: "Instagram", href: "https://www.instagram.com/hailudelesa?stkn=M3hubnh6dTFyanN6", Icon: FaInstagram },
+  { name: "LinkedIn", href: "https://www.linkedin.com/", Icon: FaLinkedin },
+  {name: "Telegram" , href: "https://t.me/waliinsacco", Icon: FaTelegram }
 ];
 
 export default function Footer() {
@@ -33,6 +42,20 @@ export default function Footer() {
             <p className="max-w-sm text-sm leading-relaxed text-white/50">
               A member-owned savings and credit cooperative providing trusted savings, fair credit, and shared dividends.
             </p>
+            <div className="flex items-center gap-3 pt-1">
+              {socialLinks.map(({ name, href, Icon }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Visit Waliin SACCO on ${name}`}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/60 transition-colors hover:border-yellow-500 hover:text-yellow-500"
+                >
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                </a>
+              ))}
+            </div>
           </div>
 
           <div>
