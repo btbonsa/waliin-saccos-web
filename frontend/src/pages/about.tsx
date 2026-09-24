@@ -9,12 +9,14 @@ import BirhanuImage from "../assets/Birahanu.png";
 import members1Image from "../assets/members.png";
 import members2Image from "../assets/members1.png";
 import members3Image from "../assets/members2.png";
+import members4Image from "../assets/members0.png"
+import members5Image from "../assets/member1.png"
 import { useLang } from "../context/LanguageContext";
 import bannerImage from "../assets/banner.png";
 
 const SECTIONS = ["mission", "values", "leadership", "founding-members"] as const;
 
-const memberPhotos = [members1Image, members2Image, members3Image];
+const memberPhotos = [members1Image, members2Image, members3Image, members4Image,  members5Image];
 
 const leadership = [
   { name: "Hailu Delesa", roleKey: "leadershipRole1" as const, image: hailuImage },
@@ -430,7 +432,7 @@ export default function About() {
           </ScrollReveal>
 
           <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-3">
-            {memberPhotos.map((src, i) => (
+            {memberPhotos.slice(0, 3).map((src, i) => (
               <ScrollReveal key={i} delay={i * 0.12} direction="up">
                 <motion.div
                   className="group relative overflow-hidden rounded-3xl"
@@ -474,6 +476,47 @@ export default function About() {
                         {t("foundingMemberBadge")}
                       </span>
                     </motion.div>
+                  </div>
+                </motion.div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 gap-5">
+            {memberPhotos.slice(3).map((src, i) => (
+              <ScrollReveal key={i} delay={i * 0.12} direction="up">
+                <motion.div
+                  className="group grid overflow-hidden rounded-3xl bg-white md:grid-cols-[minmax(0,280px)_1fr]"
+                  style={{ boxShadow: "0 4px 24px rgba(14,36,29,0.10)" }}
+                  whileHover={{ y: -6, boxShadow: "0 24px 56px rgba(14,36,29,0.18)" }}
+                  transition={{ type: "spring", stiffness: 280, damping: 22 }}
+                >
+                  <div className="relative h-72 overflow-hidden md:h-64">
+                    <motion.img
+                      src={src}
+                      alt="Committee"
+                      className="h-full w-full object-cover"
+                      whileHover={{ scale: 1.07 }}
+                      transition={{ duration: 0.55, ease: "easeOut" }}
+                    />
+                    <div
+                      className="absolute inset-x-0 top-0 h-1"
+                      style={{ background: "linear-gradient(90deg,#d4a017,#eab308,#d4a017)" }}
+                    />
+                  </div>
+                  <div className="flex flex-col justify-center p-6 sm:p-8">
+                    <span
+                      className="w-fit rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest"
+                      style={{ background: "rgba(212,160,23,0.14)", color: "#9a7410" }}
+                    >
+                      {t("foundingMemberBadge")}
+                    </span>
+                    <h3 className="mt-4 text-xl font-bold" style={{ color: "#0e241d" }}>
+                      {t("foundingMembersTitle")}
+                    </h3>
+                    <p className="mt-3 max-w-xl text-sm leading-relaxed" style={{ color: "#5d6f68" }}>
+                      {t("foundingMembersDescription")}
+                    </p>
                   </div>
                 </motion.div>
               </ScrollReveal>

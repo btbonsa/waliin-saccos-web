@@ -115,7 +115,7 @@ en: {
    fullDetailsDescription: "Expand each section for terms, tiers, and savings rules.",
    // Product preview
    productsLabel: "Our Products",
-   productsTitle: "Savings & loans for real life",
+   productsTitle: "Savings & loans for Better life",
    seeAllProducts: "See all products",
    // Contact page
    contactEyebrow: "Reach out",
@@ -163,9 +163,9 @@ en: {
    coreValueDemocracyDesc: "Members have an equal voice in running the cooperative.",
    // About — ethical values
    foundingMembersEyebrow: "Est. 2026",
-   foundingMembersTitle: "Founding Members",
+  foundingMembersTitle: "Committees",
    foundingMembersDescription: "The individuals who came together to establish Walin SACCO Ltd and lay the foundation for a member-owned cooperative in Holeta Town.",
-   foundingMemberBadge: "Founding Member",
+  foundingMemberBadge: "Committees",
    leadershipRole1: "Founder and General Manager",
    leadershipRole2: "Customer Relation Officer",
    ethicalHonesty: "Honesty",
@@ -244,7 +244,7 @@ am: {
    // About page
    ourStory: "ታሪካችን",
    aboutTitle: "ስለ ወሊን የብድር እና ቁጠባ ህብረት ስራ ማህበር",
-   aboutDescription: "በሆለታ ከተማ እና በሁሉንም ኢትዮጵያ አሳታፊ የፋይናንስ እድገትን ለማረጋገጥ የተቋቋመ በአባላት የተያዘ ህብረት ስራ ማህበር።",
+   aboutDescription: "በሆለታ ከተማ እና በሁሉም ኢትዮጵያ አሳታፊ የፋይናንስ እድገትን ለማረጋገጥ የተቋቋመ በአባላት የተያዘ ህብረት ስራ ማህበር።",
    purpose: "ዓላማ",
    missionAndVisionTitle: "ራዕይ እና ተልዕኮ",
    coreEthicalValuesTitle: "የወሊን ዋና እና የስነ-ምግባር እሴቶች",
@@ -286,7 +286,7 @@ am: {
    fullDetailsDescription: "ስለ ውሎች፣ ደረጃዎች እና የቁጠባ ህጎች ዝርዝር መረጃ ለማግኘት እያንዳንዱን ክፍል ይክፈቱ።",
    // Product preview
    productsLabel: "ምርቶቻችን",
-   productsTitle: "ቁጠባ እና ብድር ለዕለት ተዕለት ህይወት",
+   productsTitle: "ቁጠባና ብድር ለተሻለ ሕይወት",
    seeAllProducts: "ሁሉንም ምርቶች ይመልከቱ",
    // Contact page
    contactEyebrow: "ያናግሩን",
@@ -334,9 +334,9 @@ am: {
    coreValueDemocracyDesc: "አባላት ማህበሩን በማስተዳደር ረገድ እኩል ድምፅ አላቸው።",
    // About — ethical values
    foundingMembersEyebrow: "የተመሰረተው በ 2026",
-   foundingMembersTitle: "መስራች አባላት",
+  foundingMembersTitle: "ኮሚቴዎች",
    foundingMembersDescription: "በሆለታ ከተማ በአባላት ባለቤትነት የተያዘ የህብረት ስራ ማህበር መሰረት ለመጣል እና ወሊን ህብረት ስራ ማህበርን ለመመስረት በአንድነት የተሰባሰቡ ግለሰቦች።",
-   foundingMemberBadge: "መስራች አባል",
+  foundingMemberBadge: "ኮሚቴዎች",
    leadershipRole1: "መስራች እና ዋና ስራ አስኪያጅ",
    leadershipRole2: "የደንበኞች ግንኙነት ኦፊሰር",
    ethicalHonesty: "ታማኝነት",
@@ -356,7 +356,7 @@ am: {
    missionVision: "Ergaa fi Mul'ata",
    leadership: "Hoggansa",
    signIn: "Seeni",
-   becomeMember: "Misoomaa ta'i",
+   becomeMember: "Miseensa ta'a",
    language: "Afaan",
    explore: "Qoradhu",
    visitUs: "Nu daawwadhu",
@@ -378,7 +378,7 @@ am: {
    memberOwnedDescription: "Miseensni tokon tokoo isaan sagalee walqixa kanqaban yoo ta'u bu'aa dhabatichaa waliin kan qoodatan ta'a.",
    creditThatFitsLife: "Liqii salphaa fi mijataa",
    creditDescription: "Liqaa nama dhuunfaa, hawaasummaa, daldalaa, manaa, konkolaataa fi mindaa irratti hundaa'ee.",
-   communityCooperative: "Hawaasa wajjiin hojjedhu",
+   communityCooperative: "Hawaasa wajjiin hojjechuu",
    communityCooperativeDescription: "Magaalaa Holeta fi naannoo isaatti dhabilee jiran, waldaalee qusannoo, waldaalee hawaasummaa fi gargaarsa hunda walin kan hojanu ta'a.",
    talkToUs: "Nus qunamaa",
    shareholdersInstitutions: "Hirmaattonni fi dhaabbataawwan",
@@ -406,7 +406,7 @@ am: {
    faqLoanQualifyAnswer: "Liqiin qusannoo wal irraa hin cinne irratti hundaa’a.Oomishaaleen baay’een isaanii liqeessuu kee dura ji’oota murtaa’an keessatti qusannoo walitti fufiinsa qabu %25–30 barbaadu.",
    faqSavingsInterest: "Miseensonni Qusannoo irra Dhala ni argatuu?",
    faqSavingsInterestAnswer: "Eeyyee. Qusannoo Dirqamaa fi Fedhii irraa Dhala 7% kan Argatu fi Qusannoo daa'immanni irra moo 10.5% kan argatu.",
-   faqMemberOwned: "Waliin miseensaa barruu?",
+   faqMemberOwned: "Waliin SACCO kan miseensootati ?",
    faqMemberOwnedAnswer: "Eeyyee. Miseensni hunda Sagalee walqixa qabaata, Bu'aanis erga sakatta'ame booda qoodama.",
    financialLiteracy: "Hubbanna Faayinanssi miseensotaaf",
    supportSmallTraders: "Deegarsa Daldaltoota xiqqaa",
@@ -439,7 +439,7 @@ am: {
    unsureProduct: "Oomishinni kun siif mijataa akka ta'e hin beektaa?",
    // Product preview
    productsLabel: "Oomishaalee Keenya",
-   productsTitle: "Qusannaa & liqaa jireenya dhugaaaf",
+   productsTitle: "Qusannaa fi Liqii Jireenya Fooyya'aadhaaf",
    seeAllProducts: "Oomishaalee Hunda ilaali",
    // Contact page
    contactEyebrow: "Nu quunnamaa",
@@ -487,9 +487,9 @@ am: {
    coreValueDemocracyDesc: "Miseensonni waldaa bulchuuf sagalee qixxee qabu.",
    // About — ethical values
    foundingMembersEyebrow: "Bara 2026",
-   foundingMembersTitle: "Miseensota Hundeessitootaa",
+  foundingMembersTitle: "Koree",
    foundingMembersDescription: "Namoota Walin SACCO Ltd hundeessuuf walitti dhufan, magaalaa Holeta keessatti waldaa miseensotaa bu'uura kaa'an.",
-   foundingMemberBadge: "Miseensa Hundeessaa",
+  foundingMemberBadge: "Koree",
    leadershipRole1: "Hundeessaa fi Hoogganaa Olaanaa",
    leadershipRole2: "Ogeessa Quunnamtii Maamilaa",
    ethicalHonesty: "Dhugummaa",

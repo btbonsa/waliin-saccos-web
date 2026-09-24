@@ -10,22 +10,22 @@ import { useLang } from "../../context/LanguageContext";
 import type { Lang } from "../../context/LanguageContext";
 
 const LANGUAGES: { code: Lang; label: string; short: string }[] = [
-  { code: "en", label: "English",  short: "EN" },
-  { code: "am", label: "አማርኛ",    short: "AM" },
+  { code: "en", label: "English", short: "EN" },
+  { code: "am", label: "አማርኛ", short: "AM" },
   { code: "om", label: "Oromiffa", short: "OM" },
 ];
 
 const NAV_LINKS = [
-  { key: "home"     as const, path: "/" },
+  { key: "home" as const, path: "/" },
   { key: "services" as const, path: "/services" },
-  { key: "news"     as const, path: "/news" },
-  { key: "contact"  as const, path: "/contact" },
+  { key: "news" as const, path: "/news" },
+  { key: "contact" as const, path: "/contact" },
 ];
 
 const ABOUT_SUB = [
-  { key: "overview"      as const, path: "/about" },
+  { key: "overview" as const, path: "/about" },
   { key: "missionVision" as const, path: "/about#mission" },
-  { key: "leadership"    as const, path: "/about#leadership" },
+  { key: "leadership" as const, path: "/about#leadership" },
 ];
 
 const SOCIAL_LINKS = [
@@ -36,18 +36,18 @@ const SOCIAL_LINKS = [
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen]                   = useState(false);
-  const [mobileAboutOpen, setMobileAboutOpen]   = useState(false);
-  const [scrolled, setScrolled]                 = useState(false);
-  const [langOpen, setLangOpen]                 = useState(false);
-  const [aboutOpen, setAboutOpen]               = useState(false);
-  const langRef    = useRef<HTMLDivElement>(null);
-  const aboutRef   = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
   const aboutTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { lang, setLang, t } = useLang();
   const activeLang = LANGUAGES.find((l) => l.code === lang)!;
-  const location  = useLocation();
-  const navigate   = useNavigate();
+  const location = useLocation();
+  const navigate = useNavigate();
   const isAboutActive = location.pathname.startsWith("/about");
 
   const handleAboutSub = useCallback((path: string) => {
@@ -61,7 +61,7 @@ export default function Navbar() {
     }
   }, [location.pathname, navigate]);
 
-  const openAbout  = useCallback(() => {
+  const openAbout = useCallback(() => {
     if (aboutTimer.current) clearTimeout(aboutTimer.current);
     setAboutOpen(true);
   }, []);
@@ -99,52 +99,52 @@ export default function Navbar() {
         scrolled ? "border-[#e6e0d6] shadow-sm" : "border-transparent",
       )}
     >
-<aside aria-label="Top Bar Header" className="bg-yellow-400">
-      <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        
-        {/* Left Side: Bold Phone Contact */}
-        <a
-          href={PHONE_HREF}
-          className="group inline-flex items-center gap-2 text-xs font-extrabold text-black transition-all duration-200 hover:text-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-1"
-          aria-label={`Call Waliin SACCO at ${PHONE_NUMBER}`}
-        >
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-black/10 transition-transform duration-200 group-hover:scale-110 group-hover:bg-black/20">
-            <Phone className="h-3.5 w-3.5 text-black stroke-[2.5]" aria-hidden="true" />
+      <aside aria-label="Top Bar Header" className="bg-yellow-400">
+        <div className="mx-auto flex h-8 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+
+          {/* Left Side: Bold Phone Contact */}
+          <a
+            href={PHONE_HREF}
+            className="group inline-flex items-center gap-2 text-xs font-extrabold text-black transition-all duration-200 hover:text-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-1"
+            aria-label={`Call Waliin SACCO at ${PHONE_NUMBER}`}
+          >
+            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-black/10 transition-transform duration-200 group-hover:scale-110 group-hover:bg-black/20">
+              <Phone className="h-3.5 w-3.5 text-black stroke-[2.5]" aria-hidden="true" />
+            </div>
+            <span className="tracking-wider">{PHONE_NUMBER}</span>
+          </a>
+
+          {/* Right Side: Social Media Links & Label */}
+          <div className="flex items-center gap-3.5 sm:gap-4">
+            <span className="hidden text-xs font-bold uppercase tracking-widest text-black/90 sm:inline">
+              Connect with us
+            </span>
+
+            {/* Solid Divider */}
+            <span className="hidden h-3.5 w-px bg-black/30 sm:inline" aria-hidden="true" />
+
+            {/* High-Visibility Bold Social Icons */}
+            <div className="flex items-center gap-3.5">
+              {SOCIAL_LINKS.map(({ name, href, Icon, hover }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit Waliin SACCO on ${name}`}
+                  className={cn(
+                    "group text-black transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-1",
+                    hover
+                  )}
+                >
+                  <Icon className="h-4 w-4 text-current stroke-[2.2] transition-transform duration-200 group-hover:scale-110" aria-hidden="true" />
+                </a>
+              ))}
+            </div>
           </div>
-          <span className="tracking-wider">{PHONE_NUMBER}</span>
-        </a>
 
-        {/* Right Side: Social Media Links & Label */}
-        <div className="flex items-center gap-3.5 sm:gap-4">
-          <span className="hidden text-xs font-bold uppercase tracking-widest text-black/90 sm:inline">
-            Connect with us
-          </span>
-
-          {/* Solid Divider */}
-          <span className="hidden h-3.5 w-px bg-black/30 sm:inline" aria-hidden="true" />
-
-          {/* High-Visibility Bold Social Icons */}
-          <div className="flex items-center gap-3.5">
-            {SOCIAL_LINKS.map(({ name, href, Icon, hover }) => (
-              <a
-                key={name}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Visit Waliin SACCO on ${name}`}
-                className={cn(
-                  "group text-black transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-1",
-                  hover
-                )}
-              >
-                <Icon className="h-4 w-4 text-current stroke-[2.2] transition-transform duration-200 group-hover:scale-110" aria-hidden="true" />
-              </a>
-            ))}
-          </div>
         </div>
-
-      </div>
-    </aside>
+      </aside>
 
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 
