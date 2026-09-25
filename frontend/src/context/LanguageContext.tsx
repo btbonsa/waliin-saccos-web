@@ -427,7 +427,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     leadershipTitle: "Hoggansa Keenya",
     leadershipDescription: "Ogummaa qabanin kanneen Walin SACCO Ltd Miseensotaaf gaggeessan.",
     missionVisionVisionTitle: "Mul'ata Keenya",
-    missionVisionVisionDescription: "Bara 2030tti Miseensonni Galii Giddu-Galeessaa, Daldaltoota ta'anii Hiyyummaa irraa Bilisa ta'u.",
+    missionVisionVisionDescription: "Bara 2030tti Miseensonni Galii Giddu-Galeessaa,  hojii uumtoota ta'anii Hiyyummaa irraa Bilisa ta'u.",
     missionVisionMissionTitle: "Ergaama Keenya",
     missionVisionMissionDescription: "Tajaajilawwan maallaqaa saffisaa fi salphaa kennuudhaan, dhaabbata maallaqaa itti fufiinsa qabu ijaaruu fi hawaasa bal'aa fayyadamoo taasisuuf hojjenna.",
     whatWeStandFor: "Waa'ee keenya",
