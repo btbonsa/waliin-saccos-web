@@ -306,20 +306,6 @@ export default function Navbar() {
               )}
             </AnimatePresence>
           </div>
-
-          <Link
-            to="/login"
-            className="text-sm font-semibold text-[#5d6f68] hover:text-[#0e241d] transition-colors"
-          >
-            {t("signIn")}
-          </Link>
-
-          <Link
-            to="/login"
-            className="inline-flex h-10 items-center rounded-full bg-yellow px-5 text-sm font-bold text-white hover:bg-[#16382e] transition-colors"
-          >
-            {t("becomeMember")}
-          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -415,23 +401,6 @@ export default function Navbar() {
                   {t(link.key)}
                 </NavLink>
               ))}
-
-              <div className="pt-3 border-t border-[#e6e0d6] mt-3 space-y-2">
-                <Link
-                  to="/login"
-                  onClick={() => setIsOpen(false)}
-                  className="block rounded-xl px-4 py-3 text-sm font-semibold text-[#5d6f68] hover:bg-[#f7f5f0] hover:text-[#0e241d] transition-colors"
-                >
-                  {t("signIn")}
-                </Link>
-                <Link
-                  to="/login"
-                  onClick={() => setIsOpen(false)}
-                  className="block rounded-full bg-yellow-500 px-4 py-3 text-center text-sm font-bold text-white hover:bg-[#16382e] transition-colors"
-                >
-                  {t("becomeMember")}
-                </Link>
-              </div>
 
               {/* Mobile language picker */}
               <div className="mt-4 border-t border-[#e6e0d6] pt-4">

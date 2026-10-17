@@ -42,7 +42,9 @@ export interface ServiceDetail {
   image?: string;
 }
 
-type ServiceCopy = Partial<Pick<ServiceDetail, "title" | "subtitle" | "description" | "overview" | "tiers" | "subTypes">>;
+type ServiceCopy = Partial<
+  Pick<ServiceDetail, "title" | "subtitle" | "description" | "overview" | "interestRate" | "tenure" | "savingsPercent" | "tiers" | "subTypes">
+>;
 
 const localizedServiceTranslations = serviceTranslations as Partial<Record<Lang, Record<string, ServiceCopy>>>;
 
@@ -57,8 +59,8 @@ export const SERVICES: ServiceDetail[] = [
     overview:
       "Miseensi qusennaa adda adda qusachuu dhan Liqii kan liqeefatan ni ta'a. Miseensoon WALIIN qusatanif waldichii qusanna fedhii fi dirqama waraa gaheessotaaf dhalaa dhibentaa 7 kan kafaluu yoo tau'u ijooleedhaaf moo dhibentaa 10.5 kafalaa.",
     icon: HandCoins,
-    interestRate: "7% – 10.5%",
-    tenure: "Ji'a 3 – 4+",
+    interestRate: "12% – 15.5%",
+    tenure: "2 – 5 Year",
     savingsPercent: "25%",
     subTypes: [
       {

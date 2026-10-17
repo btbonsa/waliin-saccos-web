@@ -53,22 +53,25 @@ export default function ServicesPage() {
                     className="group relative mx-auto w-full max-w-[520px] overflow-hidden rounded-2xl shadow-md hover:shadow-2xl transition-shadow duration-300"
                     style={{ height: 360 }} // was 300 → larger cards
                   >
-                    {/* Background image */}
-                    {service.image ? (
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 bg-[#0e241d]" />
-                    )}
+                    {/* Clickable image area */}
+                    <Link to={`/services/${service.id}`} className="absolute inset-0 z-0">
+                      {/* Background image */}
+                      {service.image ? (
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 bg-[#0e241d]" />
+                      )}
 
-                    {/* Gradient overlay — deepens a bit more on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0e241d]/95 via-[#0e241d]/55 to-[#0e241d]/15 transition-opacity duration-300 group-hover:opacity-95" />
+                      {/* Gradient overlay — deepens a bit more on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0e241d]/95 via-[#0e241d]/55 to-[#0e241d]/15 transition-opacity duration-300 group-hover:opacity-95" />
 
-                    {/* Top accent bar */}
-                    <div className="absolute inset-x-0 top-0 h-1.5 bg-[#d4a017] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                      {/* Top accent bar */}
+                      <div className="absolute inset-x-0 top-0 h-1.5 bg-[#d4a017] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                    </Link>
 
                     {/* Icon */}
                     <div className="absolute top-6 left-6 z-10">
@@ -93,24 +96,9 @@ export default function ServicesPage() {
                         {service.title}
                       </h3>
                       {/* CTA row */}
-                      <div className="mt-5 flex items-center justify-between">
+                      <div className="mt-5 flex items-center justify-end">
                         <Link
-                          to={`/services/${service.id}`}
-                          className="inline-flex items-center gap-2 text-sm font-bold text-[#d4af5a] hover:text-white transition-colors"
-                        >
-                          {t("learnMore")}
-                          <motion.span
-                            className="inline-block"
-                            initial={{ x: 0 }}
-                            whileHover={{ x: 4 }}
-                            transition={{ type: "spring", stiffness: 400 }}
-                          >
-                            <ArrowRight size={14} />
-                          </motion.span>
-                        </Link>
-
-                        <Link
-                          to="/login"
+                          to="/contact"
                           className="inline-flex h-8 items-center rounded-full bg-[#d4a017] px-4 text-xs font-bold text-white opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-[#d4af5a] hover:scale-105 active:scale-95"
                         >
                             {t("apply")}

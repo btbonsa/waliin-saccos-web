@@ -1,10 +1,37 @@
+import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import Container from "../components/ui/container";
 import banner from "../assets/banner.png";
 import { useLang } from "../context/LanguageContext";
+import API from "../api/axios";
+
+interface Announcement {
+  id: number;
+  title: string;
+  body: string;
+  category: string;
+  created_at: string;
+}
 
 export default function News() {
   const { t } = useLang();
+  const [announcements, setAnnouncements] = useState<Announcement[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchAnnouncements();
+  }, []);
+
+  const fetchAnnouncements = async () => {
+    try {
+      const response = await API.get("/announcements");
+      setAnnouncements(response.data);
+    } catch (error) {
+      console.error("Failed to fetch announcements:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="bg-[#f7f5f0]">
@@ -32,7 +59,7 @@ export default function News() {
             animate={{ opacity: 1, y: 0 }}
             className="mb-2.5 text-xs font-bold uppercase tracking-[0.2em] text-[#d4af5a]"
           >
-            {t("contactEyebrow")}
+            {t("newsEyebrow")}
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 14 }}
@@ -46,7 +73,52 @@ export default function News() {
       </section>
 
       {/* ── Content ── */}
-    
+      <section className="py-16 sm:py-24">
+        <Container>
+          {loading ? (
+            <div className="text-center py-12">
+              <p className="text-[#5d6f68]">Loading announcements...</p>
+            </div>
+          ) : announcements.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-[#5d6f68]">No announcements available at this time.</p>
+            </div>
+          ) : (
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {announcements.map((announcement, index) => (
+                <motion.div
+                  key={announcement.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow"
+                >
+                  <div className="p-6">
+                    <div className="mb-3">
+                      <span className="inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider"
+                        style={{ background: "rgba(212,160,23,0.14)", color: "#9a7410" }}
+                      >
+                        {announcement.category || "General"}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-bold mb-3" style={{ color: "#0e241d" }}>
+                      {announcement.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed mb-4" style={{ color: "#5d6f68" }}>
+                      {announcement.body.length > 150 
+                        ? `${announcement.body.substring(0, 150)}...` 
+                        : announcement.body}
+                    </p>
+                    <p className="text-xs" style={{ color: "#999" }}>
+                      {new Date(announcement.created_at).toLocaleDateString()}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </Container>
+      </section>
     </div>
   );
 }

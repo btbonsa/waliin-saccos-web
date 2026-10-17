@@ -423,7 +423,7 @@ export default function About() {
                 {t("foundingMembersEyebrow")}
               </span>
               <h2 className="mt-4 text-3xl font-bold sm:text-4xl" style={{ color: "#0e241d" }}>
-                {t("FoundingMember")}
+                {t("foundingMembersTitle")}
               </h2>
               <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed" style={{ color: "#5d6f68" }}>
                 {t("foundingMembersDescription")}
@@ -431,8 +431,8 @@ export default function About() {
             </div>
           </ScrollReveal>
 
-          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-3">
-            {memberPhotos.slice(0, 3).map((src, i) => (
+          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {memberPhotos.slice(0, 4).map((src, i) => (
               <ScrollReveal key={i} delay={i * 0.12} direction="up">
                 <motion.div
                   className="group relative overflow-hidden rounded-3xl"
@@ -483,48 +483,44 @@ export default function About() {
           </div>
 
           <div className="mt-8 grid grid-cols-1 gap-5">
-            {memberPhotos.slice(3).map((src, i) => {
-              const isCommitteeCard = i === memberPhotos.slice(3).length - 1;
-
-              return (
-                <ScrollReveal key={i} delay={i * 0.12} direction="up">
-                  <motion.div
-                    className="group grid overflow-hidden rounded-3xl bg-white md:grid-cols-[minmax(0,280px)_1fr]"
-                    style={{ boxShadow: "0 4px 24px rgba(14,36,29,0.10)" }}
-                    whileHover={{ y: -6, boxShadow: "0 24px 56px rgba(14,36,29,0.18)" }}
-                    transition={{ type: "spring", stiffness: 280, damping: 22 }}
-                  >
-                    <div className="relative h-72 overflow-hidden md:h-64">
-                      <motion.img
-                        src={src}
-                        alt={isCommitteeCard ? "Committee" : "Founding member"}
-                        className="h-full w-full object-cover"
-                        whileHover={{ scale: 1.07 }}
-                        transition={{ duration: 0.55, ease: "easeOut" }}
-                      />
-                      <div
-                        className="absolute inset-x-0 top-0 h-1"
-                        style={{ background: "linear-gradient(90deg,#d4a017,#eab308,#d4a017)" }}
-                      />
-                    </div>
-                    <div className="flex flex-col justify-center p-6 sm:p-8">
-                      <span
-                        className="w-fit rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest"
-                        style={{ background: isCommitteeCard ? "rgba(86, 86, 86, 0.14)" : "rgba(14,36,29,0.08)", color: isCommitteeCard ? "#080808" : "#0e241d" }}
-                      >
-                        {isCommitteeCard ? t("Committees") : t("foundingMemberBadge")}
-                      </span>
-                      <h3 className="mt-4 text-xl font-bold" style={{ color: "#0e241d" }}>
-                        {isCommitteeCard ? t("Committees") : t("FoundingMember")}
-                      </h3>
-                      <p className="mt-3 max-w-xl text-sm leading-relaxed" style={{ color: "#5d6f68" }}>
-                        {t("foundingMembersDescription")}
-                      </p>
-                    </div>
-                  </motion.div>
-                </ScrollReveal>
-              );
-            })}
+            {memberPhotos.slice(4).map((src, i) => (
+              <ScrollReveal key={i} delay={i * 0.12} direction="up">
+                <motion.div
+                  className="group grid overflow-hidden rounded-3xl bg-white md:grid-cols-[minmax(0,280px)_1fr]"
+                  style={{ boxShadow: "0 4px 24px rgba(14,36,29,0.10)" }}
+                  whileHover={{ y: -6, boxShadow: "0 24px 56px rgba(14,36,29,0.18)" }}
+                  transition={{ type: "spring", stiffness: 280, damping: 22 }}
+                >
+                  <div className="relative h-72 overflow-hidden md:h-64">
+                    <motion.img
+                      src={src}
+                      alt="Committee"
+                      className="h-full w-full object-cover"
+                      whileHover={{ scale: 1.07 }}
+                      transition={{ duration: 0.55, ease: "easeOut" }}
+                    />
+                    <div
+                      className="absolute inset-x-0 top-0 h-1"
+                      style={{ background: "linear-gradient(90deg,#d4a017,#eab308,#d4a017)" }}
+                    />
+                  </div>
+                  <div className="flex flex-col justify-center p-6 sm:p-8">
+                    <span
+                      className="w-fit rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest"
+                      style={{ background: "rgba(212,160,23,0.14)", color: "#9a7410" }}
+                    >
+                      {t("committeeBadge")}
+                    </span>
+                    <h3 className="mt-4 text-xl font-bold" style={{ color: "#0e241d" }}>
+                      {t("committeeTitle")}
+                    </h3>
+                    <p className="mt-3 max-w-xl text-sm leading-relaxed" style={{ color: "#5d6f68" }}>
+                      {t("committeeDescription")}
+                    </p>
+                  </div>
+                </motion.div>
+              </ScrollReveal>
+            ))}
           </div>
         </Container>
       </section>

@@ -11,7 +11,6 @@ import Contact from "../pages/contact";
 import Services from "../pages/service";
 import ServiceDetail from "../pages/serviceDetail";
 import News from "../pages/news";
-import Login from "../pages/login";
 import NotFound from "../pages/notFound";
 
 function ScrollToTop() {
@@ -35,7 +34,6 @@ function AnimatedRoutes() {
           <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
           <Route path="/services/:id" element={<PageTransition><ServiceDetail /></PageTransition>} />
           <Route path="/news" element={<PageTransition><News /></PageTransition>} />
-          <Route path="/login" element={<PageTransition><Login /></PageTransition>} />
           <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
         </Route>
       </Routes>

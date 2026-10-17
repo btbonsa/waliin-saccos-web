@@ -7,7 +7,7 @@ import Container from "../ui/container";
 const companyLinks = [
   { name: "About us", path: "/about" },
   { name: "Services", path: "/services" },
-  { name: "Membership", path: "/login" },
+  { name: "Contact", path: "/contact" },
   { name: "News", path: "/news" },
 ];
 
@@ -89,7 +89,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-white/65">
               <li className="flex gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white/50" />
-                44, Holeta, Ethiopia
+                Holeta Town, Ethiopia
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 shrink-0 text-white/50" />

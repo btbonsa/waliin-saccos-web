@@ -9,9 +9,9 @@ import type { TranslationKey } from "../context/LanguageContext";
 
 const INFO: { icon: React.ElementType; label: TranslationKey; value: string }[] = [
   { icon: MapPin, label: "officeAddressLabel", value: "Holeta 44 Around Vision Fund micro finance, Ethiopia" },
-  { icon: Phone,  label: "phoneLabel",         value: "+251 911 915 610/+251 911 02 59 46" },
-  { icon: Mail,   label: "emailLabel",         value: "hailudelesa16@gmail.com" },
-  { icon: Clock,  label: "workingHoursLabel",  value: "Mon – sat, 8:00 AM – 5:00 PM" },
+  { icon: Phone, label: "phoneLabel", value: "+251 911 915 610/+251 911 02 59 46" },
+  { icon: Mail, label: "emailLabel", value: "hailudelesa16@gmail.com" },
+  { icon: Clock, label: "workingHoursLabel", value: "Mon – sat, 8:00 AM – 5:00 PM" },
 ];
 
 export default function Contact() {
@@ -90,13 +90,13 @@ export default function Contact() {
 
             {/* CTA card */}
             <ScrollReveal direction="left" delay={0.3}>
-                <div className="rounded-2xl bg-[#0e241d] p-6 text-white">
+              <div className="rounded-2xl bg-[#0e241d] p-6 text-white">
                 <p className="text-sm font-bold">{t("wantToBecomeMember")}</p>
                 <p className="mt-1 text-xs leading-relaxed text-white/60">
                   {t("joinWaliin")}
                 </p>
                 <a
-                  href="/login"
+                  href="#contact-form"
                   className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#d4af5a] hover:text-[#d4a017] transition-colors"
                 >
                   {t("applyNow")} <ArrowRight size={13} />
@@ -107,7 +107,7 @@ export default function Contact() {
 
           {/* Right — form */}
           <ScrollReveal direction="right" className="lg:col-span-3">
-            <div className="rounded-2xl border border-[#e6e0d6] bg-white p-8 sm:p-10">
+            <div id="contact-form" className="rounded-2xl border border-[#e6e0d6] bg-white p-8 sm:p-10">
               <h2 className="text-2xl font-bold text-[#0e241d]">{t("sendUsMessage")}</h2>
               <p className="mt-1 mb-8 text-sm text-[#5d6f68]">
                 {t("contactResponseNote")}
@@ -123,7 +123,7 @@ export default function Contact() {
       <section className="border-t border-[#e6e0d6]">
         <iframe
           title="Waliin SACCO location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.5!2d38.5!3d9.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zSG9sZXRh!5e0!3m2!1sen!2set!4v1"
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3939.978626105592!2d38.48894107461388!3d9.065711288414072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOcKwMDMnNTYuNSJOIDM4wrAyOScyOS41IkU!5e0!3m2!1sen!2set!4v1792258599103!5m2!1sen!2set"
           width="100%"
           height="340"
           style={{ border: 0, display: "block" }}
@@ -135,3 +135,4 @@ export default function Contact() {
     </div>
   );
 }
+

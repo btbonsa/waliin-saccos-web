@@ -5,6 +5,7 @@ const morgan = require("morgan");
 
 const authRoutes = require("./Routes/authsRoutes");
 const announceRoutes = require("./Routes/announceRoutes");
+const contactRoutes = require("./Routes/contactRoutes");
 const errorMiddleware = require("./middleWare/errorMiddleWare");
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/announcements", announceRoutes);
+app.use("/api/contact", contactRoutes);
 
 app.use(errorMiddleware);
 

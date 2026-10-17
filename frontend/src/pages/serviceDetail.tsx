@@ -246,7 +246,7 @@ export default function ServiceDetailPage() {
                     <PhoneCall size={15} /> {t("contactUs")}
                   </Link>
                   <Link
-                    to="/login"
+                    to="/contact"
                     className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border border-white/20 text-sm font-bold text-white transition-colors hover:bg-white/10"
                   >
                     {t("becomeMember")} <ArrowRight size={13} />

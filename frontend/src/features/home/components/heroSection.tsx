@@ -40,7 +40,7 @@ export default function HeroSection() {
           <div className="flex flex-wrap gap-3 pt-2">
             <div>
               <Link
-                to="/login"
+                to="/contact"
                 className="inline-flex h-12 items-center rounded-full bg-[#d4a017] px-7 text-sm font-bold text-white tracking-wide hover:bg-[#d4af5a] transition-colors"
               >
                 {t("becomeMember")}

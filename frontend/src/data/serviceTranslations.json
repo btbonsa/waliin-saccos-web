@@ -1,4 +1,3 @@
-
 {
   "en": {
     "qusanna-fi-liqii": {
@@ -32,7 +31,6 @@
         }
       ]
     },
-
     "qusanna-hawaasummaa": {
       "title": "Social Savings and Loan",
       "subtitle": "Social Savings",
@@ -56,7 +54,6 @@
         }
       ]
     },
-
     "qusannoo-daldalaa": {
       "title": "Business Savings and Loan",
       "subtitle": "Business Savings & Loan",
@@ -80,7 +77,6 @@
         }
       ]
     },
-
     "qusannoo-manaa": {
       "title": "Housing Savings and Loan",
       "subtitle": "Housing Savings & Loan",
@@ -104,7 +100,6 @@
         }
       ]
     },
-
     "qusannoo-konkolaataa": {
       "title": "Vehicle Savings and Loan",
       "subtitle": "Vehicle Loan",
@@ -118,7 +113,6 @@
         }
       ]
     },
-
     "qusannoo-baajaajii": {
       "title": "Bajaj Savings and Loan",
       "subtitle": "Bajaj / Tuk-Tuk Loan",
@@ -132,7 +126,6 @@
         }
       ]
     },
-
     "qusannoo-liqii-mindaa": {
       "title": "Saving and Salary base Loan",
       "subtitle": "Salary Advance Loan",
@@ -151,7 +144,6 @@
         }
       ]
     },
-
     "qusannaa-oogeesootaa": {
       "title": "Professional Savings and Loan",
       "subtitle": "Professional Savings & Loan",
@@ -166,7 +158,6 @@
       ]
     }
   },
-
   "am": {
     "qusanna-fi-liqii": {
       "title": "ቁጠባ እና ብድር",
@@ -197,9 +188,11 @@
           "condition": "ለ 3 ወራት ተከታታይ 25% ቁጠባ",
           "limit": "እስከ 120,000 ብር"
         }
-      ]
+      ],
+      "interestRate": "7% ለአዋቂዎች / 10.5% ለህፃናት",
+      "tenure": "2–5 ዓመታት",
+      "savingsPercent": "25%"
     },
-
     "qusanna-hawaasummaa": {
       "title": "ማህበራዊ ቁጠባ እና ብድር",
       "subtitle": "ማህበራዊ ቁጠባ",
@@ -221,9 +214,11 @@
           "condition": "ለ 6 ወራት ወይም ከዚያ በላይ 25% ቁጠባ",
           "limit": "ከ 800,000 በላይ እስከ1,000,000 ብር"
         }
-      ]
+      ],
+      "interestRate": "7%",
+      "tenure": "4–6+ ወራት",
+      "savingsPercent": "25%"
     },
-
     "qusannoo-daldalaa": {
       "title": "የንግድ ቁጠባ እና ብድር",
       "subtitle": "የንግድ ቁጠባ እና ብድር",
@@ -245,9 +240,11 @@
           "condition": "ለ 6+ ወራት ተከታታይ 30% ቁጠባ",
           "limit": "ከ 1,500,000 በላይ እስከ 2,000,000 ብር"
         }
-      ]
+      ],
+      "interestRate": "9%",
+      "tenure": "5–6+ ወራት",
+      "savingsPercent": "30%"
     },
-
     "qusannoo-manaa": {
       "title": "የቤት ቁጠባ እና ብድር",
       "subtitle": "የቤት ቁጠባ እና ብድር",
@@ -269,9 +266,11 @@
           "condition": "ለ 6 ወራት ወይም ከዚያ በላይ 30% ቁጠባ",
           "limit": "እስከ 2,000,000 ብር"
         }
-      ]
+      ],
+      "interestRate": "8.5%",
+      "tenure": "6+ ወራት",
+      "savingsPercent": "30%"
     },
-
     "qusannoo-konkolaataa": {
       "title": "የመኪና ቁጠባ እና ብድር",
       "subtitle": "የመኪና ብድር",
@@ -283,9 +282,11 @@
           "condition": "ለ 6 ወራት ወይም ከዚያ በላይ ተከታታይ 30% ቁጠባ",
           "limit": "እስከ 2,000,000 ብር"
         }
-      ]
+      ],
+      "interestRate": "10%",
+      "tenure": "6+ ወራት",
+      "savingsPercent": "30%"
     },
-
     "qusannoo-baajaajii": {
       "title": "የባጃጅ ቁጠባ እና ብድር",
       "subtitle": "የባጃጅ / ቱክ-ቱክ ብድር",
@@ -297,9 +298,11 @@
           "condition": "ለ 4–6 ወራት ወይም ከዚያ በላይ 30% ቁጠባ",
           "limit": "እስከ 1,000,000 ብር"
         }
-      ]
+      ],
+      "interestRate": "9.5%",
+      "tenure": "4–6+ ወራት",
+      "savingsPercent": "30%"
     },
-
     "qusannoo-liqii-mindaa": {
       "title": "ቁጠባ እና በደመወዝ ላይ የተመሰረተ ብድር",
       "subtitle": "የደመወዝ ቅድመ ብድር",
@@ -316,9 +319,11 @@
           "condition": "ለ 4 ወራት ወይም ከዚያ በላይ ተከታታይ 25% ቁጠባ",
           "limit": "እስከ 300,000 ብር"
         }
-      ]
+      ],
+      "interestRate": "7.5%",
+      "tenure": "2–4+ ወራት",
+      "savingsPercent": "25%"
     },
-
     "qusannaa-oogeesootaa": {
       "title": "የሙያ ቁጠባ እና ብድር",
       "subtitle": "የሙያ ቁጠባ እና ብድር",
@@ -330,43 +335,84 @@
           "condition": "5+ ዓመት አገልግሎት እና ለ 5 ወራት ወይም ከዚያ በላይ 25% ቁጠባ",
           "limit": "እስከ 1,500,000 ብር"
         }
-      ]
+      ],
+      "interestRate": "8%",
+      "tenure": "5+ ወራት",
+      "savingsPercent": "25%"
     }
   },
-
   "om": {
     "qusanna-fi-liqii": {
       "title": "Qusanna fi Liqii",
-      "subtitle": "Qusanna fi Liqii"
+      "subtitle": "Qusanna fi Liqii",
+      "description": "Yeroo maraan qusaaatii fi liqii miseensummaa argachuu dandeessa. Qusannoon dirqamaatii fi fedhii 7% nama tokkoo fi 10.5% daa’immanii kenna.",
+      "overview": "Miseensonni karaa adda addaan qusachuun liqii argachuu ni dandeessu. WALIIN SACCO qusannoon dirqamaatii fi fedhii nama gurguddoo 7% fi daa’immanii 10.5% kaffata.",
+      "interestRate": "Dhibentaa 7% / 10.5%",
+      "tenure": "Waggaa 2–5",
+      "savingsPercent": "25%"
     },
     "qusanna-hawaasummaa": {
       "title": "Qusanna Hawaasummaa",
-      "subtitle": "Qusanna Hawaasummaa"
+      "subtitle": "Qusanna Hawaasummaa",
+      "description": "Qusannoon yeroo hundaaf 25% ta’ee liqii hawaasummaa ni banaata.",
+      "overview": "Miseensonni 25% qusannoo itti fufaa qabaatanii liqii hawaasummaa argachuu ni dandeessu. Hangam liqii argatan qusannoo sadarkaa isaanii irratti hundaa’a.",
+      "interestRate": "Dhibentaa 7%",
+      "tenure": "Ji’a 4–6+",
+      "savingsPercent": "25%"
     },
     "qusannoo-daldalaa": {
       "title": "Qusannoo Daldalaa",
-      "subtitle": "Qusannoo Daldalaa fi Liqii"
+      "subtitle": "Qusannoo Daldalaa fi Liqii",
+      "description": "Daldalaa keessan 30% qusannoo itti fufaa waliin guddadhaa.",
+      "overview": "Miseensonni 30% qusannoo itti fufaa qabaatanii liqii daldalaa argachuu ni dandeessu. Hangam liqii argatan qusannoo sadarkaa isaanii irratti hundaa’a.",
+      "interestRate": "Dhibentaa 9%",
+      "tenure": "Ji’a 5–6+",
+      "savingsPercent": "30%"
     },
     "qusannoo-manaa": {
       "title": "Qusannoo Manaa",
-      "subtitle": "Qusannoo Manaa fi Liqii"
+      "subtitle": "Qusannoo Manaa fi Liqii",
+      "description": "Manaa haaromsuuf, ijaaruuf yookaan bituuf qusaaatii 30% irra caalaa 6 ji’aaf ta’ee liqii manaa argachuu dandeessa.",
+      "overview": "Miseensonni ji’a 6 ykn isaa ol 30% qusannoo itti fufaa qaban liqii manaa argachuu ni dandeessu.",
+      "interestRate": "Dhibentaa 8.5%",
+      "tenure": "Ji’a 6+",
+      "savingsPercent": "30%"
     },
     "qusannoo-konkolaataa": {
       "title": "Qusannoo Konkolaataa",
-      "subtitle": "Liqii Konkolaataa"
+      "subtitle": "Liqii Konkolaataa",
+      "description": "Ji’a ja’a booda 30% qusannoo itti fufaa qabaatanii konkolaataa bituu dandeessu, hanga 2,000,000 ETB.",
+      "overview": "Miseensonni ji’a 6 ykn isaa ol 30% qusannoo itti fufaa qaban liqii konkolaataa bituuf argachuu ni dandeessu.",
+      "interestRate": "Dhibentaa 10%",
+      "tenure": "Ji’a 6+",
+      "savingsPercent": "30%"
     },
     "qusannoo-baajaajii": {
       "title": "Qusannoo Baajaajii",
-      "subtitle": "Liqii Baajaajii"
+      "subtitle": "Liqii Baajaajii",
+      "description": "Gara hojii daldalaa qophaa’eetti baajaajii baay’ee qisaatii fi liqii hanga 1,000,000 ETB.",
+      "overview": "Miseensonni ji’a 4 hanga 6 ykn isaa ol 30% qusannoo itti fufaa qaban baajaajii bituuf liqii argachuu ni dandeessu.",
+      "interestRate": "Dhibentaa 9.5%",
+      "tenure": "Ji’a 4–6+",
+      "savingsPercent": "30%"
     },
     "qusannoo-liqii-mindaa": {
       "title": "Qusannoo Liqii Mindaa",
-      "subtitle": "Liqii Mindaa"
+      "subtitle": "Liqii Mindaa",
+      "description": "Miseensota hojjechaa jiranaf liqii baankii mindaa irratti hundaa’e, liqii yaaddoo tasaa dabalatee.",
+      "overview": "Miseensonni dhaabbata adda addaa keessatti hojjechaa jiran liqii yaaddoo tasaa hanga ji’a afurii mindaa qulqullee argachuu ni dandeessu.",
+      "interestRate": "Dhibentaa 7.5%",
+      "tenure": "Ji’a 2–4+",
+      "savingsPercent": "25%"
     },
     "qusannaa-oogeesootaa": {
       "title": "Qusannaa Oogeesootaa",
-      "subtitle": "Qusannaa fi Liqii Ogeeyyii"
+      "subtitle": "Qusannaa fi Liqii Ogeeyyii",
+      "description": "Ogeeyyii waggaa shan ol tajaajileef saayinsii yookaan daldalaaf liqii kennama.",
+      "overview": "Miseensonni waggaa shan fi isaa ol tajaajile, daldala mataa isaanii jalqabuu fi babal’isuuf liqii argachuu ni dandeessu.",
+      "interestRate": "Dhibentaa 8%",
+      "tenure": "Ji’a 5+",
+      "savingsPercent": "25%"
     }
   }
 }
-

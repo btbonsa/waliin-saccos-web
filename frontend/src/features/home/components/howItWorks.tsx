@@ -17,7 +17,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="flex bg-green-950 py-20 sm:py-24 border-y border-[#e6e0d6]">
+    <section className="flex bg-green-950 py-20 sm:py-24 border-y border-[#e6e0d6] rounded rounded-4xl p-2">
       <Container>
         <ScrollReveal>
           <SectionHeader

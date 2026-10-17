@@ -1,8 +1,9 @@
 import { useState } from "react";
 import type { FormEvent, ChangeEvent } from "react";
 import { Send, Loader2, CheckCircle2 } from "lucide-react";
-import API from "../../../api/axios";
+import emailjs from '@emailjs/browser';
 import { useLang } from "../../../context/LanguageContext";
+import { EMAILJS_CONFIG } from "../../../config/emailjs";
 
 interface FormState {
   full_name: string;
@@ -26,11 +27,31 @@ export default function ContactForm() {
     e.preventDefault();
     if (!form.full_name || !form.email || !form.message) return;
     setLoading(true);
+
     try {
-      await API.post("/contact", form);
+      const emailData = {
+        name: form.full_name,
+        from_email: form.email,
+        phone: form.phone || "Not provided",
+        time: new Date().toLocaleString(),
+        message: form.message,
+      };
+
+      console.log("Sending email with data:", emailData);
+
+      const response = await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        emailData,
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+
+      console.log("EmailJS response:", response);
       setStatus("success");
       setForm({ full_name: "", email: "", phone: "", message: "" });
-    } catch {
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      alert(`Email sending failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
       setStatus("error");
     } finally {
       setLoading(false);
