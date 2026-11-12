@@ -12,6 +12,7 @@ import members3Image from "../assets/members2.png";
 import members4Image from "../assets/members0.png"
 import members5Image from "../assets/member1.png"
 import { useLang } from "../context/LanguageContext";
+import SEO from "../components/seo";
 import bannerImage from "../assets/banner.png";
 
 const SECTIONS = ["mission", "values", "leadership", "founding-members"] as const;
@@ -64,6 +65,11 @@ export default function About() {
 
   return (
     <div className="relative">
+      <SEO
+        title="About Us"
+        description="Learn about Waliin SACCO Ltd — a member-owned savings and credit cooperative in Holeta, Ethiopia. Our mission, vision, values, leadership, and founding members."
+        path="/about"
+      />
 
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ minHeight: 520 }}>
@@ -377,6 +383,7 @@ export default function About() {
                       <motion.img
                         src={person.image}
                         alt={person.name}
+                        loading="lazy"
                         className="h-full w-full object-cover"
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.45 }}
@@ -447,6 +454,7 @@ export default function About() {
                   <motion.img
                     src={src}
                     alt={`Founding member ${i + 1}`}
+                    loading="lazy"
                     className="h-full w-full object-cover"
                     whileHover={{ scale: 1.07 }}
                     transition={{ duration: 0.55, ease: "easeOut" }}
@@ -495,6 +503,7 @@ export default function About() {
                     <motion.img
                       src={src}
                       alt="Committee"
+                      loading="lazy"
                       className="h-full w-full object-cover"
                       whileHover={{ scale: 1.07 }}
                       transition={{ duration: 0.55, ease: "easeOut" }}

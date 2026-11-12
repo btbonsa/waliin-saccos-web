@@ -29,10 +29,10 @@ const ABOUT_SUB = [
 ];
 
 const SOCIAL_LINKS = [
-  { name: "TikTok", href: "https://tiktok.com/@waliinsacco", Icon: FaTiktok, hover: "hover:text-[#000]" },
-  { name: "Telegram", href: "https://t.me/waliinsacco", Icon: FaTelegram, hover: "hover:text-[#229ed9]" },
-  { name: "Facebook", href: "https://www.facebook.com/share/p/1LvS29g9Jk/", Icon: FaFacebook, hover: "hover:text-[#1877f2]" },
-  { name: "Instagram", href: "https://www.instagram.com/hailudelesa?stkn=M3hubnh6dTFyanN6", Icon: FaInstagram, hover: "hover:text-[#e4405f]" },
+  { name: "TikTok", href: "https://tiktok.com/@waliinsacco", Icon: FaTiktok, color: "text-black" },
+  { name: "Telegram", href: "https://t.me/waliinsacco", Icon: FaTelegram, color: "text-[#229ed9]" },
+  { name: "Facebook", href: "https://www.facebook.com/share/p/1LvS29g9Jk/", Icon: FaFacebook, color: "text-[#1877f2]" },
+  { name: "Instagram", href: "https://www.instagram.com/hailudelesa?stkn=M3hubnh6dTFyanN6", Icon: FaInstagram, color: "text-[#e1306c]" },
 ];
 
 export default function Navbar() {
@@ -95,21 +95,23 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b transition-all duration-300 bg-white",
-        scrolled ? "border-[#e6e0d6] shadow-sm" : "border-transparent",
+        "sticky top-0 z-50 border-b backdrop-blur-xl transition-all duration-300",
+        scrolled
+          ? "border-line bg-white/85 shadow-[0_8px_30px_rgba(14,36,29,0.08)]"
+          : "border-transparent bg-white/70",
       )}
     >
       <aside aria-label="Top Bar Header" className="bg-yellow-400">
-        <div className="mx-auto flex h-8 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 
           {/* Left Side: Bold Phone Contact */}
           <a
             href={PHONE_HREF}
-            className="group inline-flex items-center gap-2 text-xs font-extrabold text-black transition-all duration-200 hover:text-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-1"
+            className="group inline-flex items-center gap-2 text-xs font-extrabold text-black transition-all duration-200 hover:text-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
             aria-label={`Call Waliin SACCO at ${PHONE_NUMBER}`}
           >
             <div className="flex h-6 w-6 items-center justify-center rounded-full bg-black/10 transition-transform duration-200 group-hover:scale-110 group-hover:bg-black/20">
-              <Phone className="h-3.5 w-3.5 text-black stroke-[2.5]" aria-hidden="true" />
+              <Phone className="h-3.5 w-3.5 text-green-600 stroke-[2.5]" aria-hidden="true" />
             </div>
             <span className="tracking-wider">{PHONE_NUMBER}</span>
           </a>
@@ -120,12 +122,12 @@ export default function Navbar() {
               Connect with us
             </span>
 
-            {/* Solid Divider */}
+            {/* Divider */}
             <span className="hidden h-3.5 w-px bg-black/30 sm:inline" aria-hidden="true" />
 
-            {/* High-Visibility Bold Social Icons */}
+            {/* Social Icons */}
             <div className="flex items-center gap-3.5">
-              {SOCIAL_LINKS.map(({ name, href, Icon, hover }) => (
+              {SOCIAL_LINKS.map(({ name, href, Icon, color }) => (
                 <a
                   key={name}
                   href={href}
@@ -133,11 +135,11 @@ export default function Navbar() {
                   rel="noopener noreferrer"
                   aria-label={`Visit Waliin SACCO on ${name}`}
                   className={cn(
-                    "group text-black transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-1",
-                    hover
+                    "group transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black",
+                    color
                   )}
                 >
-                  <Icon className="h-4 w-4 text-current stroke-[2.2] transition-transform duration-200 group-hover:scale-110" aria-hidden="true" />
+                  <Icon className="h-4 w-4 text-current transition-transform duration-200 group-hover:scale-110" aria-hidden="true" />
                 </a>
               ))}
             </div>
@@ -149,15 +151,15 @@ export default function Navbar() {
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 shrink-0">
+        <Link to="/" className="group flex items-center gap-3 shrink-0">
           <img
             src={logo}
             alt="Waliin SACCO Ltd"
-            className="h-10 w-10 rounded-full border border-[#e6e0d6] object-cover"
+            className="h-11 w-11 rounded-full border-2 border-gold/50 object-cover shadow-sm transition-shadow duration-300 group-hover:shadow-md group-hover:ring-4 group-hover:ring-gold/15"
           />
           <div className="leading-tight">
-            <p className="text-md font-bold text-[#0e241d]">WALIN</p>
-            <p className="text-sm font-bold text-[#0e241d]">SACCOS Ltd</p>
+            <p className="text-lg font-extrabold tracking-tight text-forest-deep">WALIN</p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold">SACCOS Ltd</p>
           </div>
         </Link>
 
@@ -223,15 +225,15 @@ export default function Navbar() {
                   transition={{ duration: 0.15 }}
                   onMouseEnter={openAbout}
                   onMouseLeave={closeAbout}
-                  className="absolute left-0 top-full pt-2 z-50"
+                  className="absolute left-0 top-full z-50 pt-2"
                 >
-                  <div className="w-52 overflow-hidden rounded-xl border border-[#e6e0d6] bg-white py-1.5 shadow-lg">
+                  <div className="w-56 overflow-hidden rounded-2xl border border-line bg-white/95 p-1.5 shadow-xl backdrop-blur-md">
                     {ABOUT_SUB.map((sub) => (
                       <button
                         key={sub.path}
                         type="button"
                         onClick={() => handleAboutSub(sub.path)}
-                        className="block w-full text-left px-4 py-2.5 text-sm text-[#5d6f68] hover:bg-[#f7f5f0] hover:text-[#0e241d] transition-colors"
+                        className="block w-full rounded-xl px-3.5 py-2.5 text-left text-[13px] font-medium text-forest/70 transition-colors hover:bg-forest-deep/5 hover:text-forest-deep"
                       >
                         {t(sub.key)}
                       </button>
@@ -274,9 +276,9 @@ export default function Navbar() {
           <div ref={langRef} className="relative">
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-semibold text-[#5d6f68] hover:text-[#0e241d] transition-colors"
+              className="flex items-center gap-1.5 rounded-full border border-line bg-paper/70 px-3.5 py-1.5 text-[13px] font-bold text-forest/70 transition-colors hover:border-gold/40 hover:text-forest-deep"
             >
-              <Globe size={14} />
+              <Globe size={14} className="text-gold" />
               {activeLang.short}
               <ChevronDown size={12} className={`transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`} />
             </button>
@@ -287,19 +289,19 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 6, scale: 0.97 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute right-0 top-full mt-2 w-36 overflow-hidden rounded-xl border border-[#e6e0d6] bg-white shadow-lg"
+                  className="absolute right-0 top-full z-50 mt-2 w-40 overflow-hidden rounded-2xl border border-line bg-white/95 p-1.5 shadow-xl backdrop-blur-md"
                 >
                   {LANGUAGES.map((l) => (
                     <button
                       key={l.code}
                       onClick={() => { setLang(l.code); setLangOpen(false); }}
                       className={cn(
-                        "flex w-full items-center justify-between px-4 py-2.5 text-sm transition-colors hover:bg-[#f7f5f0]",
-                        lang === l.code ? "font-bold text-[#0e241d]" : "text-[#5d6f68]",
+                        "flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-[13px] font-medium transition-colors hover:bg-forest-deep/5",
+                        lang === l.code ? "font-bold text-forest-deep" : "text-forest/60",
                       )}
                     >
                       {l.label}
-                      {lang === l.code && <span className="h-1.5 w-1.5 rounded-full bg-[#d4a017]" />}
+                      {lang === l.code && <span className="h-1.5 w-1.5 rounded-full bg-gold" />}
                     </button>
                   ))}
                 </motion.div>
@@ -311,7 +313,7 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#e6e0d6] text-[#0e241d] md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-paper/70 text-forest-deep transition-colors hover:border-gold/40 md:hidden"
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? <X size={20} /> : <Menu size={20} />}

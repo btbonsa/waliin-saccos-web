@@ -20,6 +20,7 @@ import { getLocalizedService } from "../data/services";
 import Container from "../components/ui/container";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import { Button } from "../components/ui/button";
+import SEO from "../components/seo";
 import { useLang } from "../context/LanguageContext";
 
 export default function ServiceDetailPage() {
@@ -32,6 +33,12 @@ export default function ServiceDetailPage() {
   if (!service) {
     return (
       <div className="flex min-h-[72vh] flex-col items-center justify-center gap-5 px-4 text-center">
+        <SEO
+          title="Service Not Found"
+          description="The savings or loan product you are looking for does not exist on the Waliin SACCO Ltd website."
+          path={`/services/${id ?? ""}`}
+          noindex
+        />
         <div className="flex h-16 w-16 items-center justify-center rounded-full border border-line bg-paper">
           <ShieldCheck className="h-7 w-7 text-forest" strokeWidth={1.75} />
         </div>
@@ -154,6 +161,12 @@ export default function ServiceDetailPage() {
 
   return (
     <div className="bg-cream">
+      <SEO
+        title={`${service.title} — ${service.subtitle}`}
+        description={`${service.description} Interest ${service.interestRate}, tenure ${service.tenure}. Waliin SACCO Ltd, Holeta, Ethiopia.`}
+        path={`/services/${service.id}`}
+        image={service.image}
+      />
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden" style={{ height: 540 }}>

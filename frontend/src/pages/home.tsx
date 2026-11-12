@@ -15,6 +15,7 @@ import SectionHeader from "../components/ui/section-header";
 import Container from "../components/ui/container";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import { useLang } from "../context/LanguageContext";
+import SEO from "../components/seo";
 
 export default function Home() {
   const { t } = useLang();
@@ -45,6 +46,11 @@ export default function Home() {
 
   return (
     <div>
+      <SEO
+        title="Waliin SACCO Ltd | Savings & Credit Cooperative in Holeta, Ethiopia"
+        description="Waliin SACCO Ltd is a member-owned savings and credit cooperative in Holeta, Ethiopia, providing secure savings accounts, affordable loans, and community financial growth."
+        path="/"
+      />
       <HeroSection />
 
       {/* Why choose us */}

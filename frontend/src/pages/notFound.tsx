@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft, Home } from "lucide-react";
+import SEO from "../components/seo";
 
 export default function NotFound() {
   return (
     <div className="flex min-h-[80vh] items-center justify-center bg-[#fffcf8] px-4">
+      <SEO
+        title="Page Not Found"
+        description="The page you are looking for does not exist on the Waliin SACCO Ltd website."
+        noindex
+      />
       <div className="max-w-md space-y-5 text-center">
         <p className="text-8xl font-bold text-[#0e241d]">404</p>
         <h1 className="text-2xl font-bold text-[#000]">Page not found</h1>

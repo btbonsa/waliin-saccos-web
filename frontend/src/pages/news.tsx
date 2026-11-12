@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import Container from "../components/ui/container";
 import banner from "../assets/banner.png";
 import { useLang } from "../context/LanguageContext";
+import SEO from "../components/seo";
 import API from "../api/axios";
 
 interface Announcement {
@@ -35,6 +36,11 @@ export default function News() {
 
   return (
     <div className="bg-[#f7f5f0]">
+      <SEO
+        title="News & Announcements"
+        description="News and announcements from Waliin SACCO Ltd — updates, events, and notices for members of the savings and credit cooperative in Holeta, Ethiopia."
+        path="/news"
+      />
       {/* ── Hero ── */}
       <section className="relative overflow-hidden" style={{ height: 360 }}>
         <motion.img

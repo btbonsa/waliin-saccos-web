@@ -6,6 +6,7 @@ import ScrollReveal from "../components/ui/ScrollReveal";
 import banner from "../assets/banner.png";
 import { useLang } from "../context/LanguageContext";
 import type { TranslationKey } from "../context/LanguageContext";
+import SEO from "../components/seo";
 
 const INFO: { icon: React.ElementType; label: TranslationKey; value: string }[] = [
   { icon: MapPin, label: "officeAddressLabel", value: "Holeta 44 Around Vision Fund micro finance, Ethiopia" },
@@ -18,6 +19,11 @@ export default function Contact() {
   const { t } = useLang();
   return (
     <div className="bg-white">
+      <SEO
+        title="Contact Us"
+        description="Contact Waliin SACCO Ltd in Holeta, Ethiopia. Visit our office, call, or send a message about membership, savings accounts, and loan services."
+        path="/contact"
+      />
 
       <section className="relative overflow-hidden" style={{ height: 420 }}>
         <motion.img
