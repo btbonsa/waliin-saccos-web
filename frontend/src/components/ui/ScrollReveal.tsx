@@ -16,8 +16,8 @@ export default function ScrollReveal({
   className,
   delay = 0,
   direction = "up",
-  distance = 40,
-  duration = 0.6,
+  distance = 56,
+  duration = 0.7,
   once = true,
 }: ScrollRevealProps) {
   const axis = {
@@ -33,7 +33,7 @@ export default function ScrollReveal({
       className={className}
       initial={{ opacity: 0, ...axis }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once, margin: "-60px" }}
+      viewport={{ once, margin: "-80px" }}
       transition={{
         duration,
         delay,
